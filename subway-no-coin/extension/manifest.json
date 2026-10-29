@@ -1,10 +1,41 @@
 {
   "manifest_version": 3,
   "name": "No Coin Pilot",
-  "version": "0.1.0",
-  "minimum_chrome_version": "116",
+  "version": "0.2.0",
+  "minimum_chrome_version": "118",
   "description": "Local visual lane assistant for Subway Surfers. No currency or save modifications.",
-  "permissions": ["activeTab", "tabCapture", "offscreen", "storage", "debugger"],
-  "background": {"service_worker": "worker.js", "type": "module"},
-  "action": {"default_popup": "popup.html"}
+  "permissions": [
+    "activeTab",
+    "tabCapture",
+    "offscreen",
+    "storage",
+    "debugger"
+  ],
+  "background": {
+    "service_worker": "worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "toggle-pilot": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Start or stop autopilot without leaving the game"
+    },
+    "observe-pilot": {
+      "suggested_key": {
+        "default": "Alt+Shift+O"
+      },
+      "description": "Start observation without leaving the game"
+    },
+    "stop-pilot": {
+      "suggested_key": {
+        "default": "Alt+Shift+X"
+      },
+      "description": "Emergency stop"
+    }
+  }
 }

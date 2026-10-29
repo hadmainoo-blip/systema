@@ -1,10 +1,14 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"><title>No Coin Pilot</title></head><body>
-<header><span>LOCAL VISION · EXPERIMENTAL</span><h1>NO COIN<span> PILOT</span></h1><p>Read the road. Leave the gold.</p></header>
+<header><span>v0.2 · ASHUNI CONTROLS</span><h1>NO COIN<span> PILOT</span></h1><p>Read the road. Leave the gold.</p></header>
 <div id="status" role="status">Idle</div><canvas id="preview" width="300" height="200"></canvas>
 <label>Starting lane <select id="lane"><option value="0">Left</option><option value="1" selected>Middle</option><option value="2">Right</option></select></label>
-<label><input type="checkbox" id="dry" checked> Observe only — no movement</label>
+<label><input type="checkbox" id="dry"> Observe only — no movement</label>
+<label><input type="checkbox" id="autoCrop" checked> Auto-detect game canvas</label>
+<label>Keys <select id="controls"><option value="site">Ashuni settings (A/D default)</option><option value="arrows">Arrow keys</option></select></label>
+<p><b>Alt+Shift+P</b> toggles autopilot while you stay in the game.<br><b>Alt+Shift+O</b> observes. <b>Alt+Shift+X</b> stops.</p>
+<button id="save">SAVE SETTINGS</button>
 <details><summary>Road calibration</summary><p>Values are fractions of the captured tab. Crop to the game first. Horizon and feet are relative to that crop.</p><div id="fields"></div></details>
 <div class="buttons"><button id="start">START</button><button id="stop">STOP</button></div>
-<p id="metrics">Click inside the running game before starting. Do not move manually while autopilot runs.</p>
+<p id="metrics">Save settings, close this popup, resume your run, then press Alt+Shift+P. Opening this popup may pause the game.</p>
 <footer>Color heuristics can miss coins and obstacles. No zero-coin guarantee. Chrome’s “Cancel debugging” bar is an emergency stop. Captured frames stay in this browser.</footer>
 <script type="module" src="popup.js"></script></body></html>

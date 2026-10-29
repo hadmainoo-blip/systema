@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>Unity input regression fixture</title>
+<style>body{margin:0;background:#101826}canvas{display:block;margin:auto;width:50vw;height:100vh;background:#263548}</style>
+<canvas id="unity-canvas" tabindex="0"></canvas>
+<script>
+window.ashuniRebornStatus={ready:true,phase:'running',paused:false};
+window.sampledKeys=[];const down=new Set();
+addEventListener('keydown',e=>down.add(e.code));addEventListener('keyup',e=>down.delete(e.code));
+function frame(){sampledKeys.push([...down]);requestAnimationFrame(frame);}requestAnimationFrame(frame);
+</script>
