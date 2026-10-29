@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {defaults,validate,laneX,perceive,decide} from '../extension/core.js';
+const empty=()=>({brightness:100,bins:Array.from({length:3},()=>Array.from({length:12},()=>({coin:0,obstacle:0})))});
+test('clear road holds lane',()=>assert.equal(decide(empty(),1,defaults).action,'hold'));
+test('near coins in middle cause lane change',()=>{const s=empty();s.bins[1][10].coin=.4;assert.equal(decide(s,1,defaults).action,'left');});
+test('obstacle in escape lane chooses other side',()=>{const s=empty();s.bins[1][10].coin=.4;s.bins[0][10].obstacle=1;assert.equal(decide(s,1,defaults).action,'right');});
+test('cannot teleport across center lane',()=>{const s=empty();s.bins[0][10].coin=.9;s.bins[1][10].obstacle=1;assert.notEqual(decide(s,0,defaults).target,2);});
+test('dark video pauses movement',()=>assert.equal(decide({...empty(),brightness:0},1,defaults).action,'pause'));
+test('invalid crop rejected',()=>assert.throws(()=>validate({left:.9,right:.1})));
+test('cooldown is bounded',()=>assert.equal(validate({cooldown:0}).cooldown,120));
+test('perspective lanes converge toward horizon',()=>assert.ok(laneX(2,0,defaults)-.5 < laneX(2,1,defaults)-.5));
+test('gold pixels on center road detected',()=>{const width=240,height=400,data=new Uint8ClampedArray(width*height*4);for(let i=0;i<data.length;i+=4){data[i]=60;data[i+1]=60;data[i+2]=60;data[i+3]=255;}for(let y=290;y<325;y++)for(let x=110;x<130;x++){const i=(y*width+x)*4;data[i]=240;data[i+1]=180;data[i+2]=35;}const s=perceive({width,height,data},defaults);assert.ok(s.bins[1].some(b=>b.coin>.2));assert.equal(decide(s,1,defaults).action,'left');});
+test('bad video buffer rejected',()=>assert.throws(()=>perceive({width:10,height:10,data:[]},defaults)));
