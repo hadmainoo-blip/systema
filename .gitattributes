@@ -1,3 +1,4 @@
 *.onnx -text -diff
 *.wasm -text -diff
 *.zip -text -diff
+subway-no-coin/extension/vendor/** -whitespace
