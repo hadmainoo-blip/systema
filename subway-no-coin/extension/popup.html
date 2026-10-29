@@ -1,9 +1,9 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"><title>No Coin Pilot</title></head><body>
-<header><span>v0.3 · LEGACY SAN FRANCISCO</span><h1>NO COIN<span> PILOT</span></h1><p>Read the road. Leave the gold.</p></header>
+<header><span>v0.4 · LOCAL VISION LEARNING</span><h1>NO COIN<span> PILOT</span></h1><p>Read the road. Leave the gold.</p></header>
 <div id="status" role="status">Idle</div><canvas id="preview" width="300" height="200"></canvas>
 <p>Target: <b>ashuni.lol/legacy/sanfrancisco/</b></p>
-<label>Backend <select id="backend"><option value="auto">Native game state (recommended)</option><option value="vision">Visual fallback (experimental)</option></select></label>
-<label><input type="checkbox" id="precision" checked> Precision steering between lanes</label>
+<label>Backend <select id="backend"><option value="learned">Learned from my play</option><option value="auto">Older rule-based controller</option><option value="vision">Visual fallback (experimental)</option></select></label>
+<section id="learning"><h3>Teach it by playing</h3><p>MobileNetV3-Small · local CPU inference · normal moves</p><button id="record">RECORD MY PLAY</button><button id="train">TRAIN CONTROL MODEL</button><button id="export">EXPORT TRAINING DATA</button><button id="clear">CLEAR SAVED RUNS + MODEL</button><p id="dataset">No demonstrations loaded</p><p id="model">Model not trained</p><p>Alt+Shift+R starts/stops recording without opening this popup. Play several separate clean runs, then train. Test with Observe only first.</p></section>
 <label><input type="checkbox" id="stopOnCoin" checked> Pause the run if a coin is collected</label>
 <label><input type="checkbox" id="autoBrake" checked> Auto-brake before unresolved danger</label>
 <label><input type="checkbox" id="hud" checked> In-game status overlay</label>
@@ -16,5 +16,5 @@
 <details><summary>Road calibration</summary><p>Values are fractions of the captured tab. Crop to the game first. Horizon and feet are relative to that crop.</p><div id="fields"></div></details>
 <div class="buttons"><button id="start">START</button><button id="stop">STOP</button></div>
 <p id="metrics">Save settings, close this popup, resume your run, then press Alt+Shift+P. Opening this popup may pause the game.</p>
-<footer>Precision mode controls the native lateral movement target. Collisions and coin pickup remain enabled. Esc stops immediately; debugger disconnection stops within 3.5 seconds. No perfect-run guarantee.</footer>
+<footer>The learned mode uses normal lane changes, jumping and rolling. Recorded inputs stay local and only game control keys are captured. The model is untrained until you record and train it. Esc stops immediately; debugger disconnection stops within 3.5 seconds. No perfect-run guarantee.</footer>
 <script type="module" src="popup.js"></script></body></html>

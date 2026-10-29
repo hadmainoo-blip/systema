@@ -34,7 +34,7 @@ export function startNativePilot(options, planner) {
       if(scene.running&&focused){
         started??=now;
         if(!options.dry&&options.stopOnCoin!==false&&scene.collected>0){reader.pause();api.stop('Coin collected — run paused');return;}
-        if(now>=nextPlan){decision=planner(scene,{precision:options.precision!==false});nextPlan=now+100;}
+        if(now>=nextPlan){decision=planner(scene,{precision:options.precision===true});nextPlan=now+100;}
         if(!options.dry&&options.autoBrake!==false&&decision.risk>0){
           const close=[...scene.coins,...scene.obstacles].some(o=>{
             const front=o.z-(o.hz||4.5)-scene.player.z-(scene.body?.hz||3);
@@ -44,7 +44,7 @@ export function startNativePilot(options, planner) {
         }
 
         if(!options.dry){
-          if(options.precision!==false)reader.steer(decision.targetX,Math.min(.06,(now-lastTick)/1000));
+          if(options.precision===true)reader.steer(decision.targetX,Math.min(.06,(now-lastTick)/1000));
           if(now-lastAction>180&&reader.act(decision.action)){status.changes++;lastAction=now;}
         }
         status.message=options.dry?'Native observation — no movement':'Native autopilot active';

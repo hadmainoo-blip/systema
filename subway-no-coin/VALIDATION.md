@@ -39,3 +39,19 @@ Game-generated layouts vary. These observations demonstrate actual movement and 
 The prior local Chromium fixture test passed for focus, crop, remapped keys, pause-state inspection and held key input. The real legacy page also loaded and ran in headless Chromium with software WebGL.
 
 Installed-extension loading is blocked by the cloud browser's administrator policy. The production startup expression was executed directly through browser automation, including its page-side HUD/control loop; a one-second test heartbeat stood in for the service worker heartbeat. Full installed-extension permissions and shortcut delivery remain unverified here.
+
+
+## Version 0.4 visual learning
+
+The between-lane mode is disabled. The new workflow records the user's keyboard demonstrations and canvas-derived features and trains an action head on the packaged pretrained MobileNet backbone. No human demonstration dataset or trained game policy was available in this environment.
+
+- The published quantized model source checksum was verified before conversion. ONNX graph validation passed for the pruned spatial encoder.
+- Real Chromium single-thread WASM inference returned 288 finite, deterministic spatial features and changed when the test object moved. A warm cloud inference was approximately 32 ms; this is not an i5-8265U/UHD-620 benchmark.
+- The browser pipeline test persisted 40 examples from two synthetic image episodes, trained the head, reloaded it from IndexedDB, and classified the held-out synthetic episode. An initial weak result led to training-only feature normalization; the subsequent run achieved macro F1 ~0.818 / accuracy 0.85 on 20 synthetic images. These numbers do not measure game performance.
+- Whole episodes are separated for validation. The test also verified terminal-tail deletion and trusted-key capture that excludes focused text inputs.
+- The browser checks were repeated using the extension-equivalent `script-src 'self' 'wasm-unsafe-eval'` policy. The popup check uses a mocked Chrome API and does not establish capture permissions or shortcut delivery.
+- All 43 Node tests passed, including the learning core and cancellation checks alongside the earlier controller regressions. Full installed-extension recording/playback remains unverified in this cloud browser because unpacked extensions are administrator-blocked.
+
+A qualified gameplay claim requires recording user demonstrations, training the control head, then evaluating on new runs. This release supplies that pipeline; it does not claim a trained zero-coin agent or autonomous reinforcement learning.
+
+The offscreen recorder was also exercised with a real generated MediaStream and a mocked Chrome message bridge: it saved 14 labelled samples (including all four move types), kept one episode across pause/resume, and issued no movement decisions. The popup smoke test passed with a mocked Chrome API. These checks do not substitute for real tab-capture permissions in an installed extension.

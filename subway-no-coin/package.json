@@ -1,9 +1,16 @@
 {
   "name": "subway-no-coin",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/core.test.js && node tests/controller.test.js && node tests/native.test.js"
+    "test": "node tests/core.test.js && node tests/controller.test.js && node tests/native.test.js && node tests/learning.test.js",
+    "build": "node scripts/build-vision.mjs"
+  },
+  "dependencies": {
+    "onnxruntime-web": "1.22.0"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

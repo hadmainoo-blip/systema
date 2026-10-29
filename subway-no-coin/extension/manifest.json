@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "No Coin Pilot",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "minimum_chrome_version": "118",
-  "description": "Native no-coin assistant for the verified Ashuni Legacy San Francisco build, with an optional visual fallback.",
+  "description": "Local visual learning from your own no-coin runs, using an open MobileNet backbone and a small trainable policy.",
   "permissions": [
     "activeTab",
     "tabCapture",
@@ -36,6 +36,15 @@
         "default": "Alt+Shift+X"
       },
       "description": "Emergency stop"
+    },
+    "toggle-recording": {
+      "suggested_key": {
+        "default": "Alt+Shift+R"
+      },
+      "description": "Start or stop recording your manual game demonstrations"
     }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
   }
 }

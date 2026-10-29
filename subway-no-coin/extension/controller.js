@@ -45,7 +45,7 @@ export function createController(api, now = Date.now, delay = ms => new Promise(
       session = {tabId:tab.id, config, dry:options.dry === true, controls:options.controls || saved.controls || 'site', checked:-Infinity};
       if(nativeRequested){
         session.backend='native';
-        const nativeOptions={dry:options.dry===true,precision:options.precision??saved.precision??true,stopOnCoin:options.stopOnCoin??saved.stopOnCoin??true,autoBrake:options.autoBrake??saved.autoBrake??true,hud:options.hud??saved.hud??true};
+        const nativeOptions={dry:options.dry===true,precision:false,stopOnCoin:options.stopOnCoin??saved.stopOnCoin??true,autoBrake:options.autoBrake??saved.autoBrake??true,hud:options.hud??saved.hud??true};
         const expression=`window.__noCoinPilotNative?.stop('Restarting');(${installLegacyReader.toString()})(${JSON.stringify(legacyProfile)});(${startNativePilot.toString()})(${JSON.stringify(nativeOptions)},${planNative.toString()})`;
         const result=await api.debugger.sendCommand({tabId:tab.id},'Runtime.evaluate',{expression,returnByValue:true});
         if(result.exceptionDetails||!result.result?.value)throw new Error(result.exceptionDetails?.exception?.description||'Native startup failed');

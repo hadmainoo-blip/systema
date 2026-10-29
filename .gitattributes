@@ -1,0 +1,3 @@
+*.onnx -text -diff
+*.wasm -text -diff
+*.zip -text -diff
