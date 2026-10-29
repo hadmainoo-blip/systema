@@ -1,0 +1,32 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {planNative} from '../extension/native-planner.js';
+import {installLegacyReader} from '../extension/native-reader.js';
+import {legacyProfile} from '../extension/legacy-profile.js';
+const scene=()=>({running:true,speed:110,player:{x:0,y:.8,z:0},groundY:.8,gravity:200,jumpHeight:20,body:{hx:3,hy:5,hz:3,y:6.3},lane:1,coins:[],obstacles:[]});
+const coin=(x,z)=>({id:z,x,y:6,z,hx:4.5,hy:4.5,hz:4.5});
+const train=(x,z,hz)=>({id:x,x,y:15.2,z,hx:8.5,hy:14,hz,tag:'HitTrain'});
+test('clear road holds lateral position',()=>{const d=planNative(scene());assert.equal(d.targetX,0);assert.equal(d.risk,0);});
+test('uses narrow safe corridor between coin and train colliders',()=>{const s=scene();s.coins=[coin(0,90),coin(0,120)];s.obstacles=[train(-20,90,90),train(20,90,90)];const d=planNative(s);assert.equal(Math.abs(d.targetX),8);assert.equal(d.risk,0);});
+test('blocked corridor chooses the clear side',()=>{const s=scene();s.coins=[coin(0,80)];s.obstacles=[{x:-8,y:6,z:80,hx:8,hy:6,hz:20}];assert.ok(planNative(s).targetX>0);});
+test('paused scene never requests movement',()=>{const s=scene();s.running=false;s.coins=[coin(0,20)];assert.equal(planNative(s).action,'hold');assert.equal(planNative(s).targetX,0);});
+test('planner outputs bounded lateral positions',()=>{const s=scene();s.player.x=18;s.coins=[coin(20,80)];const d=planNative(s);assert.ok(d.targetX>=-20&&d.targetX<=20);});
+test('reader rejects unknown player before reading native memory',()=>{globalThis.window={unityGame:{Module:{HEAPU8:new Uint8Array(4096),asm:{},wasmCodeUrl:'https://example.com/unknown.wasm'}}};try{assert.throws(()=>installLegacyReader(legacyProfile),/Unsupported game build/);}finally{delete globalThis.window;}});
+test('profile binds exact source and deployed legacy player',()=>{assert.equal(legacyProfile.playerHash.length,64);assert.equal(legacyProfile.sourceHash,'7acb0ed25fa83d2542d73535381a93f3328d61fab037d10567bcab129c385142');assert.equal(legacyProfile.coordinateOffset,20);});
+
+import {startNativePilot} from '../extension/native-pilot.js';
+function pilotFixture(t, overrides={}) {
+  t.mock.timers.enable({apis:['setInterval']});
+  let clock=1000; t.mock.method(performance,'now',()=>clock);
+  const calls={steer:0,act:0,pause:0,stop:0};
+  const state={...scene(),runId:1,collected:0,samples:1,errors:0};
+  Object.assign(state,overrides);
+  globalThis.window={__noCoinPilotReader:{snapshot:()=>state,steer:()=>{calls.steer++;},act:()=>{calls.act++;return false;},pause:()=>{calls.pause++;},stop:()=>{calls.stop++;}}};
+  globalThis.document={hidden:false,hasFocus:()=>true,getElementById:()=>null,createElement:()=>({style:{},textContent:''}),documentElement:{append:()=>{}},addEventListener:()=>{},removeEventListener:()=>{}};
+  t.after(()=>{globalThis.window?.__noCoinPilotNative?.stop();delete globalThis.window;delete globalThis.document;});
+  return {calls,state,tick:ms=>{clock+=ms;t.mock.timers.tick(ms);}};
+}
+test('native observation never moves or pauses even when coins were collected',t=>{const f=pilotFixture(t,{collected:4});startNativePilot({dry:true},()=>({action:'hold',targetX:0,risk:0}));f.tick(25);assert.equal(f.calls.steer,0);assert.equal(f.calls.act,0);assert.equal(f.calls.pause,0);});
+test('native pilot pauses and stops on an actual collected coin',t=>{const f=pilotFixture(t,{collected:1});startNativePilot({},()=>({action:'hold',targetX:0,risk:0}));f.tick(25);assert.equal(f.calls.pause,1);assert.equal(f.calls.steer,0);assert.match(window.__noCoinPilotNative.status().message,/Coin collected/);});
+test('native watchdog stops after losing extension heartbeat',t=>{const f=pilotFixture(t);startNativePilot({},()=>({action:'hold',targetX:0,risk:0}));f.tick(3600);assert.equal(window.__noCoinPilotNative.status().running,false);assert.equal(f.calls.stop,1);});
+test('auto-brake pauses on unresolved imminent collision',t=>{const f=pilotFixture(t,{obstacles:[{x:0,y:6,z:30,hx:8,hy:6,hz:2}]});startNativePilot({},()=>({action:'hold',targetX:0,risk:1000000}));f.tick(25);assert.equal(f.calls.pause,1);assert.match(window.__noCoinPilotNative.status().message,/No safe predicted path/);});

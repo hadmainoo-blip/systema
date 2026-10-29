@@ -21,3 +21,11 @@ Neither loader nor framework advertises a source map. The framework is Unity/Ems
 - A same-tick key down/up can be missed by a frame-polled game engine. The extension now holds inputs for 80 ms; a local Chromium animation-frame test validates the mechanism, not the game's full response.
 
 The inspected public JavaScript does **not** expose a documented nearby-coin/obstacle or current-lane interface. The extension still uses visual heuristics and an estimated lane; it does not claim an exact-state solver. An unrelated online Subway Surfers clone would not establish the behavior or layout of this compiled build.
+
+## Legacy San Francisco adapter, version 0.3
+
+The user changed the requested target to `/legacy/sanfrancisco/` and supplied an explicit proof bundle. Its public manifest and selected native player match the San Francisco 1.94.0 layout, with the deployed hash recorded in `legacy-profile.js`. Live class and position reads were verified on that page.
+
+The extension observes per-coin updates via the original `Module.dynCall_vifffii` wrapper, preserving the game call and restoring the wrapper on Stop. Unity's own transform/collider getters supply positions and bounds; native physics raycasts sample the road. Signature regions and the boxed RaycastHit adjustor thunk are handled explicitly. Trigger zones for scoring missions are filtered out.
+
+Precision steering sets the horizontal movement target consumed by `Character.MoveForward`; ordinary native Jump/Roll methods handle vertical maneuvers. Pickup and collision logic remains enabled. All profile-specific field offsets and function pointers are confined to `legacy-profile.js` where practical. See `VALIDATION.md` for successes, failed runs and the installed-extension test limitation.

@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "No Coin Pilot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "minimum_chrome_version": "118",
-  "description": "Local visual lane assistant for Subway Surfers. No currency or save modifications.",
+  "description": "Native no-coin assistant for the verified Ashuni Legacy San Francisco build, with an optional visual fallback.",
   "permissions": [
     "activeTab",
     "tabCapture",

@@ -1,42 +1,43 @@
-# No Coin Pilot 0.2
+# No Coin Pilot 0.3
 
-Experimental Chrome/Edge desktop assistant for Subway Surfers on Ashuni. Captures the game locally and chooses left/right movement from color evidence. No currency, saves, game files, or leaderboard modifications. No dependencies or build step.
+Desktop Chrome/Edge assistant for **https://ashuni.lol/legacy/sanfrancisco/**, original mode. This version reads live game state from the matching Unity 1.94.0 build: coin collider positions, player position and lane, movement speed, the run's coin counter, and obstacle bounds from native physics queries. It searches future motion and steers, jumps, or rolls automatically.
 
-## Update / install
+Precision mode writes the player's lateral movement target consumed by the game's movement routine. It permits positions between the standard lane centers, which can leave safe clearance between coins and trains. This is more than simulated arrow keys. Collisions, coin collection, saves, currency, speed and forward motion stay under the game's existing logic; the extension does not grant invincibility or remove coins.
 
-1. Download and extract `no-coin-pilot.zip` from this repository. On `chrome://extensions` (Edge: `edge://extensions`), enable Developer mode and **Load unpacked** → select the extracted `extension` folder.
-2. If already installed, replace the extracted files and click **Reload** on the extension card. Reloading is necessary to activate the new worker and shortcuts. Check that the extension version is **0.2.0**.
-3. Check `chrome://extensions/shortcuts` to ensure the shortcuts are assigned and have no conflicts. Mac users may need to assign their preferred combinations here.
+## Install or update
 
-## Start without pausing the game
+1. Download the latest `no-coin-pilot.zip` from this repository and extract it.
+2. Open `chrome://extensions` (Edge: `edge://extensions`), enable Developer mode, then **Load unpacked** → select the extracted `extension` directory. For an existing installation, replace the files and press **Reload** on its card. Verify version **0.3.0**.
+3. Open **https://ashuni.lol/legacy/sanfrancisco/** and wait until the game loads. The modern `/sanfrancisco/` and `/journey-to-the-east/` builds use different layouts and are not supported by this native adapter.
+4. In the extension settings, leave **Native game state**, **Precision steering**, **Pause if a coin is collected**, and **Auto-brake** enabled. Save, close the popup, and return focus to the game.
+5. Press **Alt+Shift+P**, then start/resume the run in the game. The bot can be armed on the menu. It waits for actual gameplay and focus.
 
-Opening a browser extension popup takes focus away from Unity and may pause the game. Use the popup for settings, then close it, return to the game, resume your run, and use the shortcuts:
+Opening the popup can pause Unity. Keep it closed during play; the in-game HUD shows status without taking focus. Native mode requires no screen sharing, road calibration, starting-lane estimate or tab-capture permission prompt. The extension still declares capture permissions for its optional visual fallback.
 
-- **Alt+Shift+P**: start autopilot; press again to stop. Uses saved settings; assumes the selected starting lane (middle by default).
-- **Alt+Shift+O**: start observation mode, with no movement.
-- **Alt+Shift+X**: emergency stop.
+## Controls and settings
 
-The icon badge shows **ON** for autopilot or **OBS** for observation. The popup's Start button also closes the popup after capture starts; if the game has paused, resume it yourself. The bot waits when the site's public Unity status reports a pause, menu, death, loading, or lost focus. It does not dismiss game menus automatically.
+- **Alt+Shift+P**: start/stop autopilot.
+- **Alt+Shift+O**: observe actual state without steering or pausing the game.
+- **Alt+Shift+X** or **Esc**: stop. Esc also reaches the game's own pause handler.
+- Configure shortcut conflicts at `chrome://extensions/shortcuts`.
+- **Auto-brake**: pause and stop the assistant when unresolved predicted risk becomes imminent. Take over manually, then re-arm it. Disabling this makes the bot attempt the remaining route and can result in death or coin collection.
+- **Pause if a coin is collected**: use the actual run counter to pause a failed challenge. A collected coin remains collected; nothing is refunded or hidden.
+- **Precision steering**: use continuous lateral targets between lane centers. Disable to use ordinary native lane-change commands.
+- **In-game status overlay**: shows the actual run coin counter, number of observed coins and obstacles, and status. The popup also displays a top-down map: yellow coins, red collider bounds, green player.
+- **Visual fallback**: retains the earlier color-based prototype for comparison. Its limitations remain; native mode is recommended for this specific target.
 
-## Settings
+The assistant stops on navigation, tab switch, extension Stop, or errors. If its debugger connection disappears, a page-side watchdog stops movement within 3.5 seconds. Esc stops immediately. Stop restores the original coin-update wrapper. Avoid manual movement while autopilot is active.
 
-Open the popup, select your actual starting lane, and click **SAVE SETTINGS**. Close the popup before playing. Do not change lanes manually while autopilot is running: its lane estimate assumes each dispatched input succeeds. After restarting, resurrecting, resizing, or automatic lane changes, stop and synchronize the starting lane again.
+## Validation and limits
 
-- **Auto-detect game canvas**: crops capture to `#unity-canvas` automatically. Turn off to supply a manual crop.
-- **Keys**: Ashuni mode reads the site's `keyLeft` / `keyRight` local settings, defaulting to A/D, matching its published mobile D-pad. Arrow-key mode is available for comparison.
-- **Observe only**: applies to the popup Start button. The observation shortcut always observes; the autopilot shortcut always enables movement.
-- **Road calibration**: align horizon, feet, center and spread with the actual road. Auto-cropping does not calibrate road perspective. The preview shows lane guides on the crop.
-- `coinWeight`, `obstacleWeight`, `lookahead`: tune color evidence scoring. `cooldown` sets the minimum interval between movements.
+See `VALIDATION.md` for the recorded live tests and `SOURCE-ANALYSIS.md` for build analysis. Live gameplay confirmed native positions, movement, jump/roll calls, zero-coin segments, and automatic pause. A no-brake test ended in death after reaching world Z 2,100 with zero coins. The default production configuration paused earlier when no safe path was predicted. There is no guaranteed perfect or indefinite run.
 
-Inputs are held for 80 ms so Unity can sample them over animation frames. Switching tabs, navigating, closing the game, or canceling Chrome's debugging banner stops the assistant. Opening DevTools may detach its debugger.
+The planner uses bounded look-ahead and axis-aligned collider bounds. Moving objects, ramps, rapid frame changes, irregular geometry, pickups, and narrow clearances can still defeat its predictions. Its nine forward-looking ray probes do not enumerate every collider in the entire scene. It does not automatically restart, revive, spend keys, or submit scores. A changed player binary is rejected until its layout is verified.
 
-## What has and has not been verified
+Captured game state stays in this tab/browser. There are no uploads or analytics. The supplied third-party game binaries and reconstructed game source are not redistributed with this extension.
 
-- 20 Node tests cover synthetic perception and mocked controller integration, including shortcuts, observation mode, pause/resume, key press duration, canvas cropping, capture failure diagnostics, and cooldown.
-- A Chromium fixture test checks the real DOM focus/crop/key-setting probe and CDP input recognition across animation frames. Run `python3 tests/browser_check.py` with Playwright and Chromium installed.
-- The target page and its public scripts were retrieved and inspected. See `SOURCE-ANALYSIS.md`.
-- The cloud browser's administrator policy blocks loading unpacked extensions. Full extension capture, shortcut delivery, and successful gameplay on Ashuni are **not verified**.
+## Development checks
 
-This remains a color-heuristic prototype, not a reliable zero-coin solver. Golden scenery can look like coins; shadows, skins, magnets, gray trains, occlusion, and scenery can fool it. It does not implement jumping, rolling, or game-over recovery. Never treat a successful test fixture as proof of a successful live run. Captured frames remain local; there are no uploads or analytics.
+Run `npm test` with Node 20+ (31 tests). `python3 tests/browser_check.py` checks DOM/keyboard behavior against a local fixture with Playwright and Chromium. `tests/live_native_check.py` optionally loads the real selected game and tests the same packaged native startup code; it needs Playwright, Chromium and network access, and starts a local test run. It does not install the browser extension.
 
-Run `npm test` with Node 20+ for the logic/controller suite.
+This cloud Chromium's administrator policy blocks unpacked extensions. Native startup was tested by executing the packaged functions through the browser automation connection. Full installed-extension shortcut/permission behavior remains a user-browser check.

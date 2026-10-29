@@ -3,7 +3,7 @@ export function inspectPage(focusCanvas = false) {
   const canvas = document.querySelector('#unity-canvas') || document.querySelector('canvas');
   if (focusCanvas && document.hasFocus() && canvas) canvas.focus({preventScroll:true});
   const rect = canvas?.getBoundingClientRect();
-  const runtime = window.ashuniRebornStatus;
+  const runtime = window.ashuniRebornStatus || (window.unityGame?.Module?.asm?.legacy_running ? {ready:true,phase:window.unityGame.Module.asm.legacy_running.value?'running':'menu',paused:!window.unityGame.Module.asm.legacy_running.value}:null);
   const read = (name, fallback) => {try {return localStorage.getItem(name) || fallback;} catch {return fallback;}};
   const key = (value, fallback) => {
     if (/^[a-z]$/i.test(value)) return {key:value.toLowerCase(), code:'Key'+value.toUpperCase(), virtual:value.toUpperCase().charCodeAt(0)};

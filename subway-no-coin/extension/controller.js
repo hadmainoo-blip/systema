@@ -1,16 +1,22 @@
 import {defaults, validate} from './core.js';
 import {inspectPage} from './bridge.js';
+import {legacyProfile} from './legacy-profile.js';
+import {installLegacyReader} from './native-reader.js';
+import {startNativePilot} from './native-pilot.js';
+import {planNative} from './native-planner.js';
 
 export function createController(api, now = Date.now, delay = ms => new Promise(resolve => setTimeout(resolve,ms))) {
+  let nativeHeartbeat=null;
   let session = null, lastAction = -Infinity, busy = false, starting = false;
   let status = {running: false, message: 'Idle', lane: 1, changes: 0, frames: 0};
   const badge = text => api.action.setBadgeText({text}).catch(()=>{});
   async function stop(message = 'Stopped') {
-    const old = session;
+    const old = session;clearInterval(nativeHeartbeat);nativeHeartbeat=null;
     session = null;
     status = {...status, running: false, message};
     await badge('');
     await api.runtime.sendMessage({to:'vision', type:'stop'}).catch(()=>{});
+    if(old?.backend==='native')await api.debugger.sendCommand({tabId:old.tabId},'Runtime.evaluate',{expression:`window.__noCoinPilotNative?.stop(${JSON.stringify(message)})`,returnByValue:true}).catch(()=>{});
     if (old?.pressed) {
       await api.debugger.sendCommand({tabId:old.tabId},'Input.dispatchKeyEvent',{...old.pressed,type:'keyUp'}).catch(()=>{});old.pressed=null;
     }
@@ -27,15 +33,26 @@ export function createController(api, now = Date.now, delay = ms => new Promise(
     starting = true;
     try {
       await stop();
-      const saved = await api.storage.local.get(['config','lane','autoCrop','controls']);
+      const saved = await api.storage.local.get(['config','lane','autoCrop','controls','backend','precision','stopOnCoin','autoBrake','hud']);
       const config = validate(options.config || saved.config || defaults);
       const lane = Number(options.lane ?? saved.lane ?? 1);
       if (!Number.isInteger(lane) || lane < 0 || lane > 2) throw new Error('Select a valid starting lane');
       if (!tab) [tab] = await api.tabs.query({active:true,currentWindow:true});
       if (!tab?.id || !/^https?:/.test(tab.url || '')) throw new Error('Focus the game tab first');
-      if (!(await api.offscreen.hasDocument())) await api.offscreen.createDocument({url:'vision.html', reasons:['USER_MEDIA'], justification:'Analyze the selected game tab locally to choose movement inputs.'});
+      const nativeRequested=(options.backend||saved.backend||'auto')!=='vision' && new URL(tab.url).pathname.replace(/\/$/,'')==='/legacy/sanfrancisco';
+      if (!nativeRequested && !(await api.offscreen.hasDocument())) await api.offscreen.createDocument({url:'vision.html', reasons:['USER_MEDIA'], justification:'Analyze the selected game tab locally to choose movement inputs.'});
       await api.debugger.attach({tabId:tab.id}, '1.3');
       session = {tabId:tab.id, config, dry:options.dry === true, controls:options.controls || saved.controls || 'site', checked:-Infinity};
+      if(nativeRequested){
+        session.backend='native';
+        const nativeOptions={dry:options.dry===true,precision:options.precision??saved.precision??true,stopOnCoin:options.stopOnCoin??saved.stopOnCoin??true,autoBrake:options.autoBrake??saved.autoBrake??true,hud:options.hud??saved.hud??true};
+        const expression=`window.__noCoinPilotNative?.stop('Restarting');(${installLegacyReader.toString()})(${JSON.stringify(legacyProfile)});(${startNativePilot.toString()})(${JSON.stringify(nativeOptions)},${planNative.toString()})`;
+        const result=await api.debugger.sendCommand({tabId:tab.id},'Runtime.evaluate',{expression,returnByValue:true});
+        if(result.exceptionDetails||!result.result?.value)throw new Error(result.exceptionDetails?.exception?.description||'Native startup failed');
+        status=result.result.value;
+        nativeHeartbeat=setInterval(async()=>{const active=session;if(active?.backend!=='native')return;try{const r=await api.debugger.sendCommand({tabId:active.tabId},'Runtime.evaluate',{expression:'window.__noCoinPilotNative?.ping();window.__noCoinPilotNative?.status()',returnByValue:true});if(session!==active)return;if(r.exceptionDetails||!r.result?.value)throw new Error('Native pilot disconnected');status=r.result.value;if(!status.running){const message=status.message;await stop(message);}}catch(e){if(session===active)await stop(e.message);}},750);
+        await badge(nativeOptions.dry?'OBS':'ON');return status;
+      }
       const page = await inspect(tab.id,true);
       if (!page.canvas) throw new Error('No game canvas found. Open the actual game page first.');
       session.page = page;

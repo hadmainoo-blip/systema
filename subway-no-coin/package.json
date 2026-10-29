@@ -1,9 +1,9 @@
 {
   "name": "subway-no-coin",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/core.test.js && node tests/controller.test.js"
+    "test": "node tests/core.test.js && node tests/controller.test.js && node tests/native.test.js"
   }
 }
