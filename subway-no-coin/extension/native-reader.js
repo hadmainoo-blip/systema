@@ -4,6 +4,9 @@ export function installLegacyReader(profile) {
   const m=window.unityGame?.Module, a=m?.asm;
   if(!m || !a || !m.HEAPU8) throw new Error('Legacy Unity module is not ready. Start the game first.');
   if(!String(m.wasmCodeUrl).includes(`player-${profile.playerHash}.wasm`)) throw new Error('Unsupported game build. Native offsets have not been verified for this player.');
+  // Exports/heap exist before Unity has initialized its singleton instances.
+  // Calling into them during the splash screen can fault inside the engine.
+  if(m.calledRun!==true)throw new Error('Legacy Unity runtime is not ready. Wait for the game to finish loading.');
   for(const k of ['dynCall_ii','dynCall_iii','dynCall_viii','dynCall_vifffii','stackSave','stackAlloc','stackRestore']) {
     if(typeof a[k]!=='function' && typeof m[k]!=='function') throw new Error(`Missing runtime API: ${k}`);
   }
@@ -39,7 +42,7 @@ export function installLegacyReader(profile) {
     return result;
   }
   m.dynCall_vifffii=hook;
-  function onEvent(e){const type=e.detail?.type;if(type==='reborn:coinCollected')collected++;if(type==='reborn:runStarted'){collected=0;runId++;coins.clear();cache.clear();}}
+  function onEvent(e){const type=e.detail?.type;if(type==='reborn:coinCollected')collected++;if(type==='reborn:runStarted'){collected=0;runId++;coins.clear();cache.clear();obstacles=[];lastObstacleAt=-Infinity;}}
   window.addEventListener('tro:unity-runtime-event',onEvent);
   function physicsObstacles(player) {
     const found=new Map(),sp=native('stackSave');
@@ -78,7 +81,18 @@ export function installLegacyReader(profile) {
       const player=vec(character+profile.characterWorld),lane=m.HEAP32[(character+profile.characterLane)>>>2];
       if(lane<0||lane>2||Math.abs(player.x)>1000)throw new Error('Invalid lane or character position');
       const now=performance.now(),running=Boolean(a.legacy_running?.value)&&!m.HEAPU8[game+profile.gamePaused]&&!m.HEAPU8[game+profile.gameDead];
-      if(running&&now-lastObstacleAt>180){obstacles=physicsObstacles(player);lastObstacleAt=now;}
+      if(running&&now-lastObstacleAt>180){
+        const elapsed=(now-lastObstacleAt)/1000,previous=new Map(obstacles.map(o=>[o.id,o]));
+        obstacles=physicsObstacles(player);
+        for(const o of obstacles){
+          o.velocityZ=0;o.observedAt=now;const old=previous.get(o.id);
+          if(elapsed>=.05&&elapsed<=.6&&old?.tag===o.tag&&old?.name===o.name&&Math.abs(old.x-o.x)<1){
+            const velocity=(o.z-old.z)/elapsed;
+            if(Number.isFinite(velocity)&&Math.abs(velocity)<=Math.max(300,f(game+profile.gameSpeed)*3))o.velocityZ=velocity;
+          }
+        }
+        lastObstacleAt=now;
+      }
       const active=[];
       for(const [id,c]of coins){if(now-c.seen>500||!m.HEAPU8[id+profile.coinActive]){coins.delete(id);continue;}if(c.z>player.z-15&&c.z<player.z+350)active.push({id:c.id,x:c.x,y:c.y,z:c.z,hx:c.hx??3,hy:c.hy??5,hz:c.hz??3});}
       const stats=u(game+profile.gameStats);const runCoins=ptr(stats)?u(stats+profile.statsCoins):collected;

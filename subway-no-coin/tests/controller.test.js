@@ -6,7 +6,7 @@ function fixture() {
   let now=1000, captureError=false;
   const api={
     action:{setBadgeText:async o=>events.push(['badge',o.text]),setBadgeBackgroundColor:async()=>{}},
-    storage:{local:{get:async()=>({lane:1})}},
+    storage:{local:{get:async()=>({lane:1,backend:'vision'})}},
     runtime:{sendMessage:async m=>{events.push(['message',m]);return m.type==='start'?captureError?{error:'Permission denied'}:{ok:true}:{ok:true};}},
     tabs:{query:async()=>[{id:7,url:'https://ashuni.lol/journey-to-the-east/'}]},
     offscreen:{hasDocument:async()=>true},

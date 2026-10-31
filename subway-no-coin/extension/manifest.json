@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "No Coin Pilot",
-  "version": "0.4.0",
+  "version": "0.6.1",
   "minimum_chrome_version": "118",
-  "description": "Local visual learning from your own no-coin runs, using an open MobileNet backbone and a small trainable policy.",
+  "description": "Ready-to-use no-coin autopilot for legacy San Francisco, with local recording and optional visual learning.",
   "permissions": [
     "activeTab",
     "tabCapture",

@@ -1,17 +1,17 @@
-# No Coin Pilot 0.4 — learn from your own play
+# No Coin Pilot 0.6.1 — ready without training
 
-[Download the extension ZIP](https://github.com/hadmainoo-blip/systema/raw/refs/heads/main/no-coin-pilot.zip)
+[Download the extension ZIP](https://github.com/hadmainoo-blip/systema/raw/refs/heads/codex/no-coin-pilot-0.6/no-coin-pilot.zip)
 
-Target: **https://ashuni.lol/legacy/sanfrancisco/** on desktop Chrome/Edge.
+For **https://ashuni.lol/legacy/sanfrancisco/**, original mode, desktop Chrome/Edge.
 
-This version uses an existing Apache-2.0 MobileNetV3-Small vision backbone and a small local trainable control head. It sees captured game frames plus native game-state features. It learns a scene-to-action mapping; it does not replay a timed route. No trained Subway Surfers policy is included yet.
+1. Extract the ZIP, open `chrome://extensions`, enable Developer mode and **Load unpacked** → the extracted **extension** folder. Reload existing installations after replacing their files. Verify **0.6.1**.
+2. Open the target game, wait for **Tap to Play**, start a run, then press **Alt+Shift+P**.
+3. **Esc / Alt+Shift+X** stops and pauses. **Alt+Shift+O** observes without moving.
 
-1. Extract the ZIP, then **Load unpacked** → `extension` at `chrome://extensions`, or reload your existing extension after replacing its files. Verify **0.4.0**.
-2. Close the popup, press **Alt+Shift+R**, and play manually. Record several separate varied runs, then stop/save with the same shortcut.
-3. Open the popup and choose **TRAIN CONTROL MODEL**.
-4. Select **Learned from my play**. Test with **Observe only** first, then enable control.
-5. **Alt+Shift+P** starts/stops play; **Alt+Shift+O** previews predictions; **Esc / Alt+Shift+X** stops.
+The default built-in controller uses the verified game state and normal lane changes, jumps and rolls. No video upload, account, training, or model download is required. It pauses on coin collection or unresolved immediate danger and reports the reason. It is an experimental autopilot, not an endless-survival guarantee.
 
-The new learned controller uses normal lane changes, jumps and rolls. Precision steering between lanes is disabled. Data and training stay local; the bundled encoder needs no model download or API key. Performance and game success still need testing on your laptop and demonstrations.
+This update fixes untrained-model startup defaults, initialization timing, impossible combined moves, recording labels, Stop/start races, and duplicate training jobs. Optional local learning and video annotation remain available.
 
-[Recording/training guide](subway-no-coin/LEARNING.md) · [Pretrained model and license](subway-no-coin/extension/models/README.md) · [Validation history](subway-no-coin/VALIDATION.md)
+[Installation and usage](subway-no-coin/README.md) · [Optional learning](subway-no-coin/LEARNING.md) · [Validation](subway-no-coin/VALIDATION.md)
+
+**Upgrading from 0.6.0:** reload the extension and refresh the game tab before starting a new run. This removes the old in-page steering loop and resets any off-center position. The built-in controller ignores old precision-steering preferences.
