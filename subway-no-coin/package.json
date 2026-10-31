@@ -1,10 +1,10 @@
 {
   "name": "subway-no-coin",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/core.test.js && node tests/controller.test.js && node tests/native.test.js && node tests/learning.test.js",
+    "test": "node --test tests/*.test.js",
     "build": "node scripts/build-vision.mjs"
   },
   "dependencies": {

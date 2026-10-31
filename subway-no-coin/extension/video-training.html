@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>No Coin Pilot · Video training</title><link rel="stylesheet" href="video-training.css"></head>
+<body><main>
+<header><p>NO COIN PILOT · v0.6</p><h1>Learn from a video</h1><p>Watch the road, mark the action, then train locally.</p></header>
+<p>Reference: <a href="https://www.speedrun.com/subsurf/runs/ywoxj7nm" target="_blank" rel="noreferrer">FR_bilel’s no-coin run</a> · <a href="https://www.youtube.com/watch?v=dkfO-fIHAuE&amp;t=23s" target="_blank" rel="noreferrer">Watch from 00:23</a>.</p>
+<p>Select a local copy of the video. Playback begins at <b>00:23</b>. The extension does not download YouTube videos. No frames from this run are bundled.</p>
+<div id="status" role="status">Choose a video to begin.</div>
+<fieldset id="settings"><legend>Video and crop</legend>
+<label>Local video <input id="file" type="file" accept="video/*"></label>
+<label>Original run ID <input id="sourceId" value="ywoxj7nm" maxlength="200"></label>
+<p>Keep the same ID for every clip from this run. Use a different ID for a different run; clips from one run stay together during validation.</p>
+<label>Start (seconds) <input id="startTime" type="number" min="0" step="0.001" value="23"></label>
+<label>End (seconds) <input id="endTime" type="number" min="0" step="0.001" value="11525.9"></label>
+<p>Crop to the game canvas, excluding browser borders. Values are fractions of the full video. The preview also removes the top 12% HUD band, matching live recording.</p>
+<div class="row"><label>Left <input id="left" type="number" min="0" max="1" step="0.01" value="0"></label><label>Top <input id="top" type="number" min="0" max="1" step="0.01" value="0"></label><label>Right <input id="right" type="number" min="0" max="1" step="0.01" value="1"></label><label>Bottom <input id="bottom" type="number" min="0" max="1" step="0.01" value="1"></label></div>
+</fieldset>
+<div class="view"><video id="video" controls preload="metadata"></video><figure><canvas id="cropPreview" width="224" height="224"></canvas><figcaption>What the model sees</figcaption></figure></div>
+<fieldset id="labelling"><legend>Mark demonstrated actions</legend>
+<p>Pause at the <b>start</b> of a lane change, jump or roll, then mark it. “Hold” means the player deliberately continues straight. Mark varied examples of all five actions. Unlabelled footage is skipped. Each label uses a frame 125 ms before the action.</p>
+<div class="row"><button id="back" type="button">−0.1 s</button><button id="forward" type="button">+0.1 s</button><label>Seek (seconds) <input id="seekTime" type="number" min="0" step="0.02" value="23"></label><button id="seek" type="button">SEEK</button></div>
+<div id="actions" class="row"><button data-action="hold">HOLD</button><button data-action="left">LEFT</button><button data-action="right">RIGHT</button><button data-action="jump">JUMP</button><button data-action="roll">ROLL</button></div>
+<p id="counts">No labels yet</p><ol id="annotations"></ol>
+<button id="clearLabels" type="button">CLEAR LABELS</button>
+</fieldset>
+<div class="row"><button id="import" type="button">SAVE LABELLED FRAMES</button><button id="cancel" type="button" disabled>CANCEL IMPORT</button><button id="train" type="button">TRAIN CONTROL MODEL</button></div>
+<p id="dataset"></p>
+<p>Import runs locally, then train. Training requires at least two independent runs with examples of all five actions. Your own recorded runs can be combined with video labels. When videos are present, the policy uses visual inputs for every source and during live play. Validation measures action agreement, not no-coin survival.</p>
+<p>Labels are kept as a local draft. Reselect the video after reopening this screen. Saved feature vectors and labels share the extension’s existing training dataset; export them from the popup.</p>
+</main><script type="module" src="video-training.js"></script></body></html>

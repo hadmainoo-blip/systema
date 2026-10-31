@@ -14,38 +14,45 @@ export function startNativePilot(options, planner) {
     status(){return {...status,nativeScene:scene?{...scene,coins:scene.coins.slice(0,120),obstacles:scene.obstacles.slice(0,100)}:null};},
     stop(reason='Stopped'){
       if(!live)return api.status();live=false;clearInterval(timer);
+      if(!options.dry)try{reader.pause();}catch{}
       status={...status,running:false,message:reason};
-      document.removeEventListener('keydown',emergency,true);reader.stop();
+      window.removeEventListener?.('keydown',emergency,true);reader.stop();
       hud.textContent=`NO COIN PILOT\n${reason}\nAlt+Shift+P to restart`;
       return api.status();
     }
   };
   function emergency(e){if(e.key==='Escape'||(e.altKey&&e.shiftKey&&e.code==='KeyX'))api.stop('Emergency stop');}
-  document.addEventListener('keydown',emergency,true);
+  window.addEventListener?.('keydown',emergency,true);
+  function pauseAndStop(reason){return api.stop(reason);}
   window.__noCoinPilotNative=api;
   timer=setInterval(()=>{
     try{
       const now=performance.now();
-      if(now-heartbeat>3500){api.stop('Extension disconnected — stopped');return;}
+      if(now-heartbeat>3500){pauseAndStop('Extension disconnected — run paused');return;}
       scene=reader.snapshot();status.frames++;
       status.lane=Math.max(0,Math.min(2,Math.round(scene.player.x/20)+1));status.collected=scene.collected;
       if(scene.runId!==lastRun){lastRun=scene.runId;started=null;status.changes=0;nextPlan=0;}
       const focused=document.hasFocus()&&!document.hidden;
+      if(!options.dry&&options.stopOnCoin!==false&&scene.collected>0){pauseAndStop('Coin collected — run paused');return;}
+      if(started!==null&&scene.dead){api.stop('Run ended — character died');return;}
+      if(scene.running&&!focused&&!options.dry){pauseAndStop('Game lost focus — run paused');return;}
       if(scene.running&&focused){
         started??=now;
-        if(!options.dry&&options.stopOnCoin!==false&&scene.collected>0){reader.pause();api.stop('Coin collected — run paused');return;}
-        if(now>=nextPlan){decision=planner(scene,{precision:options.precision===true});nextPlan=now+100;}
-        if(!options.dry&&options.autoBrake!==false&&decision.risk>0){
+        if(now>=nextPlan){decision=planner(scene,{precision:options.precision===true,commandDelay:Math.max(0,(180-(now-lastAction))/1000)});nextPlan=now+100;}
+        status.reason=decision.reason||'Waiting';status.risk=decision.risk||0;status.imminentRisk=decision.imminentRisk??decision.risk??0;
+        if(!options.dry&&options.autoBrake!==false&&(decision.imminentRisk??decision.risk)>0){
           const close=[...scene.coins,...scene.obstacles].some(o=>{
-            const front=o.z-(o.hz||4.5)-scene.player.z-(scene.body?.hz||3);
-            return front>=-2&&front<scene.speed*.45&&Math.abs(o.x-scene.player.x)<(o.hx||4.5)+(scene.body?.hx||3)&&Math.abs(o.y-(scene.body?.y||scene.player.y+5.5))<(o.hy||4.5)+(scene.body?.hy||5);
+            const velocity=Number.isFinite(o.velocityZ)?o.velocityZ:0;
+            const age=Number.isFinite(o.observedAt)&&Number.isFinite(scene.at)?Math.max(0,Math.min(.6,(scene.at-o.observedAt)/1000)):0;
+            const front=o.z+velocity*age-(o.hz||4.5)-(scene.body?.z??scene.player.z)-(scene.body?.hz||3);
+            return front>=-2&&front<Math.max(1,scene.speed-velocity)*.45&&Math.abs(o.x-scene.player.x)<(o.hx||4.5)+(scene.body?.hx||3)&&Math.abs(o.y-(scene.body?.y||scene.player.y+5.5))<(o.hy||4.5)+(scene.body?.hy||5);
           });
-          if(close){reader.pause();api.stop('No safe predicted path — game paused, take over');return;}
+          if(close){pauseAndStop('No safe predicted path — game paused, take over');return;}
         }
 
         if(!options.dry){
           if(options.precision===true)reader.steer(decision.targetX,Math.min(.06,(now-lastTick)/1000));
-          if(now-lastAction>180&&reader.act(decision.action)){status.changes++;lastAction=now;}
+          if(decision.action!=='hold'&&now-lastAction>180&&reader.act(decision.action)){status.changes++;lastAction=now;}
         }
         status.message=options.dry?'Native observation — no movement':'Native autopilot active';
       }else status.message=!focused?'Waiting for game focus':'Waiting — resume/start the game';
@@ -54,7 +61,7 @@ export function startNativePilot(options, planner) {
       hud.textContent=`NO COIN PILOT ${options.dry?'· OBSERVE':'· NATIVE'}\n${status.message}\nCoins this run: ${scene.collected} · Seen: ${scene.coins.length}\nObstacles: ${scene.obstacles.length} · x: ${scene.player.x.toFixed(1)}\n${decision.reason||'Waiting'}\nEsc / Alt+Shift+X: stop`;
       if(scene.errors>10)throw new Error(scene.lastError||'Repeated sensor errors');
       if(scene.running&&scene.speed>0&&scene.coins.length===0&&scene.samples===0&&status.elapsed>5)throw new Error('Coin update hook is not receiving samples');
-    }catch(e){api.stop(`Error: ${e.message}`);}
+    }catch(e){pauseAndStop(`Error: ${e.message}`);}
   },25);
   return api.status();
 }

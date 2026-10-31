@@ -1,4 +1,38 @@
+# Validation — current release 0.6.0 (2026-10-31)
+
+## Version 0.6 — ready built-in control
+
+The default is now the source-based continuous-steering controller, with native jumping and rolling. It does not require demonstrations, video access or a trained control head. Learned mode remains optional and uses ordinary commands. Untrained saved settings migrate to the built-in controller; a trained learned preference is preserved.
+
+Fixes cover Unity initialization (exports appear before `Module.calledRun`), arming at the menu without keeping the popup open, exact target validation, cancellation during startup/cleanup, shortcut toggling, recording restart races, duplicated training requests, and one-use keyboard/native label matching. The planner models moving trains, observation age, continuous collision timing, the rolled collider, full search horizon, jump-path diversity and early steering commitment. All controlled stops pause; observation never moves or pauses.
+
+### Current verification
+
+- **84 Node tests passed** (`npm test`).
+- Popup, service-worker routing, keyboard/crop, and recorder browser checks passed. The worker test uses real IndexedDB and mocked Chrome/CDP results; it is not installed-extension coverage. Recorder checks use real MediaStream/ONNX/IndexedDB, retained all five action labels, and verified cancellation/restart during outstanding capture/inference.
+- The final source functions were tested on the real supported game in original mode, with `precision:true`, auto-brake and stop-on-coin enabled. At a 240×400 software-rendered viewport the run reached **Z 1,212.83**, accepted **three jumps and one roll** plus continuous steering, collected **zero coins**, reported **zero reader errors**, and then **paused alive after approximately 11 gameplay seconds** because no safe path was predicted. The test requested a 60-second window but ended early at that safety pause; this is **not** a 60-second survival result.
+- An earlier 360×640 continuous-steering candidate reached Z 1,325.23 with zero coins before a safety pause. Ordinary lane-only trials paused earlier; continuous steering was selected for the default. A deliberate no-auto-brake stress trial collected a coin and stopped; that is a failed no-coin trial, not counted as success.
+- Software WebGL in this environment ran at roughly 3–10 engine frames per second depending on viewport. Real laptop performance is unmeasured. The source is a functioning experimental controller with conservative pauses, not a verified long-duration/no-coin speedrun policy.
+- Administrator policy blocks unpacked-extension installation and video capture in this cloud Chromium. Those policies were not changed or bypassed. Installed-extension permissions/shortcut/capture delivery cannot be claimed as end-to-end verified here; component tests exercise the real packaged modules through a browser bridge.
+
+Reproduce a bounded live default-controller trial with `python tests/live_native_check.py --precision --seconds 60 --width 240 --height 400 --output ../work/live-result.json`. The harness reports safety pauses, death, coin collection, sensor failures and survival separately. Game-generated layouts vary. Game counters and collision handlers remain active.
+
+The actual linked YouTube run has **not** been downloaded or used to train a policy. It is no longer required to use the default controller.
+
+---
+
 # Validation — 2026-10-29
+
+## Version 0.5 — 2026-10-30
+
+- All 53 Node checks passed, including delayed action matching, native-feature masking for mixed video/live training, video-plan validation, whole-source episode grouping, and final event draining on recording stop.
+- `tests/recorder_browser_check.py` used the real encoder and a generated MediaStream: 14 saved samples, with hold 9, left 2, right 1, jump 1, roll 1. Recording remained passive and pause/resume preserved the same episode. Native lane/jump/roll transitions produced labels without keyboard events; document handlers consuming keys did not prevent capture.
+- `tests/video_browser_check.py` generated a 26-second WebM with ffmpeg, loaded the actual trainer, sought to 00:23, and imported five manually marked examples through the real ONNX encoder into IndexedDB. Empty/unlabelled import was rejected; repeat imports did not duplicate frames, cancellation did not change saved labels, and an edited label replaced the original at the same source/time. Native features in video samples were zero.
+- Popup smoke checks passed. The existing local learning browser check passed actual ONNX extraction, storage, training, reload, text-input exclusion, and synthetic held-out image classification (macro F1 ~0.818). That metric measures the synthetic fixture only.
+- `tests/sampler_browser_check.py` verified the browser-console frame sampler on real blob-backed MediaSource video: 16 distinct-timed JPEG frames from 23 to 24.875 seconds, a valid JSON download, enforced file-size cap, and cleanup. This does not verify YouTube's player/security behaviour or establish access to the actual reference video.
+- The speedrun API identified the supplied run's YouTube source as `dkfO-fIHAuE`, and its reported run end as 11,525.9 seconds. Requested video training start: 23 seconds. The environment proxy refused YouTube download with HTTP 403. No actual frames from the linked run were downloaded, annotated, used for training, or bundled.
+
+These are component/browser-pipeline checks. Installed-extension capture permissions, shortcut delivery, actual-video action labels, and real gameplay performance remain unverified for this update.
 
 ## Selected target and compatibility
 
