@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "No Coin Pilot",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "minimum_chrome_version": "118",
   "description": "Ready-to-use no-coin autopilot for legacy San Francisco, with local recording and optional visual learning.",
   "permissions": [

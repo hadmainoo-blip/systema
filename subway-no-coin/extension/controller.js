@@ -54,7 +54,7 @@ export function createController(api, now = Date.now, delay = ms => new Promise(
       session = {tabId:tab.id, config, dry:options.dry === true, controls:options.controls || saved.controls || 'site', checked:-Infinity};
       if(nativeRequested){
         session.backend='native';
-        const nativeOptions={dry:options.dry===true,precision:true,stopOnCoin:options.stopOnCoin??saved.stopOnCoin??true,autoBrake:options.autoBrake??saved.autoBrake??true,hud:options.hud??saved.hud??true};
+        const nativeOptions={dry:options.dry===true,precision:false,stopOnCoin:options.stopOnCoin??saved.stopOnCoin??true,autoBrake:options.autoBrake??saved.autoBrake??true,hud:options.hud??saved.hud??true};
         status={running:true,message:'Waiting for the game to finish loading…',backend:'native',lane,changes:0,frames:0};
         const token=`${Date.now()}-${run}`;
         const expression=`(async()=>{const token=${JSON.stringify(token)};window.__noCoinStartupToken=token;window.__noCoinPilotNative?.stop('Restarting');const until=Date.now()+30000;while(window.__noCoinStartupToken===token){try{(${installLegacyReader.toString()})(${JSON.stringify(legacyProfile)});window.__noCoinPilotReader.snapshot();if(window.__noCoinStartupToken!==token)throw new Error('Startup cancelled');return (${startNativePilot.toString()})(${JSON.stringify(nativeOptions)},${planNative.toString()});}catch(e){window.__noCoinPilotReader?.stop();if(!/not ready|classes do not match/.test(e.message))throw e;if(Date.now()>=until)throw new Error('The game is still loading. Wait for Tap to Play, then start the pilot again.');await new Promise(r=>setTimeout(r,300));}}throw new Error('Startup cancelled');})()`;

@@ -7,7 +7,7 @@ export function startNativePilot(options, planner) {
   const hud=document.createElement('div');hud.id='no-coin-pilot-hud';
   hud.style.cssText='position:fixed;right:12px;top:12px;z-index:2147483647;pointer-events:none;background:#08141fe8;border:1px solid #51d9bc;border-radius:10px;color:#eafaff;font:12px/1.5 system-ui;padding:10px 14px;white-space:pre;max-width:280px;box-shadow:0 4px 24px #0006';
   if(options.hud!==false)document.documentElement.append(hud);
-  let live=true,timer,heartbeat=performance.now(),lastTick=performance.now(),lastAction=-Infinity,nextPlan=0,decision={action:'hold',targetX:0},scene=null,started=null,lastRun=-1;
+  let live=true,timer,heartbeat=performance.now(),lastTick=performance.now(),lastAction=-Infinity,lastChangingAt=-Infinity,nextPlan=0,decision={action:'hold',targetX:0},scene=null,started=null,lastRun=-1;
   let status={running:true,message:options.dry?'Native observation':'Native autopilot armed',lane:1,changes:0,frames:0,backend:'native',reason:'Waiting for a run',collected:0};
   const api={
     ping(){heartbeat=performance.now();return true;},
@@ -38,6 +38,14 @@ export function startNativePilot(options, planner) {
       if(scene.running&&!focused&&!options.dry){pauseAndStop('Game lost focus — run paused');return;}
       if(scene.running&&focused){
         started??=now;
+        if(scene.changing)lastChangingAt=now;
+        // A previous continuous-steering run may have left a persistent lateral
+        // offset. Ordinary commands must not silently keep that off-lane pose.
+        // Let real game lane transitions settle before checking their centers.
+        if(!options.dry&&options.precision!==true&&!scene.changing&&Number.isInteger(scene.lane)&&now-Math.max(lastAction,lastChangingAt)>700&&Math.abs(scene.player.x-(scene.lane-1)*20)>1){
+          status.reason='Character is between lanes — start a fresh run';
+          pauseAndStop('Start a fresh run to reset the lane position');return;
+        }
         if(now>=nextPlan){decision=planner(scene,{precision:options.precision===true,commandDelay:Math.max(0,(180-(now-lastAction))/1000)});nextPlan=now+100;}
         status.reason=decision.reason||'Waiting';status.risk=decision.risk||0;status.imminentRisk=decision.imminentRisk??decision.risk??0;
         if(!options.dry&&options.autoBrake!==false&&(decision.imminentRisk??decision.risk)>0){

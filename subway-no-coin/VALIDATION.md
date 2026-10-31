@@ -1,3 +1,13 @@
+# Validation — current release 0.6.1 (2026-10-31)
+
+Version 0.6.1 changes the built-in controller to ordinary left/right lane changes, jumping and rolling. It always injects `precision:false`, ignores old precision preferences, migrates saved settings to false, and never calls the direct steering motor. A settled off-lane position left over from version 0.6.0 causes an explicit fresh-run/reset pause; normal lane transitions have a settling grace period. Reload the extension and refresh the game tab when upgrading.
+
+**88 Node tests passed**, including regressions for stale precision settings, adjacent/centered planner targets, no direct steering even with an off-center planner target, and the off-lane upgrade guard. Worker and popup browser checks passed. The earlier ordinary-mode live comparison using the same lane planner reached Z497.14, with zero coins/errors, then paused alive after roughly five seconds. This release has no new long-run survival evidence; difficult patterns can trigger early safety pauses.
+
+The continuous-steering results below describe version 0.6.0 and are historical, not the default behavior of 0.6.1. Installed-extension end-to-end testing remains blocked by the cloud browser's administrator policy.
+
+---
+
 # Validation — current release 0.6.0 (2026-10-31)
 
 ## Version 0.6 — ready built-in control

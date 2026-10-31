@@ -55,8 +55,8 @@ try:
             assert not page.evaluate('calls.some(c=>["capture","offscreen"].includes(c.type))')
             page.evaluate('deliver({type:"stop"})')
             # Installation migrates a previous untrained learned choice to the ready controller.
-            page.evaluate('savedSettings.backend="learned";savedSettings.precision=false;chrome.runtime.onInstalled.emit()')
-            page.wait_for_function('savedSettings.backend==="auto" && savedSettings.precision===true')
+            page.evaluate('savedSettings.backend="learned";savedSettings.precision=true;chrome.runtime.onInstalled.emit()')
+            page.wait_for_function('savedSettings.backend==="auto" && savedSettings.precision===false')
             # Even without reinstall, the shortcut resolves that stale setting safely.
             page.evaluate('savedSettings.backend="learned";calls.length=0;chrome.commands.onCommand.emit("toggle-pilot",gameTab)')
             page.wait_for_function('calls.some(c=>c.type==="attach")')
@@ -67,8 +67,8 @@ try:
             # A second toggle must stop, not perform another attachment/restart.
             assert page.evaluate('calls.filter(c=>c.type==="attach").length')==1
             # Existing trained preferences survive update migration.
-            page.evaluate('''async()=>{await store.setMeta('model',{model:{test:true},summary:{inputMode:'visual'}});savedSettings.backend='learned';savedSettings.precision=false;chrome.runtime.onInstalled.emit();}''')
-            page.wait_for_function('savedSettings.precision===true')
+            page.evaluate('''async()=>{await store.setMeta('model',{model:{test:true},summary:{inputMode:'visual'}});savedSettings.backend='learned';savedSettings.precision=true;chrome.runtime.onInstalled.emit();}''')
+            page.wait_for_function('savedSettings.precision===false')
             assert page.evaluate('savedSettings.backend')=='learned'
             # Tab switching stops a running native controller and detaches the debugger.
             page.evaluate('savedSettings.backend="auto";calls.length=0')

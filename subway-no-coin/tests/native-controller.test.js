@@ -7,7 +7,7 @@ test('native exports are never called while Unity is still on its loading splash
 function fixture(t){
   const calls=[];let attachWait=null,tab={id:7,url:'https://ashuni.lol/legacy/sanfrancisco/'};
   const api={
-    storage:{local:{get:async()=>({})}},tabs:{query:async()=>[tab]},
+    storage:{local:{get:async()=>({precision:true})}},tabs:{query:async()=>[tab]},
     action:{setBadgeText:async()=>{},setBadgeBackgroundColor:async()=>{}},
     runtime:{sendMessage:async m=>{calls.push(m);return {ok:true};}},
     offscreen:{hasDocument:async()=>{throw new Error('Native mode must not need offscreen capture');}},
@@ -16,7 +16,7 @@ function fixture(t){
   };
   const pilot=createController(api);t.after(()=>pilot.stop());return {pilot,calls,setUrl:url=>{tab.url=url;},blockAttach:()=>{let resolve;attachWait=new Promise(r=>{resolve=r;});return resolve;}};
 }
-test('built-in startup needs no model, tab capture, offscreen document or training',async t=>{const f=fixture(t);const s=await f.pilot.start();assert.equal(s.running,true);assert.equal(s.backend,'native');const injection=f.calls.find(c=>c.expression?.includes('startNativePilot'));assert.equal(injection.awaitPromise,true);assert.match(injection.expression,/snapshot\(\)/);assert.match(injection.expression,/"precision":true/);});
+test('built-in startup uses normal lanes even when old precision settings are enabled',async t=>{const f=fixture(t);const s=await f.pilot.start();assert.equal(s.running,true);assert.equal(s.backend,'native');const injection=f.calls.find(c=>c.expression?.includes('startNativePilot'));assert.equal(injection.awaitPromise,true);assert.match(injection.expression,/snapshot\(\)/);assert.match(injection.expression,/"precision":false/);});
 test('unsupported pages produce an actionable error before debugger attachment',async t=>{const f=fixture(t);f.setUrl('https://example.com/legacy/sanfrancisco/');await assert.rejects(()=>f.pilot.start(),/ashuni.lol\/legacy\/sanfrancisco/);assert.ok(!f.calls.some(c=>c.type==='attach'));});
 test('Stop during native attachment cancels startup and cleans up the late attachment',async t=>{const f=fixture(t),release=f.blockAttach(),start=f.pilot.start();await new Promise(r=>setTimeout(r,0));assert.ok(f.calls.some(c=>c.type==='attach'));await f.pilot.stop();release();await assert.rejects(start,/cancelled/);assert.equal(f.pilot.status.running,false);assert.ok(!f.calls.some(c=>c.expression?.includes('startNativePilot')));assert.ok(f.calls.some(c=>c.type==='detach'));});
 test('Stop cancels the page startup token before detaching',async t=>{const f=fixture(t);await f.pilot.start();f.calls.length=0;await f.pilot.stop();assert.ok(f.calls.find(c=>c.expression?.includes('__noCoinStartupToken=null')));assert.equal(f.calls.at(-1).type,'detach');});

@@ -1,6 +1,6 @@
-# Optional local visual learning, version 0.6
+# Optional local visual learning, version 0.6.1
 
-The built-in autopilot works without this learning workflow. Choose it in the popup for immediate source-based control with continuous steering. Learned-mode control uses ordinary lane changes, jumps and rolls. The workflow below is optional.
+The built-in autopilot works without this learning workflow. Choose it in the popup for immediate source-based control with normal lane changes, jumps and rolls. Learned-mode control uses ordinary lane changes, jumps and rolls. The workflow below is optional.
 
 This prototype uses a small existing open-source vision backbone and learns a new control policy from your own manual runs. It chooses an action for the current scene; it does not replay your keys on a timer or memorize a route as a macro.
 
@@ -14,7 +14,7 @@ The original quantized model is ~2.7 MB; the pruned feature backbone is ~1.1 MB.
 
 ## Teach it
 
-1. Install/reload extension **0.6.0**, then open `https://ashuni.lol/legacy/sanfrancisco/` in original mode. Old precision steering is disabled.
+1. Install/reload extension **0.6.1**, then open `https://ashuni.lol/legacy/sanfrancisco/` in original mode. Old precision steering is disabled.
 2. Wait for the game to finish loading. Close the extension popup and press **Alt+Shift+R** to arm recording. Start a run and play with your keyboard as usual. The extension badge says **REC**. Recording does not steer, jump, roll or pause for you.
 3. Play several separate runs. Include left/right changes, jumps and rolls—not only straight travel. Two distinct runs are the minimum; 3–5 varied clean runs are a better first dataset. Stop/save with **Alt+Shift+R** or the Stop button. Shortcuts can be assigned at `chrome://extensions/shortcuts`.
 4. Open the popup and check recorded frame/action counts. Select **TRAIN CONTROL MODEL**. Training stops capture and runs locally. It requires examples of all five classes in training and validation, and can be stopped with Stop.

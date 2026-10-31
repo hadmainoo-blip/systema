@@ -29,7 +29,7 @@ chrome.tabs.onRemoved.addListener(id=>{if(learning.tabId===id||pilot.tabId===id)
 chrome.tabs.onActivated.addListener(info=>{if((learning.tabId&&learning.tabId!==info.tabId)||(pilot.tabId&&pilot.tabId!==info.tabId))void stopAll('Switched tabs — stopped');});
 chrome.tabs.onUpdated.addListener((id,change)=>{if(change.status==='loading'&&(learning.tabId===id||pilot.tabId===id))void stopAll('Page navigated — restart recording/control');});
 chrome.commands.onCommand.addListener((name,tab)=>{void command(name,tab).catch(e=>learning.progress({message:e.message}));});
-chrome.runtime.onInstalled.addListener(()=>{void (async()=>{const saved=await chrome.storage.local.get('backend');await chrome.storage.local.set({precision:true,backend:await backendFor(saved.backend)});})();});
+chrome.runtime.onInstalled.addListener(()=>{void (async()=>{const saved=await chrome.storage.local.get('backend');await chrome.storage.local.set({precision:false,backend:await backendFor(saved.backend)});})();});
 chrome.runtime.onMessage.addListener((m,sender,reply)=>{
   if(sender.id!==chrome.runtime.id||m.to==='vision'||m.to==='learner')return;
   const run=async()=>{
