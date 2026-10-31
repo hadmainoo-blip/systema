@@ -1,8 +1,11 @@
 // Bounded motion search using the verified build's live collider bounds.
 export function planNative(scene, settings={}) {
   if(!scene.running)return {action:'hold',targetX:scene.player.x,risk:0,reason:'Waiting for a running game'};
-  const speed=Math.max(1,scene.speed),dt=.1,steps=22,beamWidth=36;
+  // Ordinary commands need to commit farther ahead than direct steering: a
+  // pair of lane changes plus a jump can take over a second to execute.
+  const speed=Math.max(1,scene.speed),dt=.1,steps=settings.precision===false?30:22,beamWidth=36;
   const gravity=Math.max(10,scene.gravity||200),jumpV=Math.sqrt(2*gravity*(scene.jumpHeight||20));
+  const engineStep=Math.max(1/240,Math.min(1/3,scene.engineStep||1/60));
   const body=scene.body||{hx:3,hy:5,hz:3,y:scene.player.y+5.5};
   const baseY=scene.groundY??Math.min(scene.player.y,1),centerOffset=body.y-scene.player.y;
   const targets=settings.precision===false?[-20,0,20]:[-20,-12,-8,0,8,12,20];
@@ -12,7 +15,9 @@ export function planNative(scene, settings={}) {
     const age=Number.isFinite(c.observedAt)&&Number.isFinite(scene.at)?Math.max(0,Math.min(.6,(scene.at-c.observedAt)/1000)):0;
     return {...c,z:c.z+velocityZ*age,velocityZ,weight:1000000};
   })].filter(v=>Math.max(v.z,v.z+v.velocityZ*horizon)+(v.hz||4.5)>=scene.player.z-10&&Math.min(v.z,v.z+v.velocityZ*horizon)-(v.hz||4.5)<=scene.player.z+speed*horizon+20);
+  let collisionTime=Infinity;
   function riskAt(from,to,t){
+    collisionTime=Infinity;
     const standingHy=scene.rolling?Math.max(5,body.hy):body.hy;
     const halfHeight=to.roll>0?Math.min(standingHy,2.5):standingHy;
     const feetOffset=centerOffset-body.hy;
@@ -30,16 +35,17 @@ export function planNative(scene, settings={}) {
       const obstacleZ=v.z+v.velocityZ*start;
       if(axis(from.x-v.x,to.x-v.x,body.hx+(v.hx??4.5)+.2)&&
          axis(z-obstacleZ,z+speed*dt-obstacleZ-v.velocityZ*dt,body.hz+(v.hz??4.5)+.4)&&
-         axis(from.y+feetOffset+halfHeight-v.y,to.y+feetOffset+halfHeight-v.y,halfHeight+(v.hy??4.5)+gravity*dt*dt/8))cost+=v.weight;
+         axis(from.y+feetOffset+halfHeight-v.y,to.y+feetOffset+halfHeight-v.y,halfHeight+(v.hy??4.5)+gravity*dt*dt/8)){cost+=v.weight;collisionTime=Math.min(collisionTime,start+Math.max(0,enter)*dt);}
     }
     return cost;
   }
-  function selectBeam(candidates,keyFor){
-    candidates.sort((a,b)=>a.cost-b.cost);
-    const phases={ground:[],up:[],down:[],roll:[]},unique=new Set();
+  const compare=(a,b)=>Math.min(horizon,b.firstHit??Infinity)-Math.min(horizon,a.firstHit??Infinity)||a.cost-b.cost;
+  function selectBeam(candidates,keyFor,actionDiversity=false){
+    candidates.sort(compare);
+    const phases={},unique=new Set();
     for(const s of candidates){
       const key=keyFor(s);if(unique.has(key))continue;unique.add(key);
-      const phase=s.roll>0?'roll':s.y<=baseY+.9&&s.vy<=0?'ground':s.vy>0?'up':'down';phases[phase].push(s);
+      const phase=(s.roll>0?'roll':s.y<=baseY+.9&&s.vy<=0?'ground':s.vy>0?'up':'down')+(actionDiversity?`:${s.first}`:'');(phases[phase]??=[]).push(s);
     }
     // Retain possible takeoffs before reaching an obstacle. A purely cost-sorted
     // beam fills with cheap ground paths and discards every timely jump.
@@ -48,17 +54,17 @@ export function planNative(scene, settings={}) {
       let added=false;for(const group of groups)if(group[rank]){selected.push(group[rank]);added=true;if(selected.length===beamWidth)break;}
       if(!added)break;
     }
-    return selected.sort((a,b)=>a.cost-b.cost);
+    return selected.sort(compare);
   }
   if(settings.precision===false){
     // The ordinary controller can issue one game command at a time. Keep the
     // simulation executable: a first-step jump may not secretly change lanes.
-    const lane=Number.isInteger(scene.lane)?Math.max(0,Math.min(2,scene.lane)):Math.max(0,Math.min(2,Math.round(scene.player.x/20)+1));
+    const lane=Number.isInteger(settings.pendingLane)&&settings.pendingLane>=0&&settings.pendingLane<=2?settings.pendingLane:Number.isInteger(scene.lane)?Math.max(0,Math.min(2,scene.lane)):Math.max(0,Math.min(2,Math.round(scene.player.x/20)+1));
     // The game motor eases normal lane transitions; they do not have the
     // precision-steering motor's 100-unit/s movement. Use a conservative bound.
     const laneSpeed=50;
     if(!items.length)return {action:'hold',targetX:(lane-1)*20,risk:0,imminentRisk:0,cost:0,reason:'Clear road ahead'};
-    const initial={x:scene.player.x,y:scene.player.y,vy:scene.verticalSpeed||0,lane,roll:scene.rolling?.35:0,wait:Math.max(0,Math.min(.5,settings.commandDelay||0)),cost:0,risk:0,imminentRisk:0,first:'hold',firstX:(lane-1)*20};
+    const initial={x:scene.player.x,y:scene.player.y,vy:scene.verticalSpeed||0,lane,roll:scene.rolling?.35:0,wait:Math.max(0,Math.min(.5,settings.commandDelay||0)),cost:0,risk:0,imminentRisk:0,firstHit:Infinity,first:'hold',firstX:(lane-1)*20};
     let beam=[initial];
     for(let step=0;step<steps;step++){
       const candidates=[];
@@ -76,20 +82,21 @@ export function planNative(scene, settings={}) {
           if(action!=='hold'){s.wait=.2;s.cost+=(action==='left'||action==='right'?.06:.12)+step*.006;}
           const target=(s.lane-1)*20;
           s.x+=Math.sign(target-s.x)*Math.min(Math.abs(target-s.x),laneSpeed*dt);
-          s.y+=s.vy*dt-.5*gravity*dt*dt;s.vy-=gravity*dt;
+          s.y+=s.vy*dt-.5*gravity*dt*dt-.5*gravity*engineStep*dt;s.vy-=gravity*dt;
           if(s.y<baseY){s.y=baseY;s.vy=0;}
           s.roll=Math.max(0,s.roll-dt);if(s.roll<.001)s.roll=0;s.wait=Math.max(0,s.wait-dt);
           const risk=riskAt(state,s,(step+.5)*dt);s.risk+=risk;
+          s.firstHit=Math.min(state.firstHit,collisionTime);
           if(step<5)s.imminentRisk+=risk;
           s.cost+=risk*(1-step/(steps*2))+Math.abs(s.x-state.x)*.001;
           if(step===0){s.first=action;s.firstX=target;}
           candidates.push(s);
         }
       }
-      beam=selectBeam(candidates,s=>`${s.lane}:${Math.round(s.x/5)}:${Math.round(s.y/3)}:${Math.round(s.vy/20)}:${Math.round(s.roll*10)}:${s.first}`);
+      beam=selectBeam(candidates,s=>`${s.lane}:${Math.round(s.x/5)}:${Math.round(s.y/3)}:${Math.round(s.vy/20)}:${Math.round(s.roll*10)}:${s.first}`,true);
     }
     const best=beam[0];
-    return {action:best.first,targetX:best.firstX,risk:best.risk,imminentRisk:best.imminentRisk,cost:best.cost,reason:best.imminentRisk?'No safe immediate path':best.risk?'Danger further ahead':best.first==='hold'?'Clear predicted path':`Avoiding danger: ${best.first}`};
+    return {action:best.first,targetX:best.firstX,risk:best.risk,imminentRisk:best.imminentRisk,collisionIn:best.firstHit,cost:best.cost,reason:best.risk?`Trying best route: ${best.first}`:best.first==='hold'?'Clear predicted path':`Avoiding danger: ${best.first}`};
   }
   // Prefer an already-clear corridor and commit early, rather than postponing
   // every lane change to the next search step under receding-horizon ties.

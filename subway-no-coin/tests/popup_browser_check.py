@@ -17,6 +17,7 @@ try:
             assert page.locator('#backend').input_value()=='auto'
             assert page.locator('#precision').count()==0
             assert page.locator('#start').is_visible()
+            assert not page.locator('#autoBrake').is_checked()
             assert page.locator('#backend option[value=learned]').evaluate('(o)=>o.disabled'), (errors,page.locator('#dataset').inner_text())
             page.locator('#learning summary').click()
             assert page.locator('#record').is_visible() and page.locator('#train').is_visible()

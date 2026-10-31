@@ -1,10 +1,10 @@
 import {defaults,validate,laneX} from './core.js';
 import {allSamples,getMeta,clearSamples} from './learning-store.js';
-import {selectBackend} from './runtime-settings.js';
+import {selectBackend,autoBrakeEnabled} from './runtime-settings.js';
 const $=id=>document.getElementById(id), fields=['left','top','right','bottom','horizon','feet','center','spread','lookahead','coinWeight','obstacleWeight','cooldown'];
-const saved=await chrome.storage.local.get(['config','lane','autoCrop','controls','backend','precision','stopOnCoin','autoBrake','hud']);
+const saved=await chrome.storage.local.get(['config','lane','autoCrop','controls','backend','precision','stopOnCoin','autoBrake','brakingPolicy','hud']);
 for (const key of fields) {const label=document.createElement('label');label.textContent=key;const input=document.createElement('input');input.type='number';input.step=key==='cooldown'?'10':'.01';input.id=key;input.value=(saved.config||defaults)[key]??defaults[key];label.append(input);$('fields').append(label);}
-$('lane').value=String(saved.lane??1);$('autoCrop').checked=saved.autoCrop??true;$('controls').value=saved.controls||'site';$('backend').value='auto';for(const k of ['stopOnCoin','autoBrake','hud'])$(k).checked=saved[k]??true;
+$('lane').value=String(saved.lane??1);$('autoCrop').checked=saved.autoCrop??true;$('controls').value=saved.controls||'site';$('backend').value='auto';for(const k of ['stopOnCoin','hud'])$(k).checked=saved[k]??true;$('autoBrake').checked=autoBrakeEnabled(saved);
 
 function showStats(s){if(!s?.counts)return;const noMoves=s.samples>5&&['left','right','jump','roll'].every(a=>!s.counts[a]);$('dataset').textContent=`${s.samples} saved frames · ${s.episodes} runs\n${Object.entries(s.counts).map(([k,v])=>`${k}: ${v}`).join(' · ')}${noMoves?'\nNo movement labels yet. If these are old broken recordings, export/clear them and record again.':''}`;$('model').textContent=s.model?`Held-out run macro F1: ${(s.model.validation.macroF1*100).toFixed(1)}% (not a gameplay success rate)`:'Control model not trained yet';}
 const initialStats=await chrome.runtime.sendMessage({type:'learning-stats'}).catch(()=>null);showStats(initialStats);
@@ -17,7 +17,7 @@ $('clear').onclick=async()=>{if(!confirm('Delete all locally saved runs and the 
 $('export').onclick=async()=>{try{const samples=await allSamples(),model=(await getMeta('model'))?.value;const data={format:'no-coin-learning-v1',model,samples:samples.map(s=>{const bytes=new Uint8Array(s.features.buffer,s.features.byteOffset,s.features.byteLength);return {...s,features:undefined,float32Base64:btoa(String.fromCharCode(...bytes))};})};const url=URL.createObjectURL(new Blob([JSON.stringify(data)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='no-coin-training.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}catch(e){$('status').textContent=e.message;}};
 
 function read(){return validate(Object.fromEntries(fields.map(key=>[key,Number($(key).value)])));}
-async function save(){const settings={config:read(),lane:Number($('lane').value),autoCrop:$('autoCrop').checked,controls:$('controls').value,backend:$('backend').value,precision:false,stopOnCoin:$('stopOnCoin').checked,autoBrake:$('autoBrake').checked,hud:$('hud').checked};await chrome.storage.local.set(settings);return settings;}
+async function save(){const settings={config:read(),lane:Number($('lane').value),autoCrop:$('autoCrop').checked,controls:$('controls').value,backend:$('backend').value,precision:false,stopOnCoin:$('stopOnCoin').checked,autoBrake:$('autoBrake').checked,brakingPolicy:2,hud:$('hud').checked};await chrome.storage.local.set(settings);return settings;}
 $('save').onclick=async()=>{try{await save();$('status').textContent='Saved. Close popup, resume game, press Alt+Shift+P.';}catch(e){$('status').textContent=e.message;}};
 $('start').onclick=async()=>{try{const settings=await save();const s=await chrome.runtime.sendMessage({type:'start',...settings,dry:$('dry').checked});if(s.error)$('status').textContent=s.error;else window.close();}catch(e){$('status').textContent=e.message;}};
 $('stop').onclick=()=>chrome.runtime.sendMessage({type:'stop'});

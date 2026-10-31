@@ -55,8 +55,8 @@ try:
             assert not page.evaluate('calls.some(c=>["capture","offscreen"].includes(c.type))')
             page.evaluate('deliver({type:"stop"})')
             # Installation migrates a previous untrained learned choice to the ready controller.
-            page.evaluate('savedSettings.backend="learned";savedSettings.precision=true;chrome.runtime.onInstalled.emit()')
-            page.wait_for_function('savedSettings.backend==="auto" && savedSettings.precision===false')
+            page.evaluate('savedSettings.backend="learned";savedSettings.precision=true;savedSettings.autoBrake=true;chrome.runtime.onInstalled.emit()')
+            page.wait_for_function('savedSettings.backend==="auto" && savedSettings.precision===false && savedSettings.autoBrake===false && savedSettings.brakingPolicy===2')
             # Even without reinstall, the shortcut resolves that stale setting safely.
             page.evaluate('savedSettings.backend="learned";calls.length=0;chrome.commands.onCommand.emit("toggle-pilot",gameTab)')
             page.wait_for_function('calls.some(c=>c.type==="attach")')

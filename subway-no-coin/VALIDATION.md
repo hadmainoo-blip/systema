@@ -1,3 +1,17 @@
+# Validation — current release 0.6.2 (2026-10-31)
+
+Predictive pausing is now **opt-in and off by default**. Older default-on settings migrate off once; a deliberate new checkbox choice is preserved. The pilot attempts its chosen command before considering opt-in emergency braking, which is restricted to immediately approaching danger. Manual stop, death, collected-coin stop, focus-loss and sensor/disconnect handling remain active. Between-lane steering stays disabled.
+
+Two planning defects were corrected: accepted lane-change targets are retained while the native lane/world cache is stale, and jump simulation accounts for semi-implicit engine gravity using a motion-derived frame-step estimate. The search preserves different initial actions, ranks collision-free time before aggregate collision weights, and looks farther ahead for ordinary commands. These are bounded model predictions, not guaranteed optimal routes.
+
+- **94 Node tests passed**, including default-off/upgrade braking behavior, executable escape commands, pending lane targets, and low-frame-rate jump clearance. Worker and popup browser checks passed.
+- A previous no-brake baseline collected a coin at Z161.64 after approximately two seconds. New ordinary-mode trials made multiple movement attempts: one reached Z611.33 before collecting a coin; another reached Z603.82 with zero coins but died; a further trial collected a coin at Z164.99. Different layouts were generated, so these are not paired performance comparisons. **All three new live trials failed a sustained no-coin objective.** They did not stop due to speculative path risk.
+- These failures are retained as failures. Removing frequent forecast pauses does not demonstrate reliable dodging or long-duration survival. The cloud game rendered at about 9 engine FPS; actual user-machine performance remains unmeasured. Installed-extension end-to-end testing is still blocked by the cloud administrator policy.
+
+Reproduce ordinary default behavior with `python tests/live_native_check.py --seconds 45 --width 240 --height 400 --output ../work/live-result.json`. Use `--auto-brake` only to exercise optional emergency braking. The test exits with failure for coin collection/death even though the controller now continues attempting moves through forecast uncertainty.
+
+---
+
 # Validation — current release 0.6.1 (2026-10-31)
 
 Version 0.6.1 changes the built-in controller to ordinary left/right lane changes, jumping and rolling. It always injects `precision:false`, ignores old precision preferences, migrates saved settings to false, and never calls the direct steering motor. A settled off-lane position left over from version 0.6.0 causes an explicit fresh-run/reset pause; normal lane transitions have a settling grace period. Reload the extension and refresh the game tab when upgrading.

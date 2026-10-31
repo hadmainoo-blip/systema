@@ -1,4 +1,4 @@
-# Optional local visual learning, version 0.6.1
+# Optional local visual learning, version 0.6.2
 
 The built-in autopilot works without this learning workflow. Choose it in the popup for immediate source-based control with normal lane changes, jumps and rolls. Learned-mode control uses ordinary lane changes, jumps and rolls. The workflow below is optional.
 
@@ -14,7 +14,7 @@ The original quantized model is ~2.7 MB; the pruned feature backbone is ~1.1 MB.
 
 ## Teach it
 
-1. Install/reload extension **0.6.1**, then open `https://ashuni.lol/legacy/sanfrancisco/` in original mode. Old precision steering is disabled.
+1. Install/reload extension **0.6.2**, then open `https://ashuni.lol/legacy/sanfrancisco/` in original mode. Old precision steering is disabled.
 2. Wait for the game to finish loading. Close the extension popup and press **Alt+Shift+R** to arm recording. Start a run and play with your keyboard as usual. The extension badge says **REC**. Recording does not steer, jump, roll or pause for you.
 3. Play several separate runs. Include left/right changes, jumps and rolls—not only straight travel. Two distinct runs are the minimum; 3–5 varied clean runs are a better first dataset. Stop/save with **Alt+Shift+R** or the Stop button. Shortcuts can be assigned at `chrome://extensions/shortcuts`.
 4. Open the popup and check recorded frame/action counts. Select **TRAIN CONTROL MODEL**. Training stops capture and runs locally. It requires examples of all five classes in training and validation, and can be stopped with Stop.
@@ -64,3 +64,5 @@ Features, action labels, episode IDs/timestamps, video annotation provenance and
 Automated checks exercise actual packaged model inference in Chromium, spatial feature response, trusted-key capture excluding text inputs, local dataset persistence/tail trimming, training, and model reload. A synthetic image classification check passed after a feature-normalization correction. These are pipeline checks, not human-gameplay results.
 
 **No real gameplay demonstrations have been processed here, and no trained Subway Surfers policy is shipped.** The installed-extension capture/shortcut path is not end-to-end verified in this cloud browser because its administrator policy blocks unpacked extensions. The vision, recorder, video-import and learning pipelines were tested through local Chromium pages. Real game performance and laptop speed remain to be evaluated on the user's recordings and browser.
+
+Version 0.6.2 also tracks lane changes already in progress and adjusts jump clearance to observed engine frame timing. These fixes remove frequent forecast-based interruptions, but do not establish reliable long-run no-coin play.

@@ -1,8 +1,8 @@
 """Bounded real-game validation of packaged functions; not installed-extension coverage.
 
-python tests/live_native_check.py --seconds 60 --precision --output ../work/live-result.json
-Use --precision for the shipped source-controller default; omit it to compare
-ordinary lane changes/jumps/rolls. Precision uses native lateral steering.
+python tests/live_native_check.py --seconds 60 --output ../work/live-result.json
+The shipped default uses normal lane commands and does not pause on forecasts.
+Use --auto-brake to test opt-in emergency braking; --precision is a legacy comparison.
 No counter or collision modifications.
 Reports survival, death, safety pause and coin collection as distinct outcomes.
 """
@@ -15,7 +15,8 @@ from playwright.sync_api import sync_playwright
 parser=argparse.ArgumentParser()
 parser.add_argument('--seconds',type=int,default=45)
 parser.add_argument('--output',default='../work/no-coin-live-result.json')
-parser.add_argument('--no-auto-brake',action='store_true')
+parser.add_argument('--no-auto-brake',action='store_true',help='Explicitly keep predictive braking off (default)')
+parser.add_argument('--auto-brake',action='store_true',help='Enable opt-in emergency predictive braking')
 parser.add_argument('--width',type=int,default=360)
 parser.add_argument('--height',type=int,default=640)
 parser.add_argument('--precision',action='store_true',help='Compare native continuous steering; default uses ordinary lane commands')
@@ -26,16 +27,16 @@ parts=[]
 for name in ['legacy-profile','native-reader','native-pilot','native-planner']:
     source=(root/(name+'.js')).read_text()
     parts.append(source.replace('export const','const',1).replace('export function','function',1))
-options={'precision':args.precision,'autoBrake':not args.no_auto_brake,'stopOnCoin':True}
+options={'precision':args.precision,'autoBrake':args.auto_brake and not args.no_auto_brake,'stopOnCoin':True}
 expression='()=>{'+''.join(parts)+"""
 installLegacyReader(legacyProfile);
 window.__liveActions=[];
 window.__liveGameFlags=()=>{const m=window.unityGame.Module,game=(m.asm.dynCall_ii||m.dynCall_ii)(legacyProfile.gameInstance,0);return {paused:!!m.HEAPU8[game+legacyProfile.gamePaused],dead:!!m.HEAPU8[game+legacyProfile.gameDead]};};
 const reader=window.__noCoinPilotReader,originalAct=reader.act,originalSnapshot=reader.snapshot;
 window.__liveMotion=[];window.__livePlans=[];
-reader.snapshot=()=>{const s=originalSnapshot();window.__liveMotion.push({at:performance.now(),player:s.player,lane:s.lane,changing:s.changing,jumping:s.jumping,rolling:s.rolling,verticalSpeed:s.verticalSpeed,speed:s.speed,groundY:s.groundY,body:s.body});if(window.__liveMotion.length>3000)window.__liveMotion.shift();return s;};
+reader.snapshot=()=>{const s=originalSnapshot();window.__liveMotion.push({at:performance.now(),player:s.player,lane:s.lane,changing:s.changing,jumping:s.jumping,rolling:s.rolling,verticalSpeed:s.verticalSpeed,engineStep:s.engineStep,speed:s.speed,groundY:s.groundY,body:s.body});if(window.__liveMotion.length>3000)window.__liveMotion.shift();return s;};
 reader.act=action=>{const before=reader.snapshot(),accepted=originalAct(action);if(accepted)window.__liveActions.push({action,at:performance.now(),player:before.player,lane:before.lane,changing:before.changing,jumping:before.jumping,rolling:before.rolling,verticalSpeed:before.verticalSpeed});return accepted;};
-window.__livePlan=(scene,settings)=>{const decision=planNative(scene,settings);window.__liveLastPlan={scene,decision};window.__livePlans.push(window.__liveLastPlan);if(window.__livePlans.length>40)window.__livePlans.shift();return decision;};
+window.__livePlan=(scene,settings)=>{const decision=planNative(scene,settings);window.__liveLastPlan={scene,settings,decision};window.__livePlans.push(window.__liveLastPlan);if(window.__livePlans.length>40)window.__livePlans.shift();return decision;};
 window.__startLivePilot=()=>startNativePilot("""+json.dumps(options)+",window.__livePlan);return true;}"
 with sync_playwright() as p:
     proxy=os.environ.get('HTTPS_PROXY')
