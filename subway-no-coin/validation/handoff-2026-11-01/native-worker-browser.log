@@ -1,0 +1,4 @@
+PASS: production planner runs in a real Worker and issues an ordinary lane move
+PASS: Stop during search prevents late movement; game-thread timers remain responsive
+PASS: an outstanding answer from the previous run is discarded
+PASS: a failed Worker falls back to the supplied planner without a leaked page error

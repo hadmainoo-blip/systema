@@ -43,11 +43,17 @@ export function combineFeatures(vision,previous,scene) {
   out.set(vision);for(let i=0;i<vision.length;i++)out[vision.length+i]=vision[i]-(previous?.[i]??vision[i]);out.set(state,vision.length*2);return out;
 }
 
+export function prepareTrainingSamples(samples){
+  const inputMode=samples.some(s=>s.source?.kind==='video')?'visual':'hybrid';
+  return {inputMode,samples:inputMode==='hybrid'?samples:samples.map(s=>{const features=Float32Array.from(s.features);features.fill(0,features.length-64);return {...s,features};})};
+}
+
+export const ACTION_LOOKBACK_MS=1000;
 export function assignEvents(pending,events) {
   for(const event of events){
     if(!ACTIONS.includes(event.action)||event.action==='hold')continue;
     let candidate=null;
-    for(const frame of pending)if(frame.at<=event.at&&event.at-frame.at<=250&&(!candidate||frame.at>candidate.at))candidate=frame;
+    for(const frame of pending)if(frame.at<=event.at&&event.at-frame.at<=ACTION_LOOKBACK_MS&&(!candidate||frame.at>candidate.at))candidate=frame;
     if(candidate){if(candidate.label&&candidate.label!==event.action)candidate.conflict=true;else candidate.label=event.action;}
   }
 }

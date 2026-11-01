@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {REFERENCE_RUN,validateVideoPlan,videoSample} from '../extension/video-core.js';
+import {splitEpisodes} from '../extension/learning-core.js';
+const plan={sourceId:REFERENCE_RUN.id,start:23,end:100,crop:{left:0,top:0,right:1,bottom:1},annotations:[{time:24,action:'jump'}]};
+test('requested run links its actual video and starts at 00:23',()=>{assert.equal(REFERENCE_RUN.start,23);assert.match(REFERENCE_RUN.videoUrl,/dkfO-fIHAuE.*23s/);});
+test('unlabelled footage never becomes hold training data',()=>assert.throws(()=>validateVideoPlan({...plan,annotations:[]}),/unlabelled footage is skipped/));
+test('labels before 00:23 and invalid actions are rejected',()=>{assert.throws(()=>validateVideoPlan({...plan,annotations:[{time:22.9,action:'hold'}]}),/inside/);assert.throws(()=>validateVideoPlan({...plan,annotations:[{time:24,action:'unknown'}]}),/action/);});
+test('invalid crop and duplicate conflicting timestamps are rejected',()=>{assert.throws(()=>validateVideoPlan({...plan,crop:{left:.5,top:0,right:.4,bottom:1}}),/Crop/);assert.throws(()=>validateVideoPlan({...plan,annotations:[{time:24,action:'jump'},{time:24,action:'roll'}]}),/one action/);});
+test('clips from one original run keep the same episode and cannot fake independent validation',()=>{const p=validateVideoPlan(plan),a=videoSample(p,p.annotations[0],new Float32Array(640)),b=videoSample({...p,start:50},{time:55,action:'roll'},new Float32Array(640));assert.equal(a.episode,b.episode);assert.equal(a.source.labelMethod,'manual');assert.throws(()=>splitEpisodes([a,b]),/two separate runs/);});
+test('video feature dimensions and nonfinite values are rejected',()=>{assert.throws(()=>videoSample(plan,plan.annotations[0],new Float32Array(639)),/Invalid/);const f=new Float32Array(640);f[0]=NaN;assert.throws(()=>videoSample(plan,plan.annotations[0],f),/Invalid/);});

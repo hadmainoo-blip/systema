@@ -1,0 +1,5299 @@
+{
+  "scene": {
+    "source": "ashuni-legacy-sanfrancisco-1.94",
+    "running": true,
+    "paused": false,
+    "dead": false,
+    "runId": 0,
+    "collected": 0,
+    "lane": 1,
+    "targetLane": 1,
+    "lanePosition": 1,
+    "player": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "gamePosition": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "speed": 110,
+    "engineStep": 0.016666666666666666,
+    "changing": false,
+    "jumping": false,
+    "rolling": false,
+    "gravity": 200,
+    "jumpHeight": 20,
+    "verticalSpeed": 0,
+    "groundY": 0,
+    "body": {
+      "x": 0,
+      "y": 5.5,
+      "z": 1,
+      "hx": 3.000000238418579,
+      "hy": 5,
+      "hz": 3,
+      "shape": "CapsuleCollider"
+    },
+    "coins": [
+      {
+        "id": 57489344,
+        "x": -10,
+        "y": 6,
+        "z": 240,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 57488384,
+        "x": -20,
+        "y": 6,
+        "z": 255,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 57487424,
+        "x": -20,
+        "y": 6,
+        "z": 285,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 57568384,
+        "x": -10,
+        "y": 6,
+        "z": 300,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 57567424,
+        "x": 0,
+        "y": 6,
+        "z": 225,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 57566464,
+        "x": 0,
+        "y": 6,
+        "z": 315,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 57565504,
+        "x": 0,
+        "y": 6,
+        "z": 345,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      }
+    ],
+    "obstacles": [
+      {
+        "id": 56154464,
+        "x": -20,
+        "y": 15.200000762939453,
+        "z": 121,
+        "hx": 8.5,
+        "hy": 14,
+        "hz": 59,
+        "name": "train_sub_2_group",
+        "tag": "HitTrain",
+        "shape": "BoxCollider",
+        "trigger": false,
+        "kind": "obstacle",
+        "velocityZ": 0,
+        "observedAt": 6518.200000000186
+      },
+      {
+        "id": 56154448,
+        "x": -20,
+        "y": 15.200000762939453,
+        "z": 0,
+        "hx": 8.5,
+        "hy": 14,
+        "hz": 58.5,
+        "name": "trains",
+        "tag": "Untagged",
+        "shape": "BoxCollider",
+        "trigger": false,
+        "kind": "obstacle",
+        "velocityZ": 0,
+        "observedAt": 6518.200000000186
+      },
+      {
+        "id": 56154416,
+        "x": 20,
+        "y": 15.200000762939453,
+        "z": 91,
+        "hx": 8.5,
+        "hy": 14,
+        "hz": 88,
+        "name": "trains_3_group",
+        "tag": "HitTrain",
+        "shape": "BoxCollider",
+        "trigger": false,
+        "kind": "obstacle",
+        "velocityZ": 0,
+        "observedAt": 6518.200000000186
+      }
+    ],
+    "samples": 96,
+    "errors": 0,
+    "lastError": "",
+    "at": 6518.200000000186
+  },
+  "rows": [
+    {
+      "x": -20,
+      "z": 0,
+      "point": [
+        -20,
+        0.6000003814697266,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 56154400,
+      "name": "Ground",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 0,
+      "point": [
+        -20,
+        29.200000762939453,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 0,
+      "point": [
+        -20,
+        0.6000003814697266,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 5,
+      "point": [
+        -20,
+        29.200000762939453,
+        5
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 5,
+      "point": [
+        -20,
+        0.6000003814697266,
+        5
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 10,
+      "point": [
+        -20,
+        29.200000762939453,
+        10
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 10,
+      "point": [
+        -20,
+        0.6000003814697266,
+        10
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 15,
+      "point": [
+        -20,
+        29.200000762939453,
+        15
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 15,
+      "point": [
+        -20,
+        0.6000003814697266,
+        15
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 20,
+      "point": [
+        -20,
+        29.200000762939453,
+        20
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 20,
+      "point": [
+        -20,
+        0.6000003814697266,
+        20
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 25,
+      "point": [
+        -20,
+        29.200000762939453,
+        25
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 25,
+      "point": [
+        -20,
+        0.6000003814697266,
+        25
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 30,
+      "point": [
+        -20,
+        29.200000762939453,
+        30
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 30,
+      "point": [
+        -20,
+        0.6000003814697266,
+        30
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 35,
+      "point": [
+        -20,
+        29.200000762939453,
+        35
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 35,
+      "point": [
+        -20,
+        0.6000003814697266,
+        35
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 40,
+      "point": [
+        -20,
+        29.200000762939453,
+        40
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 40,
+      "point": [
+        -20,
+        0.6000003814697266,
+        40
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 45,
+      "point": [
+        -20,
+        29.200000762939453,
+        45
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 45,
+      "point": [
+        -20,
+        0.6000003814697266,
+        45
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 50,
+      "point": [
+        -20,
+        29.200000762939453,
+        50
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 50,
+      "point": [
+        -20,
+        0.6000003814697266,
+        50
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 55,
+      "point": [
+        -20,
+        29.200000762939453,
+        55
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154448,
+      "name": "trains",
+      "tag": "Untagged"
+    },
+    {
+      "x": -20,
+      "z": 55,
+      "point": [
+        -20,
+        0.6000003814697266,
+        55
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 60,
+      "point": [
+        -20,
+        0.6000003814697266,
+        60
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 65,
+      "point": [
+        -20,
+        29.200000762939453,
+        65
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 65,
+      "point": [
+        -20,
+        0.6000003814697266,
+        65
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 70,
+      "point": [
+        -20,
+        29.200000762939453,
+        70
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 70,
+      "point": [
+        -20,
+        0.6000003814697266,
+        70
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 75,
+      "point": [
+        -20,
+        29.200000762939453,
+        75
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 75,
+      "point": [
+        -20,
+        0.6000003814697266,
+        75
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 80,
+      "point": [
+        -20,
+        29.200000762939453,
+        80
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 80,
+      "point": [
+        -20,
+        0.6000003814697266,
+        80
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 85,
+      "point": [
+        -20,
+        29.200000762939453,
+        85
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 85,
+      "point": [
+        -20,
+        0.6000003814697266,
+        85
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 90,
+      "point": [
+        -20,
+        29.200000762939453,
+        90
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 90,
+      "point": [
+        -20,
+        0.6000003814697266,
+        90
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 95,
+      "point": [
+        -20,
+        29.200000762939453,
+        95
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 95,
+      "point": [
+        -20,
+        0.6000003814697266,
+        95
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 100,
+      "point": [
+        -20,
+        29.200000762939453,
+        100
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 100,
+      "point": [
+        -20,
+        0.6000003814697266,
+        100
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 105,
+      "point": [
+        -20,
+        29.200000762939453,
+        105
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 105,
+      "point": [
+        -20,
+        0.6000003814697266,
+        105
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 110,
+      "point": [
+        -20,
+        29.200000762939453,
+        110
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 110,
+      "point": [
+        -20,
+        0.6000003814697266,
+        110
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 115,
+      "point": [
+        -20,
+        29.200000762939453,
+        115
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 115,
+      "point": [
+        -20,
+        0.6000003814697266,
+        115
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 120,
+      "point": [
+        -20,
+        29.200000762939453,
+        120
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 120,
+      "point": [
+        -20,
+        0.6000003814697266,
+        120
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 125,
+      "point": [
+        -20,
+        29.200000762939453,
+        125
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 125,
+      "point": [
+        -20,
+        0.6000003814697266,
+        125
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 130,
+      "point": [
+        -20,
+        29.200000762939453,
+        130
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 130,
+      "point": [
+        -20,
+        0.6000003814697266,
+        130
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 135,
+      "point": [
+        -20,
+        29.200000762939453,
+        135
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 135,
+      "point": [
+        -20,
+        0.6000003814697266,
+        135
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 140,
+      "point": [
+        -20,
+        29.200000762939453,
+        140
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 140,
+      "point": [
+        -20,
+        0.6000003814697266,
+        140
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 145,
+      "point": [
+        -20,
+        29.200000762939453,
+        145
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 145,
+      "point": [
+        -20,
+        0.6000003814697266,
+        145
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 150,
+      "point": [
+        -20,
+        29.200000762939453,
+        150
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 150,
+      "point": [
+        -20,
+        0.6000003814697266,
+        150
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 155,
+      "point": [
+        -20,
+        29.200000762939453,
+        155
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 155,
+      "point": [
+        -20,
+        0.6000003814697266,
+        155
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 160,
+      "point": [
+        -20,
+        29.200000762939453,
+        160
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 160,
+      "point": [
+        -20,
+        0.6000003814697266,
+        160
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 165,
+      "point": [
+        -20,
+        29.200000762939453,
+        165
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 165,
+      "point": [
+        -20,
+        0.6000003814697266,
+        165
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 170,
+      "point": [
+        -20,
+        29.200000762939453,
+        170
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 170,
+      "point": [
+        -20,
+        0.6000003814697266,
+        170
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 175,
+      "point": [
+        -20,
+        29.200000762939453,
+        175
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 175,
+      "point": [
+        -20,
+        0.6000003814697266,
+        175
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 180,
+      "point": [
+        -20,
+        29.200000762939453,
+        180
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154464,
+      "name": "train_sub_2_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": -20,
+      "z": 180,
+      "point": [
+        -20,
+        0.6000003814697266,
+        180
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 185,
+      "point": [
+        -20,
+        0.6000003814697266,
+        185
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 190,
+      "point": [
+        -20,
+        0.6000003814697266,
+        190
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 195,
+      "point": [
+        -20,
+        0.6000003814697266,
+        195
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 200,
+      "point": [
+        -20,
+        0.6000003814697266,
+        200
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 205,
+      "point": [
+        -20,
+        0.6000003814697266,
+        205
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 210,
+      "point": [
+        -20,
+        0.6000003814697266,
+        210
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 215,
+      "point": [
+        -20,
+        0.6000003814697266,
+        215
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 220,
+      "point": [
+        -20,
+        0.6000003814697266,
+        220
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 225,
+      "point": [
+        -20,
+        0.6000003814697266,
+        225
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 230,
+      "point": [
+        -20,
+        0.6000003814697266,
+        230
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 235,
+      "point": [
+        -20,
+        0.6000003814697266,
+        235
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 240,
+      "point": [
+        -20,
+        0.6000003814697266,
+        240
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 245,
+      "point": [
+        -20,
+        0.6000003814697266,
+        245
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 250,
+      "point": [
+        -20,
+        0.6000003814697266,
+        250
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 255,
+      "point": [
+        -20,
+        0.6000003814697266,
+        255
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 260,
+      "point": [
+        -20,
+        0.6000003814697266,
+        260
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 265,
+      "point": [
+        -20,
+        0.6000003814697266,
+        265
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 270,
+      "point": [
+        -20,
+        0.6000003814697266,
+        270
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 275,
+      "point": [
+        -20,
+        0.6000003814697266,
+        275
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 280,
+      "point": [
+        -20,
+        0.6000003814697266,
+        280
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 285,
+      "point": [
+        -20,
+        0.6000003814697266,
+        285
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 290,
+      "point": [
+        -20,
+        0.6000003814697266,
+        290
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 295,
+      "point": [
+        -20,
+        0.6000003814697266,
+        295
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 300,
+      "point": [
+        -20,
+        0.6000003814697266,
+        300
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 305,
+      "point": [
+        -20,
+        0.6000003814697266,
+        305
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 310,
+      "point": [
+        -20,
+        0.6000003814697266,
+        310
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 315,
+      "point": [
+        -20,
+        0.6000003814697266,
+        315
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 320,
+      "point": [
+        -20,
+        0.6000003814697266,
+        320
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 325,
+      "point": [
+        -20,
+        0.6000003814697266,
+        325
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 330,
+      "point": [
+        -20,
+        0.6000003814697266,
+        330
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 335,
+      "point": [
+        -20,
+        0.6000003814697266,
+        335
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 340,
+      "point": [
+        -20,
+        0.6000003814697266,
+        340
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": -20,
+      "z": 345,
+      "point": [
+        -20,
+        0.6000003814697266,
+        345
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 0,
+      "point": [
+        0,
+        8.100006103515625,
+        0
+      ],
+      "normal": [
+        -1.4901104350428795e-07,
+        1,
+        0
+      ],
+      "distance": 141.89999389648438,
+      "collider": 48698928,
+      "name": "Character",
+      "tag": "Untagged"
+    },
+    {
+      "x": 0,
+      "z": 0,
+      "point": [
+        0,
+        0.6000003814697266,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 56154400,
+      "name": "Ground",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 0,
+      "point": [
+        0,
+        0.6000003814697266,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 5,
+      "point": [
+        0,
+        0.6000003814697266,
+        5
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 10,
+      "point": [
+        0,
+        0.6000003814697266,
+        10
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 15,
+      "point": [
+        0,
+        0.6000003814697266,
+        15
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 20,
+      "point": [
+        0,
+        0.6000003814697266,
+        20
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 25,
+      "point": [
+        0,
+        0.6000003814697266,
+        25
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 30,
+      "point": [
+        0,
+        0.6000003814697266,
+        30
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 35,
+      "point": [
+        0,
+        0.6000003814697266,
+        35
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 40,
+      "point": [
+        0,
+        0.6000003814697266,
+        40
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 45,
+      "point": [
+        0,
+        0.6000003814697266,
+        45
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 50,
+      "point": [
+        0,
+        0.6000003814697266,
+        50
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 55,
+      "point": [
+        0,
+        0.6000003814697266,
+        55
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 60,
+      "point": [
+        0,
+        0.6000003814697266,
+        60
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 65,
+      "point": [
+        0,
+        0.6000003814697266,
+        65
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 70,
+      "point": [
+        0,
+        0.6000003814697266,
+        70
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 75,
+      "point": [
+        0,
+        0.6000003814697266,
+        75
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 80,
+      "point": [
+        0,
+        0.6000003814697266,
+        80
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 85,
+      "point": [
+        0,
+        0.6000003814697266,
+        85
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 90,
+      "point": [
+        0,
+        0.6000003814697266,
+        90
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 95,
+      "point": [
+        0,
+        0.6000003814697266,
+        95
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 100,
+      "point": [
+        0,
+        0.6000003814697266,
+        100
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 105,
+      "point": [
+        0,
+        0.6000003814697266,
+        105
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 110,
+      "point": [
+        0,
+        0.6000003814697266,
+        110
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 115,
+      "point": [
+        0,
+        0.6000003814697266,
+        115
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 120,
+      "point": [
+        0,
+        0.6000003814697266,
+        120
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 125,
+      "point": [
+        0,
+        0.6000003814697266,
+        125
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 130,
+      "point": [
+        0,
+        0.6000003814697266,
+        130
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 135,
+      "point": [
+        0,
+        0.6000003814697266,
+        135
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 140,
+      "point": [
+        0,
+        0.6000003814697266,
+        140
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 145,
+      "point": [
+        0,
+        0.6000003814697266,
+        145
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 150,
+      "point": [
+        0,
+        0.6000003814697266,
+        150
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 155,
+      "point": [
+        0,
+        0.6000003814697266,
+        155
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 160,
+      "point": [
+        0,
+        0.6000003814697266,
+        160
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 165,
+      "point": [
+        0,
+        0.6000003814697266,
+        165
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 170,
+      "point": [
+        0,
+        0.6000003814697266,
+        170
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 175,
+      "point": [
+        0,
+        0.6000003814697266,
+        175
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 180,
+      "point": [
+        0,
+        0.6000003814697266,
+        180
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 185,
+      "point": [
+        0,
+        0.6000003814697266,
+        185
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 190,
+      "point": [
+        0,
+        0.6000003814697266,
+        190
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 195,
+      "point": [
+        0,
+        0.6000003814697266,
+        195
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 200,
+      "point": [
+        0,
+        0.6000003814697266,
+        200
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 205,
+      "point": [
+        0,
+        0.6000003814697266,
+        205
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 210,
+      "point": [
+        0,
+        0.6000003814697266,
+        210
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 215,
+      "point": [
+        0,
+        0.6000003814697266,
+        215
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 220,
+      "point": [
+        0,
+        0.6000003814697266,
+        220
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 225,
+      "point": [
+        0,
+        0.6000003814697266,
+        225
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 230,
+      "point": [
+        0,
+        0.6000003814697266,
+        230
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 235,
+      "point": [
+        0,
+        0.6000003814697266,
+        235
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 240,
+      "point": [
+        0,
+        0.6000003814697266,
+        240
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 245,
+      "point": [
+        0,
+        0.6000003814697266,
+        245
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 250,
+      "point": [
+        0,
+        0.6000003814697266,
+        250
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 255,
+      "point": [
+        0,
+        0.6000003814697266,
+        255
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 260,
+      "point": [
+        0,
+        0.6000003814697266,
+        260
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 265,
+      "point": [
+        0,
+        0.6000003814697266,
+        265
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 270,
+      "point": [
+        0,
+        0.6000003814697266,
+        270
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 275,
+      "point": [
+        0,
+        0.6000003814697266,
+        275
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 280,
+      "point": [
+        0,
+        0.6000003814697266,
+        280
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 285,
+      "point": [
+        0,
+        0.6000003814697266,
+        285
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 290,
+      "point": [
+        0,
+        0.6000003814697266,
+        290
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 295,
+      "point": [
+        0,
+        0.6000003814697266,
+        295
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 300,
+      "point": [
+        0,
+        0.6000003814697266,
+        300
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 305,
+      "point": [
+        0,
+        0.6000003814697266,
+        305
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 310,
+      "point": [
+        0,
+        0.6000003814697266,
+        310
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 315,
+      "point": [
+        0,
+        0.6000003814697266,
+        315
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 320,
+      "point": [
+        0,
+        0.6000003814697266,
+        320
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 325,
+      "point": [
+        0,
+        0.6000003814697266,
+        325
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 330,
+      "point": [
+        0,
+        0.6000003814697266,
+        330
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 335,
+      "point": [
+        0,
+        0.6000003814697266,
+        335
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 340,
+      "point": [
+        0,
+        0.6000003814697266,
+        340
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 0,
+      "z": 345,
+      "point": [
+        0,
+        0.6000003814697266,
+        345
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 0,
+      "point": [
+        20,
+        0.6000003814697266,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 56154400,
+      "name": "Ground",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 0,
+      "point": [
+        20,
+        0.6000003814697266,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 5,
+      "point": [
+        20,
+        29.200000762939453,
+        5
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 5,
+      "point": [
+        20,
+        0.6000003814697266,
+        5
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 10,
+      "point": [
+        20,
+        29.200000762939453,
+        10
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 10,
+      "point": [
+        20,
+        0.6000003814697266,
+        10
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 15,
+      "point": [
+        20,
+        29.200000762939453,
+        15
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 15,
+      "point": [
+        20,
+        0.6000003814697266,
+        15
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 20,
+      "point": [
+        20,
+        29.200000762939453,
+        20
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 20,
+      "point": [
+        20,
+        0.6000003814697266,
+        20
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 25,
+      "point": [
+        20,
+        29.200000762939453,
+        25
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 25,
+      "point": [
+        20,
+        0.6000003814697266,
+        25
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 30,
+      "point": [
+        20,
+        29.200000762939453,
+        30
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 30,
+      "point": [
+        20,
+        0.6000003814697266,
+        30
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 35,
+      "point": [
+        20,
+        29.200000762939453,
+        35
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 35,
+      "point": [
+        20,
+        0.6000003814697266,
+        35
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 40,
+      "point": [
+        20,
+        29.200000762939453,
+        40
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 40,
+      "point": [
+        20,
+        0.6000003814697266,
+        40
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 45,
+      "point": [
+        20,
+        29.200000762939453,
+        45
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 45,
+      "point": [
+        20,
+        0.6000003814697266,
+        45
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 50,
+      "point": [
+        20,
+        29.200000762939453,
+        50
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 50,
+      "point": [
+        20,
+        0.6000003814697266,
+        50
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 55,
+      "point": [
+        20,
+        29.200000762939453,
+        55
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 55,
+      "point": [
+        20,
+        0.6000003814697266,
+        55
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 60,
+      "point": [
+        20,
+        29.200000762939453,
+        60
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 60,
+      "point": [
+        20,
+        0.6000003814697266,
+        60
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 65,
+      "point": [
+        20,
+        29.200000762939453,
+        65
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 65,
+      "point": [
+        20,
+        0.6000003814697266,
+        65
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 70,
+      "point": [
+        20,
+        29.200000762939453,
+        70
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 70,
+      "point": [
+        20,
+        0.6000003814697266,
+        70
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 75,
+      "point": [
+        20,
+        29.200000762939453,
+        75
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 75,
+      "point": [
+        20,
+        0.6000003814697266,
+        75
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 80,
+      "point": [
+        20,
+        29.200000762939453,
+        80
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 80,
+      "point": [
+        20,
+        0.6000003814697266,
+        80
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 85,
+      "point": [
+        20,
+        29.200000762939453,
+        85
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 85,
+      "point": [
+        20,
+        0.6000003814697266,
+        85
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 90,
+      "point": [
+        20,
+        29.200000762939453,
+        90
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 90,
+      "point": [
+        20,
+        0.6000003814697266,
+        90
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 95,
+      "point": [
+        20,
+        29.200000762939453,
+        95
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 95,
+      "point": [
+        20,
+        0.6000003814697266,
+        95
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 100,
+      "point": [
+        20,
+        29.200000762939453,
+        100
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 100,
+      "point": [
+        20,
+        0.6000003814697266,
+        100
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 105,
+      "point": [
+        20,
+        29.200000762939453,
+        105
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 105,
+      "point": [
+        20,
+        0.6000003814697266,
+        105
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 110,
+      "point": [
+        20,
+        29.200000762939453,
+        110
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 110,
+      "point": [
+        20,
+        0.6000003814697266,
+        110
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 115,
+      "point": [
+        20,
+        29.200000762939453,
+        115
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 115,
+      "point": [
+        20,
+        0.6000003814697266,
+        115
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 120,
+      "point": [
+        20,
+        29.200000762939453,
+        120
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 120,
+      "point": [
+        20,
+        0.6000003814697266,
+        120
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 125,
+      "point": [
+        20,
+        29.200000762939453,
+        125
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 125,
+      "point": [
+        20,
+        0.6000003814697266,
+        125
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 130,
+      "point": [
+        20,
+        29.200000762939453,
+        130
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 130,
+      "point": [
+        20,
+        0.6000003814697266,
+        130
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 135,
+      "point": [
+        20,
+        29.200000762939453,
+        135
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 135,
+      "point": [
+        20,
+        0.6000003814697266,
+        135
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 140,
+      "point": [
+        20,
+        29.200000762939453,
+        140
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 140,
+      "point": [
+        20,
+        0.6000003814697266,
+        140
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 145,
+      "point": [
+        20,
+        29.200000762939453,
+        145
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 145,
+      "point": [
+        20,
+        0.6000003814697266,
+        145
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 150,
+      "point": [
+        20,
+        29.200000762939453,
+        150
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 150,
+      "point": [
+        20,
+        0.6000003814697266,
+        150
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 155,
+      "point": [
+        20,
+        29.200000762939453,
+        155
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 155,
+      "point": [
+        20,
+        0.6000003814697266,
+        155
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 160,
+      "point": [
+        20,
+        29.200000762939453,
+        160
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 160,
+      "point": [
+        20,
+        0.6000003814697266,
+        160
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 165,
+      "point": [
+        20,
+        29.200000762939453,
+        165
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 165,
+      "point": [
+        20,
+        0.6000003814697266,
+        165
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 170,
+      "point": [
+        20,
+        29.200000762939453,
+        170
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 170,
+      "point": [
+        20,
+        0.6000003814697266,
+        170
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 175,
+      "point": [
+        20,
+        29.200000762939453,
+        175
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 120.80000305175781,
+      "collider": 56154416,
+      "name": "trains_3_group",
+      "tag": "HitTrain"
+    },
+    {
+      "x": 20,
+      "z": 175,
+      "point": [
+        20,
+        0.6000003814697266,
+        175
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 180,
+      "point": [
+        20,
+        0.6000003814697266,
+        180
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 185,
+      "point": [
+        20,
+        0.6000003814697266,
+        185
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 190,
+      "point": [
+        20,
+        0.6000003814697266,
+        190
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 195,
+      "point": [
+        20,
+        0.6000003814697266,
+        195
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 200,
+      "point": [
+        20,
+        0.6000003814697266,
+        200
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 205,
+      "point": [
+        20,
+        0.6000003814697266,
+        205
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 210,
+      "point": [
+        20,
+        0.6000003814697266,
+        210
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 215,
+      "point": [
+        20,
+        0.6000003814697266,
+        215
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 220,
+      "point": [
+        20,
+        0.6000003814697266,
+        220
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 225,
+      "point": [
+        20,
+        0.6000003814697266,
+        225
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 230,
+      "point": [
+        20,
+        0.6000003814697266,
+        230
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 235,
+      "point": [
+        20,
+        0.6000003814697266,
+        235
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 240,
+      "point": [
+        20,
+        0.6000003814697266,
+        240
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 245,
+      "point": [
+        20,
+        0.6000003814697266,
+        245
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 250,
+      "point": [
+        20,
+        0.6000003814697266,
+        250
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 255,
+      "point": [
+        20,
+        0.6000003814697266,
+        255
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 260,
+      "point": [
+        20,
+        0.6000003814697266,
+        260
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 265,
+      "point": [
+        20,
+        0.6000003814697266,
+        265
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 270,
+      "point": [
+        20,
+        0.6000003814697266,
+        270
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 275,
+      "point": [
+        20,
+        0.6000003814697266,
+        275
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 280,
+      "point": [
+        20,
+        0.6000003814697266,
+        280
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 285,
+      "point": [
+        20,
+        0.6000003814697266,
+        285
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 290,
+      "point": [
+        20,
+        0.6000003814697266,
+        290
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 295,
+      "point": [
+        20,
+        0.6000003814697266,
+        295
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 300,
+      "point": [
+        20,
+        0.6000003814697266,
+        300
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 305,
+      "point": [
+        20,
+        0.6000003814697266,
+        305
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 310,
+      "point": [
+        20,
+        0.6000003814697266,
+        310
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 315,
+      "point": [
+        20,
+        0.6000003814697266,
+        315
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 320,
+      "point": [
+        20,
+        0.6000003814697266,
+        320
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 325,
+      "point": [
+        20,
+        0.6000003814697266,
+        325
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 330,
+      "point": [
+        20,
+        0.6000003814697266,
+        330
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 335,
+      "point": [
+        20,
+        0.6000003814697266,
+        335
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 340,
+      "point": [
+        20,
+        0.6000003814697266,
+        340
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    },
+    {
+      "x": 20,
+      "z": 345,
+      "point": [
+        20,
+        0.6000003814697266,
+        345
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "distance": 149.39999389648438,
+      "collider": 47960304,
+      "name": "GeneratedEnvironment",
+      "tag": "Ground"
+    }
+  ]
+}

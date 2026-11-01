@@ -1,0 +1,4 @@
+PASS: actual recorder MediaStream → encoder → labelled storage; pause/resume preserves episode; no movement: {"stats": {"samples": 14, "episodes": 1, "counts": {"hold": 9, "left": 2, "right": 1, "jump": 1, "roll": 1}, "model": null}, "decisions": 0, "errors": []}
+PASS: keys consumed at document still captured; native lane/jump/roll transitions label without keyboard events
+PASS: fast repeated native moves retained; a keyboard press deduplicates only its own native transition
+PASS: Stop cancels a late capture and releases its tracks; restarting during an in-flight tick resumes recording: {"samples": 5, "episodes": 1, "counts": {"hold": 5, "left": 0, "right": 0, "jump": 0, "roll": 0}, "model": null}
