@@ -9,6 +9,8 @@ export function startNativePilot(options, planner) {
   if(options.hud!==false)document.documentElement.append(hud);
   let live=true,timer,heartbeat=performance.now(),lastTick=performance.now(),lastAction=-Infinity,lastChangingAt=-Infinity,nextPlan=0,decision={action:'hold',targetX:0},scene=null,started=null,lastRun=-1;
   let pendingLane=null;
+  const lastKind={lane:-Infinity,jump:-Infinity,roll:-Infinity};
+  let lastHudAt=-Infinity,lastHudText='';
   let status={running:true,message:options.dry?'Native observation':'Native autopilot armed',lane:1,changes:0,frames:0,backend:'native',reason:'Waiting for a run',collected:0};
   const api={
     ping(){heartbeat=performance.now();return true;},
@@ -48,12 +50,21 @@ export function startNativePilot(options, planner) {
           status.reason='Character is between lanes — start a fresh run';
           pauseAndStop('Start a fresh run to reset the lane position');return;
         }
-        if(now>=nextPlan){decision=planner(scene,{precision:options.precision===true,pendingLane,commandDelay:Math.max(0,(180-(now-lastAction))/1000)});nextPlan=now+100;}
+        if(now>=nextPlan){
+          decision=planner(scene,{precision:options.precision===true,pendingLane,commandDelay:0});
+          // A safe jump may have a window narrower than the old 100ms poll.
+          // Replan near that deadline using fresh state rather than replaying
+          // the search's future commands blindly.
+          const untilAction=Number.isFinite(decision.nextActionIn)?decision.nextActionIn*1000:100;
+          nextPlan=now+Math.max(25,Math.min(100,untilAction));
+        }
         status.reason=decision.reason||'Waiting';status.risk=decision.risk||0;status.imminentRisk=decision.imminentRisk??decision.risk??0;
         let acted=false;
         if(!options.dry){
           if(options.precision===true)reader.steer(decision.targetX,Math.min(.06,(now-lastTick)/1000));
-          if(decision.action!=='hold'&&now-lastAction>180&&reader.act(decision.action)){
+          const kind=decision.action==='left'||decision.action==='right'?'lane':decision.action;
+          if(decision.action!=='hold'&&now-(lastKind[kind]??-Infinity)>=60&&reader.act(decision.action)){
+            lastKind[kind]=now;
             status.changes++;lastAction=now;acted=true;
             if(decision.action==='left'||decision.action==='right')pendingLane=Math.max(0,Math.min(2,scene.lane+(decision.action==='left'?-1:1)));
             nextPlan=0;
@@ -74,7 +85,11 @@ export function startNativePilot(options, planner) {
       }else status.message=!focused?'Waiting for game focus':'Waiting — resume/start the game';
       lastTick=now;status.reason=decision.reason||'Waiting';
       status.elapsed=started?(now-started)/1000:0;status.risk=decision.risk||0;
-      hud.textContent=`NO COIN PILOT ${options.dry?'· OBSERVE':'· NATIVE'}\n${status.message}\nCoins this run: ${scene.collected} · Seen: ${scene.coins.length}\nObstacles: ${scene.obstacles.length} · x: ${scene.player.x.toFixed(1)}\n${decision.reason||'Waiting'}\nEsc / Alt+Shift+X: stop`;
+      if(options.hud!==false&&now-lastHudAt>=200){
+        const text=`NO COIN PILOT ${options.dry?'· OBSERVE':'· NATIVE'}\n${status.message}\nCoins this run: ${scene.collected} · Seen: ${scene.coins.length}\nObstacles: ${scene.obstacles.length} · x: ${scene.player.x.toFixed(1)}\n${decision.reason||'Waiting'}\nEsc / Alt+Shift+X: stop`;
+        if(text!==lastHudText){hud.textContent=text;lastHudText=text;}
+        lastHudAt=now;
+      }
       if(scene.errors>10)throw new Error(scene.lastError||'Repeated sensor errors');
       if(scene.running&&scene.speed>0&&scene.coins.length===0&&scene.samples===0&&status.elapsed>5)throw new Error('Coin update hook is not receiving samples');
     }catch(e){pauseAndStop(`Error: ${e.message}`);}

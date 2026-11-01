@@ -24,7 +24,29 @@ export function installLegacyReader(profile) {
   function array(p,limit){if(!ptr(p))return [];const n=u(p+profile.arrayLength);if(n>limit)throw new Error('Array exceeds reader limit');if(p+profile.arrayData+n*4>m.HEAPU8.length)throw new Error('Array exceeds memory');return Array.from(m.HEAPU32.slice((p+profile.arrayData)>>>2,((p+profile.arrayData)>>>2)+n)).filter(ptr);}
   function list(p){if(!ptr(p))return [];const n=u(p+profile.listCount);if(n>profile.maxObjects)throw new Error('List exceeds reader limit');return array(u(p+profile.listItems),profile.maxObjects*4).slice(0,n);}
   const coins=new Map(), cache=new Map();let samples=0, errors=0, lastError='', stopped=false, collected=0, runId=0, lastObstacleAt=-Infinity, obstacles=[];
-  let lastMotion=null,engineSteps=[];
+  let lastMotion=null,engineSteps=[],cachedCharacter=0,cachedGame=0,motionFrame=null;
+  const requestMotionFrame=window.requestAnimationFrame?.bind(window),cancelMotionFrame=window.cancelAnimationFrame?.bind(window);
+  function observeMotion(z,speed){
+    if(!Number.isFinite(z)||!Number.isFinite(speed)||speed<=0){lastMotion=null;return;}
+    if(lastMotion&&z!==lastMotion.z){
+      const elapsed=(z-lastMotion.z)/Math.max(1,(speed+lastMotion.speed)/2);
+      if(elapsed>=1/240&&elapsed<=.5){engineSteps.push(Math.min(1/3,elapsed));if(engineSteps.length>7)engineSteps.shift();}
+      else if(elapsed<0)engineSteps=[];
+    }
+    if(!lastMotion||z!==lastMotion.z)lastMotion={z,speed};
+  }
+  function observeMotionFrame(){
+    motionFrame=null;if(stopped)return;
+    // Read only already-validated instance fields. Snapshot polling can miss
+    // engine frames and mistake 60 FPS for 30 FPS; the game's animation-frame
+    // cadence preserves its actual gravity integration step without native calls.
+    if(ptr(cachedCharacter)&&ptr(cachedGame)){
+      const running=Boolean(a.legacy_running?.value)&&!m.HEAPU8[cachedGame+profile.gamePaused]&&!m.HEAPU8[cachedGame+profile.gameDead];
+      if(running)observeMotion(m.HEAPF32[(cachedCharacter+profile.characterWorld+8)>>>2],m.HEAPF32[(cachedGame+profile.gameSpeed)>>>2]);else lastMotion=null;
+    }
+    motionFrame=requestMotionFrame(observeMotionFrame);
+  }
+  if(requestMotionFrame)motionFrame=requestMotionFrame(observeMotionFrame);
   const original=m.dynCall_vifffii;
   function hook(index,coin,...args){
     const result=original.call(this,index,coin,...args);
@@ -34,7 +56,7 @@ export function installLegacyReader(profile) {
           const previous=coins.get(coin);if(previous&&performance.now()-previous.seen<50)return result;
           if(coins.size>=profile.maxCoins&&!coins.has(coin))coins.delete(coins.keys().next().value);
           const transform=world(u(coin+profile.coinTransform)),collider=u(coin+profile.coinCollider);
-          coins.set(coin,{id:coin,...transform,...(ptr(collider)?bounds(collider):{}),seen:performance.now()});samples++;
+          coins.set(coin,{id:coin,...transform,...(ptr(collider)?{...bounds(collider),shape:cls(collider)}:{}),seen:performance.now()});samples++;
         }else coins.delete(coin);
       }
     }catch(e){errors++;lastError=e.message;}
@@ -45,13 +67,23 @@ export function installLegacyReader(profile) {
   m.dynCall_vifffii=hook;
   function onEvent(e){const type=e.detail?.type;if(type==='reborn:coinCollected')collected++;if(type==='reborn:runStarted'){collected=0;runId++;coins.clear();cache.clear();obstacles=[];lastObstacleAt=-Infinity;lastMotion=null;engineSteps=[];}}
   window.addEventListener('tro:unity-runtime-event',onEvent);
-  function physicsObstacles(player) {
+  function physicsObstacles(player,groundY=player.y) {
     const found=new Map(),sp=native('stackSave');
     try{
       const origin=native('stackAlloc',16),direction=native('stackAlloc',16);
-      m.HEAPF32[direction>>>2]=0;m.HEAPF32[(direction+4)>>>2]=0;m.HEAPF32[(direction+8)>>>2]=-1;
-      for(const x of [-20,0,20])for(const y of [3,12,25]){
-        m.HEAPF32[origin>>>2]=x;m.HEAPF32[(origin+4)>>>2]=player.y+y;m.HEAPF32[(origin+8)>>>2]=player.z+350;
+      m.HEAPF32[direction>>>2]=0;m.HEAPF32[(direction+4)>>>2]=0;
+      // A jump must not lift every probe above low barriers on the landing road.
+      // Retain road probes as well if the character is already on an elevated
+      // platform, so the next ground lane remains visible during the descent.
+      const baseY=Number.isFinite(groundY)?Math.min(player.y,groundY):player.y;
+      const heights=[baseY+3,baseY+12,baseY+25];if(baseY>2)heights.push(3.8,12.8,25.8);
+      // Unity raycasts omit a collider when the origin is inside it. Casting
+      // only backwards from the horizon hides long trains containing that
+      // origin until their front is dangerously close. Query both ends of the
+      // same road interval and deduplicate their collider results.
+      for(const forward of [false,true])for(const x of [-20,0,20])for(const y of heights){
+        m.HEAPF32[(direction+8)>>>2]=forward?1:-1;
+        m.HEAPF32[origin>>>2]=x;m.HEAPF32[(origin+4)>>>2]=y;m.HEAPF32[(origin+8)>>>2]=player.z+(forward?-30:350);
         const hits=native('dynCall_iiifiii',profile.raycastAll,origin,direction,380,-1,2,0);
         if(!ptr(hits))continue;
         const count=u(hits+12);if(count>300)throw new Error('Too many raycast results');
@@ -67,34 +99,30 @@ export function installLegacyReader(profile) {
           const trigger=!!native('dynCall_iii',profile.colliderTrigger,collider,0);
           // Mission zones score jumps/rolls; they are not physical obstacles.
           if(trigger&&!/^Hit/.test(tag)&&!/magnet|jetpack|pickup|powerup/i.test(tag+' '+name))continue;
-          found.set(collider,{id:collider,...b,name,tag,kind:'obstacle'});
+          found.set(collider,{id:collider,...b,name,tag,shape:cls(collider),trigger,kind:'obstacle'});
         }
       }
       return [...found.values()];
     }finally{native('stackRestore',sp);}
   }
   const api={
-    queryObstacles(){const ch=native('dynCall_ii',profile.characterInstance,0);return physicsObstacles(vec(ch+profile.characterWorld));},
+    queryObstacles(){const ch=native('dynCall_ii',profile.characterInstance,0);return physicsObstacles(vec(ch+profile.characterWorld),f(ch+profile.characterGroundY));},
     snapshot(){
       if(stopped)throw new Error('Reader stopped');
       const character=native('dynCall_ii',profile.characterInstance,0),game=native('dynCall_ii',profile.gameInstance,0);
       if(cls(character)!=='Character'||cls(game)!=='Game')throw new Error('Runtime classes do not match verified profile');
+      if(character!==cachedCharacter||game!==cachedGame){lastMotion=null;engineSteps=[];cachedCharacter=character;cachedGame=game;}
       const player=vec(character+profile.characterWorld),lane=m.HEAP32[(character+profile.characterLane)>>>2];
       if(lane<0||lane>2||Math.abs(player.x)>1000)throw new Error('Invalid lane or character position');
       const now=performance.now(),running=Boolean(a.legacy_running?.value)&&!m.HEAPU8[game+profile.gamePaused]&&!m.HEAPU8[game+profile.gameDead];
-      const speed=f(game+profile.gameSpeed);
+      const speed=f(game+profile.gameSpeed),groundY=f(character+profile.characterGroundY);
       if(running){
-        if(lastMotion&&player.z!==lastMotion.z){
-          const elapsed=(player.z-lastMotion.z)/Math.max(1,(speed+lastMotion.speed)/2);
-          if(elapsed>=1/240&&elapsed<=.5){engineSteps.push(Math.min(1/3,elapsed));if(engineSteps.length>7)engineSteps.shift();}
-          else if(elapsed<0)engineSteps=[];
-        }
-        if(!lastMotion||player.z!==lastMotion.z)lastMotion={z:player.z,speed};
+        if(!requestMotionFrame||!lastMotion)observeMotion(player.z,speed);
       }else lastMotion=null;
       const sortedSteps=[...engineSteps].sort((a,b)=>a-b),engineStep=sortedSteps.length?sortedSteps[Math.floor(sortedSteps.length/2)]:1/60;
-      if(running&&now-lastObstacleAt>180){
+      if(running&&now-lastObstacleAt>60){
         const elapsed=(now-lastObstacleAt)/1000,previous=new Map(obstacles.map(o=>[o.id,o]));
-        obstacles=physicsObstacles(player);
+        obstacles=physicsObstacles(player,groundY);
         for(const o of obstacles){
           o.velocityZ=0;o.observedAt=now;const old=previous.get(o.id);
           if(elapsed>=.05&&elapsed<=.6&&old?.tag===o.tag&&old?.name===o.name&&Math.abs(old.x-o.x)<1){
@@ -105,9 +133,10 @@ export function installLegacyReader(profile) {
         lastObstacleAt=now;
       }
       const active=[];
-      for(const [id,c]of coins){if(now-c.seen>500||!m.HEAPU8[id+profile.coinActive]){coins.delete(id);continue;}if(c.z>player.z-15&&c.z<player.z+350)active.push({id:c.id,x:c.x,y:c.y,z:c.z,hx:c.hx??3,hy:c.hy??5,hz:c.hz??3});}
+      for(const [id,c]of coins){if(now-c.seen>Math.max(500,engineStep*3000)||!m.HEAPU8[id+profile.coinActive]){coins.delete(id);continue;}if(c.z>player.z-15&&c.z<player.z+350)active.push({id:c.id,x:c.x,y:c.y,z:c.z,hx:c.hx??3,hy:c.hy??5,hz:c.hz??3,shape:c.shape||''});}
       const stats=u(game+profile.gameStats);const runCoins=ptr(stats)?u(stats+profile.statsCoins):collected;
-      return {source:profile.id,running,paused:!!m.HEAPU8[game+profile.gamePaused],dead:!!m.HEAPU8[game+profile.gameDead],runId,collected:runCoins,lane,player,gamePosition:vec(character+profile.characterGame),speed,engineStep,changing:!!m.HEAP32[(character+profile.characterTrackMovement)>>>2],jumping:!!m.HEAPU8[character+profile.characterJumping],rolling:!!m.HEAPU8[character+profile.characterRolling],gravity:f(character+profile.characterGravity),jumpHeight:f(character+profile.characterJumpHeight),verticalSpeed:f(character+profile.characterVerticalSpeed),groundY:f(character+profile.characterGroundY),body:bounds(u(character+profile.characterTrigger)),coins:active,obstacles,samples,errors,lastError,at:now};
+      const bodyCollider=u(character+profile.characterTrigger),body={...bounds(bodyCollider),shape:cls(bodyCollider)};
+      return {source:profile.id,running,paused:!!m.HEAPU8[game+profile.gamePaused],dead:!!m.HEAPU8[game+profile.gameDead],runId,collected:runCoins,lane,targetLane:m.HEAP32[(character+profile.characterTrackTarget)>>>2],lanePosition:f(character+profile.characterTrackPosition),player,gamePosition:vec(character+profile.characterGame),speed,engineStep,changing:!!m.HEAP32[(character+profile.characterTrackMovement)>>>2],jumping:!!m.HEAPU8[character+profile.characterJumping],rolling:!!m.HEAPU8[character+profile.characterRolling],gravity:f(character+profile.characterGravity),jumpHeight:f(character+profile.characterJumpHeight),verticalSpeed:f(character+profile.characterVerticalSpeed),groundY,body,coins:active,obstacles,samples,errors,lastError,at:now};
     },
     pause(){const game=native('dynCall_ii',profile.gameInstance,0);native('dynCall_viii',profile.pause,game,1,0);},
     steer(targetX,dt=.04){
@@ -122,11 +151,11 @@ export function installLegacyReader(profile) {
       const state=api.snapshot();if(!state.running||!document.hasFocus())return false;
       const character=native('dynCall_ii',profile.characterInstance,0);
       if(action==='left'||action==='right'){if(state.changing)return false;const delta=action==='left'?-1:1;if(state.lane+delta<0||state.lane+delta>2)return false;native('dynCall_viii',profile.changeTrack,character,delta,0);return true;}
-      if(action==='jump'&&!state.jumping&&!state.rolling){native('dynCall_vii',profile.jump,character,0);return true;}
+      if(action==='jump'&&!state.jumping&&!state.rolling&&state.verticalSpeed<=0&&state.player.y<=state.groundY+.9){native('dynCall_vii',profile.jump,character,0);return true;}
       if(action==='roll'&&!state.rolling){native('dynCall_vii',profile.roll,character,0);return true;}
       return false;
     },
-    stop(){stopped=true;if(m.dynCall_vifffii===hook)m.dynCall_vifffii=original;window.removeEventListener('tro:unity-runtime-event',onEvent);coins.clear();cache.clear();if(window.__noCoinPilotReader===api)delete window.__noCoinPilotReader;}
+    stop(){stopped=true;if(motionFrame!==null&&cancelMotionFrame)cancelMotionFrame(motionFrame);motionFrame=null;if(m.dynCall_vifffii===hook)m.dynCall_vifffii=original;window.removeEventListener('tro:unity-runtime-event',onEvent);coins.clear();cache.clear();if(window.__noCoinPilotReader===api)delete window.__noCoinPilotReader;}
   };
   window.__noCoinPilotReader=api;
   return {installed:true,profile:profile.id};

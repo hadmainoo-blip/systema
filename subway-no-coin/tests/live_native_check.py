@@ -7,9 +7,12 @@ No counter or collision modifications.
 Reports survival, death, safety pause and coin collection as distinct outcomes.
 """
 import argparse
+import hashlib
 import json
+import math
 import os
 import pathlib
+import time
 from playwright.sync_api import sync_playwright
 
 parser=argparse.ArgumentParser()
@@ -19,31 +22,65 @@ parser.add_argument('--no-auto-brake',action='store_true',help='Explicitly keep 
 parser.add_argument('--auto-brake',action='store_true',help='Enable opt-in emergency predictive braking')
 parser.add_argument('--width',type=int,default=360)
 parser.add_argument('--height',type=int,default=640)
+parser.add_argument('--no-hud',action='store_true',help='Disable the optional status overlay for performance diagnostics')
+parser.add_argument('--telemetry',choices=['full','compact'],default='full',help='Keep smaller pose/plan history for long-run benchmarking')
+parser.add_argument('--render-mode',choices=['normal','no-draw','no-state'],default='normal',help='Diagnostic only: suppress GPU draw/state submission while retaining engine/physics')
 parser.add_argument('--precision',action='store_true',help='Compare native continuous steering; default uses ordinary lane commands')
 args=parser.parse_args()
+
+def finite_json(value):
+    """Emit portable JSON even when a clear plan has collisionIn=Infinity."""
+    if isinstance(value,float) and not math.isfinite(value):
+        return None
+    if isinstance(value,dict):
+        return {key:finite_json(item) for key,item in value.items()}
+    if isinstance(value,list):
+        return [finite_json(item) for item in value]
+    return value
 root=pathlib.Path(__file__).resolve().parents[1]/'extension'
 output=pathlib.Path(args.output).resolve();output.parent.mkdir(parents=True,exist_ok=True)
-parts=[]
+parts=[];source_files_sha256={}
 for name in ['legacy-profile','native-reader','native-pilot','native-planner']:
-    source=(root/(name+'.js')).read_text()
+    source=(root/(name+'.js')).read_text();source_files_sha256[name+'.js']=hashlib.sha256(source.encode()).hexdigest()
     parts.append(source.replace('export const','const',1).replace('export function','function',1))
-options={'precision':args.precision,'autoBrake':args.auto_brake and not args.no_auto_brake,'stopOnCoin':True}
+options={'precision':args.precision,'autoBrake':args.auto_brake and not args.no_auto_brake,'stopOnCoin':True,'hud':not args.no_hud}
+source_sha256=hashlib.sha256(''.join(parts).encode()).hexdigest()
+output.with_suffix('.source.js').write_text(''.join(parts))
 expression='()=>{'+''.join(parts)+"""
 installLegacyReader(legacyProfile);
 window.__liveActions=[];
-window.__liveGameFlags=()=>{const m=window.unityGame.Module,game=(m.asm.dynCall_ii||m.dynCall_ii)(legacyProfile.gameInstance,0);return {paused:!!m.HEAPU8[game+legacyProfile.gamePaused],dead:!!m.HEAPU8[game+legacyProfile.gameDead]};};
+window.__liveGameFlags=()=>{const m=window.unityGame.Module,game=(m.asm.dynCall_ii||m.dynCall_ii)(legacyProfile.gameInstance,0);const stats=m.HEAPU32[(game+legacyProfile.gameStats)>>>2];return {paused:!!m.HEAPU8[game+legacyProfile.gamePaused],dead:!!m.HEAPU8[game+legacyProfile.gameDead],nativeCoins:stats?m.HEAPU32[(stats+legacyProfile.statsCoins)>>>2]:null};};
 const reader=window.__noCoinPilotReader,originalAct=reader.act,originalSnapshot=reader.snapshot;
-window.__liveMotion=[];window.__livePlans=[];
-reader.snapshot=()=>{const s=originalSnapshot();window.__liveMotion.push({at:performance.now(),player:s.player,lane:s.lane,changing:s.changing,jumping:s.jumping,rolling:s.rolling,verticalSpeed:s.verticalSpeed,engineStep:s.engineStep,speed:s.speed,groundY:s.groundY,body:s.body});if(window.__liveMotion.length>3000)window.__liveMotion.shift();return s;};
+window.__liveMotion=[];window.__livePlans=[];window.__liveCosts={reader:[],planner:[]};
+window.__engineFrameStats={count:0,firstAt:null,lastAt:null,lastZ:null,lastSpeed:null,gameSeconds:0};
+const observedModule=window.unityGame.Module,observedCharacter=(observedModule.asm.dynCall_ii||observedModule.dynCall_ii)(legacyProfile.characterInstance,0),observedGame=(observedModule.asm.dynCall_ii||observedModule.dynCall_ii)(legacyProfile.gameInstance,0);
+window.__benchmarkFrameMonitorRunning=true;
+function observeEngineFrame(at){const stats=window.__engineFrameStats,z=observedModule.HEAPF32[(observedCharacter+legacyProfile.characterWorld+8)>>>2],speed=observedModule.HEAPF32[(observedGame+legacyProfile.gameSpeed)>>>2];if(stats.lastZ!==z){if(stats.firstAt===null)stats.firstAt=at;if(stats.lastZ!==null&&z>stats.lastZ)stats.gameSeconds+=(z-stats.lastZ)/Math.max(1,(speed+(stats.lastSpeed||speed))/2);stats.count++;stats.lastAt=at;stats.lastZ=z;stats.lastSpeed=speed;}if(window.__benchmarkFrameMonitorRunning)requestAnimationFrame(observeEngineFrame);}requestAnimationFrame(observeEngineFrame);
+
+reader.snapshot=()=>{const costStart=performance.now(),s=originalSnapshot();window.__liveCosts.reader.push(performance.now()-costStart);if(window.__liveCosts.reader.length>3000)window.__liveCosts.reader.shift();window.__liveMotion.push({at:performance.now(),player:s.player,lane:s.lane,changing:s.changing,jumping:s.jumping,rolling:s.rolling,verticalSpeed:s.verticalSpeed,engineStep:s.engineStep,speed:s.speed,groundY:s.groundY,body:s.body});if(window.__liveMotion.length>MOTION_LIMIT)window.__liveMotion.shift();return s;};
 reader.act=action=>{const before=reader.snapshot(),accepted=originalAct(action);if(accepted)window.__liveActions.push({action,at:performance.now(),player:before.player,lane:before.lane,changing:before.changing,jumping:before.jumping,rolling:before.rolling,verticalSpeed:before.verticalSpeed});return accepted;};
-window.__livePlan=(scene,settings)=>{const decision=planNative(scene,settings);window.__liveLastPlan={scene,settings,decision};window.__livePlans.push(window.__liveLastPlan);if(window.__livePlans.length>40)window.__livePlans.shift();return decision;};
+window.__livePlan=(scene,settings)=>{const costStart=performance.now(),decision=planNative(scene,settings);window.__liveCosts.planner.push(performance.now()-costStart);if(window.__liveCosts.planner.length>3000)window.__liveCosts.planner.shift();window.__liveLastPlan={scene,settings,decision};window.__livePlans.push(window.__liveLastPlan);if(window.__livePlans.length>PLAN_LIMIT)window.__livePlans.shift();return decision;};
 window.__startLivePilot=()=>startNativePilot("""+json.dumps(options)+",window.__livePlan);return true;}"
+expression=expression.replace('MOTION_LIMIT','600' if args.telemetry=='compact' else '3000').replace('PLAN_LIMIT','20' if args.telemetry=='compact' else '40')
 with sync_playwright() as p:
     proxy=os.environ.get('HTTPS_PROXY')
     browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,
         args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'],
         proxy={'server':proxy} if proxy else None)
     page=browser.new_page(viewport={'width':args.width,'height':args.height},device_scale_factor=1)
+    if args.render_mode!='normal':
+        page.add_init_script("""(()=>{
+          window.__renderDiagnostic={mode:MODE,skippedDraws:0,skippedState:0};window.__freezeRender=false;
+          for(const name of ['WebGLRenderingContext','WebGL2RenderingContext']){
+            const proto=window[name]?.prototype;if(!proto)continue;
+            for(const key of Object.getOwnPropertyNames(proto)){
+              const desc=Object.getOwnPropertyDescriptor(proto,key);if(typeof desc?.value!=='function')continue;
+              if(['drawArrays','drawElements','drawRangeElements','drawArraysInstanced','drawElementsInstanced'].includes(key))proto[key]=function(){window.__renderDiagnostic.skippedDraws++;};
+              else if(MODE==='no-state'&&/^(uniform|bind|blend|depth|stencil|clear|viewport|scissor|enable|disable|activeTexture|bufferData|bufferSubData|vertexAttrib|colorMask|cullFace|frontFace|polygonOffset|lineWidth|sampleCoverage)/.test(key)){const original=desc.value;proto[key]=function(...args){if(window.__freezeRender){window.__renderDiagnostic.skippedState++;return;}return original.apply(this,args);};}
+            }
+            const original=proto.getExtension;if(original)proto.getExtension=function(name){const result=original.call(this,name);if(result&&/ANGLE_instanced_arrays/i.test(name))for(const key of ['drawArraysInstancedANGLE','drawElementsInstancedANGLE'])if(typeof result[key]==='function')result[key]=function(){window.__renderDiagnostic.skippedDraws++;};return result;};
+          }
+        })();""".replace('MODE',json.dumps(args.render_mode)))
     recorded=False
     console=[];page.on('pageerror',lambda e:console.append(str(e)))
     try:
@@ -57,26 +94,32 @@ with sync_playwright() as p:
             page.locator('canvas').first.evaluate('(c)=>c.focus()')
             if page.evaluate('!!window.unityGame.Module.asm.legacy_running.value'):break
             page.keyboard.press('Space',delay=500)
-            page.wait_for_timeout(1000)
+            page.wait_for_timeout(100)
         page.wait_for_function('!!window.unityGame.Module.asm.legacy_running.value',timeout=15000)
+        page.evaluate('window.__freezeRender=true')
         page.evaluate(expression)
         page.evaluate('window.__startLivePilot()')
-        trace=[]
-        for i in range(max(3,min(120,args.seconds))):
+        trace=[];started_wall=time.monotonic();progress_path=output.with_suffix('.progress.json')
+        requested_seconds=max(3,min(7200,args.seconds));i=0
+        while True:
             row=page.evaluate("""second=>{const api=window.__noCoinPilotNative;api.ping();const s=api.status(),g=s.nativeScene;return {second,status:s.message,pilotRunning:s.running,running:g?.running,...window.__liveGameFlags(),coins:g?.collected,z:g?.player.z,x:g?.player.x,lane:g?.lane,seen:g?.coins.length,obstacles:g?.obstacles.length,moves:s.changes,reason:s.reason,errors:g?.errors};}""",i)
+            row['wallSeconds']=time.monotonic()-started_wall
             trace.append(row)
+            progress_path.write_text(json.dumps({'sourceSha256':source_sha256,'sourceFilesSha256':source_files_sha256,'renderMode':args.render_mode,'requestedSeconds':args.seconds,'latest':row,'samples':len(trace)},indent=2)+'\n')
             if i%5==0:print(json.dumps(row),flush=True)
-            if not row['pilotRunning'] or row.get('dead'):break
-            page.wait_for_timeout(1000)
+            if not row['pilotRunning'] or row.get('dead') or time.monotonic()-started_wall>=requested_seconds:break
+            page.wait_for_timeout(min(1000,max(1,(requested_seconds-(time.monotonic()-started_wall))*1000)))
+            i+=1
         actions=page.evaluate('window.__liveActions')
         final=trace[-1]
-        outcome='coin_collection' if any((r.get('coins') or 0)>0 for r in trace) else 'died' if any(r.get('dead') for r in trace) else 'safety_pause' if final.get('paused') and not final['pilotRunning'] and final['status'].startswith('No safe predicted path') else 'error' if not final['pilotRunning'] else 'survived_window' if final.get('running') else 'not_running'
+        outcome='coin_collection' if any(max(r.get('coins') or 0,r.get('nativeCoins') or 0)>0 for r in trace) else 'died' if any(r.get('dead') for r in trace) else 'safety_pause' if final.get('paused') and not final['pilotRunning'] and final['status'].startswith('No safe predicted path') else 'error' if not final['pilotRunning'] else 'survived_window' if final.get('running') else 'not_running'
         motion=page.evaluate('window.__liveMotion')
         changes=[r for i,r in enumerate(motion) if i==0 or abs(r['player']['z']-motion[i-1]['player']['z'])>.001]
         moving=[r for r in changes if r['player']['z']>5]
         estimatedFps=(len(moving)-1)*1000/(moving[-1]['at']-moving[0]['at']) if len(moving)>1 else None
-        result={'render':page.evaluate('()=>{const c=document.querySelector("canvas");return {width:c.width,height:c.height,dpr:devicePixelRatio}}'),'viewport':{'width':args.width,'height':args.height},'estimatedMovingFps':estimatedFps,'motion':motion,'recentPlans':page.evaluate('window.__livePlans'),'lastPlan':page.evaluate('window.__liveLastPlan'),'scene':page.evaluate('window.__noCoinPilotNative.status().nativeScene'),'options':options,'outcome':outcome,'secondsObserved':len(trace),'maxZ':max((r.get('z') or 0) for r in trace),'maxCoins':max((r.get('coins') or 0) for r in trace),'acceptedActions':actions,'trace':trace,'pageErrors':console}
-        output.write_text(json.dumps(result,indent=2)+'\n');recorded=True
+        result={'sourceSha256':source_sha256,'sourceFilesSha256':source_files_sha256,'renderMode':args.render_mode,'renderDiagnostic':page.evaluate('window.__renderDiagnostic||null'),'engineFrameStats':page.evaluate('window.__engineFrameStats'),'costStats':page.evaluate("()=>Object.fromEntries(Object.entries(__liveCosts).map(([name,values])=>{const sorted=[...values].sort((a,b)=>a-b);return [name,{samples:values.length,meanMs:values.reduce((a,b)=>a+b,0)/Math.max(1,values.length),p95Ms:sorted[Math.floor((sorted.length-1)*.95)]||0,maxMs:Math.max(0,...values)}]}))"),'elapsedWallSeconds':time.monotonic()-started_wall,'requestedSeconds':args.seconds,'render':page.evaluate('()=>{const c=document.querySelector("canvas");return {width:c.width,height:c.height,dpr:devicePixelRatio}}'),'viewport':{'width':args.width,'height':args.height},'estimatedMovingFps':estimatedFps,'motion':motion,'recentPlans':page.evaluate('window.__livePlans'),'lastPlan':page.evaluate('window.__liveLastPlan'),'scene':page.evaluate('window.__noCoinPilotNative.status().nativeScene'),'options':options,'outcome':outcome,'secondsObserved':len(trace),'maxZ':max((r.get('z') or 0) for r in trace),'maxCoins':max(max(r.get('coins') or 0,r.get('nativeCoins') or 0) for r in trace),'acceptedActions':actions,'trace':trace,'pageErrors':console}
+        result=finite_json(result)
+        output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n');recorded=True
         page.screenshot(path=str(output.with_suffix('.png')))
         summary={k:v for k,v in result.items() if k not in ['trace','pageErrors','scene','lastPlan','motion','recentPlans','acceptedActions']}
         summary['actionCounts']={action:sum(a['action']==action for a in actions) for action in ['left','right','jump','roll']}
@@ -93,5 +136,5 @@ with sync_playwright() as p:
             page.screenshot(path=str(output.with_suffix('.png')))
         raise
     finally:
-        try:page.evaluate("window.__noCoinPilotNative?.stop('Browser closing')")
+        try:page.evaluate("window.__benchmarkFrameMonitorRunning=false;window.__noCoinPilotNative?.stop('Browser closing')")
         finally:browser.close()

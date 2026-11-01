@@ -1,4 +1,6 @@
-# No Coin Pilot 0.6.2
+# No Coin Pilot — unreleased reliability candidate
+
+**30 minutes of zero-coin survival has not been achieved.** This source candidate has new sensor, collision geometry, search and action-timing fixes, with 122 passing automated checks. Actual gameplay still fails within seconds. The repository ZIP remains the previous experimental 0.6.2 release; it does not contain the unreleased changes. [Current results and evidence](VALIDATION.md).
 
 A built-in no-coin autopilot for **https://ashuni.lol/legacy/sanfrancisco/** in desktop Chrome/Edge, original mode.
 

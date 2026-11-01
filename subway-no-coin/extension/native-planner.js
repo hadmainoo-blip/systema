@@ -3,7 +3,8 @@ export function planNative(scene, settings={}) {
   if(!scene.running)return {action:'hold',targetX:scene.player.x,risk:0,reason:'Waiting for a running game'};
   // Ordinary commands need to commit farther ahead than direct steering: a
   // pair of lane changes plus a jump can take over a second to execute.
-  const speed=Math.max(1,scene.speed),dt=.1,steps=settings.precision===false?30:22,beamWidth=36;
+  const ordinary=settings.precision===false;
+  const speed=Math.max(1,scene.speed),dt=ordinary?.05:.1,steps=ordinary?60:22,beamWidth=ordinary?192:36;
   const gravity=Math.max(10,scene.gravity||200),jumpV=Math.sqrt(2*gravity*(scene.jumpHeight||20));
   const engineStep=Math.max(1/240,Math.min(1/3,scene.engineStep||1/60));
   const body=scene.body||{hx:3,hy:5,hz:3,y:scene.player.y+5.5};
@@ -15,12 +16,54 @@ export function planNative(scene, settings={}) {
     const age=Number.isFinite(c.observedAt)&&Number.isFinite(scene.at)?Math.max(0,Math.min(.6,(scene.at-c.observedAt)/1000)):0;
     return {...c,z:c.z+velocityZ*age,velocityZ,weight:1000000};
   })].filter(v=>Math.max(v.z,v.z+v.velocityZ*horizon)+(v.hz||4.5)>=scene.player.z-10&&Math.min(v.z,v.z+v.velocityZ*horizon)-(v.hz||4.5)<=scene.player.z+speed*horizon+20);
-  let collisionTime=Infinity;
+  // Longitudinal motion is the same for every candidate. Bin its possible
+  // overlap once instead of testing every visible collider for every state.
+  const timeBins=Array.from({length:steps},()=>[]),bodyZ=body.z??scene.player.z;
+  for(const v of items){
+    const relative=bodyZ-v.z,closing=speed-v.velocityZ,extent=body.hz+(v.hz??4.5)+.4;
+    let enter=0,exit=horizon;
+    if(Math.abs(closing)<1e-9){if(Math.abs(relative)>=extent)continue;}
+    else{const a=(-extent-relative)/closing,b=(extent-relative)/closing;enter=Math.min(a,b);exit=Math.max(a,b);}
+    if(exit<0||enter>horizon)continue;
+    const first=Math.max(0,Math.floor(enter/dt)-1),last=Math.min(steps-1,Math.floor(exit/dt)+1);
+    for(let step=first;step<=last;step++)timeBins[step].push(v);
+  }
+  const capsule=body.shape==='CapsuleCollider'&&Math.abs(body.hx-body.hz)<.15,capsuleRadius=Math.max(body.hx,body.hz);
+  // Sweep a point against a rounded box. A vertical capsule against a box is
+  // exactly this Minkowski sum; capsule/sphere is the degenerate box case.
+  // Splitting at box planes makes squared distance quadratic on each interval.
+  function roundedBoxHit(from,to,half,radius,lo,hi){
+    const delta=[to[0]-from[0],to[1]-from[1],to[2]-from[2]],cuts=[lo,hi];
+    for(let axis=0;axis<3;axis++)if(Math.abs(delta[axis])>1e-10)for(const side of [-1,1]){
+      const t=(side*half[axis]-from[axis])/delta[axis];if(t>lo&&t<hi)cuts.push(t);
+    }
+    cuts.sort((a,b)=>a-b);
+    for(let i=0;i<cuts.length-1;i++){
+      const a=cuts[i],b=cuts[i+1],mid=(a+b)/2;let qa=0,qb=0,qc=-radius*radius;
+      for(let axis=0;axis<3;axis++){
+        const at=from[axis]+delta[axis]*mid;
+        if(Math.abs(at)<=half[axis])continue;
+        const offset=from[axis]-(at<0?-half[axis]:half[axis]),d=delta[axis];
+        qa+=d*d;qb+=2*offset*d;qc+=offset*offset;
+      }
+      const value=t=>(qa*t+qb)*t+qc;
+      if(value(a)<=0)return a;
+      if(qa<1e-12)continue;
+      const minimum=Math.max(a,Math.min(b,-qb/(2*qa)));
+      if(value(minimum)>0)continue;
+      const root=(-qb-Math.sqrt(Math.max(0,qb*qb-4*qa*qc)))/(2*qa);
+      if(root<=b)return Math.max(a,root);
+    }
+    return Infinity;
+  }
+  let collisionTime=Infinity,obstacleHit=false;
   function riskAt(from,to,t){
-    collisionTime=Infinity;
+    collisionTime=Infinity;obstacleHit=false;
     const standingHy=scene.rolling?Math.max(5,body.hy):body.hy;
-    const halfHeight=to.roll>0?Math.min(standingHy,2.5):standingHy;
-    const feetOffset=centerOffset-body.hy;
+    // Verified game roll shape is a radius-three capsule/sphere centered four
+    // units above player.y. It is not a 2.5-high box sitting on the ground.
+    const halfHeight=to.roll>0?3:standingHy;
+    const centerHeight=to.roll>0?4:scene.rolling?5.5:centerOffset;
     const start=Math.max(0,t-dt/2),z=(body.z??scene.player.z)+speed*start;
     let cost=0,enter=0,exit=1;
     function axis(a,b,half){
@@ -28,24 +71,33 @@ export function planNative(scene, settings={}) {
       const first=(-half-a)/delta,last=(half-a)/delta;
       enter=Math.max(enter,Math.min(first,last));exit=Math.min(exit,Math.max(first,last));return enter<exit;
     }
-    for(const v of items){
+    for(const v of timeBins[Math.max(0,Math.min(steps-1,Math.floor(t/dt)))]){
       enter=0;exit=1;
       // Intersect collision times across all axes. Combining independent swept
       // boxes would falsely collide at diagonally opposite corners of a step.
       const obstacleZ=v.z+v.velocityZ*start;
       if(axis(from.x-v.x,to.x-v.x,body.hx+(v.hx??4.5)+.2)&&
          axis(z-obstacleZ,z+speed*dt-obstacleZ-v.velocityZ*dt,body.hz+(v.hz??4.5)+.4)&&
-         axis(from.y+feetOffset+halfHeight-v.y,to.y+feetOffset+halfHeight-v.y,halfHeight+(v.hy??4.5)+gravity*dt*dt/8)){cost+=v.weight;collisionTime=Math.min(collisionTime,start+Math.max(0,enter)*dt);}
+         axis(from.y+centerHeight-v.y,to.y+centerHeight-v.y,halfHeight+(v.hy??4.5)+gravity*dt*dt/8)){
+        let hit=enter;
+        if(capsule&&halfHeight>=capsuleRadius&&(v.shape==='SphereCollider'||v.shape==='BoxCollider')){
+          const sphere=v.shape==='SphereCollider',halfSegment=halfHeight-capsuleRadius;
+          const half=sphere?[.2,halfSegment+gravity*dt*dt/8,.4]:[(v.hx??4.5)+.2,(v.hy??4.5)+halfSegment+gravity*dt*dt/8,(v.hz??4.5)+.4];
+          const radius=capsuleRadius+(sphere?Math.max(v.hx??4.5,v.hy??4.5,v.hz??4.5):0);
+          hit=roundedBoxHit([from.x-v.x,from.y+centerHeight-v.y,z-obstacleZ],[to.x-v.x,to.y+centerHeight-v.y,z+speed*dt-obstacleZ-v.velocityZ*dt],half,radius,Math.max(0,enter),Math.min(1,exit));
+        }
+        if(Number.isFinite(hit)){cost+=v.weight;if(v.weight>=1000000)obstacleHit=true;collisionTime=Math.min(collisionTime,start+Math.max(0,hit)*dt);}
+      }
     }
     return cost;
   }
-  const compare=(a,b)=>Math.min(horizon,b.firstHit??Infinity)-Math.min(horizon,a.firstHit??Infinity)||a.cost-b.cost;
+  const compare=(a,b)=>Number(!!a.coinCompromised)-Number(!!b.coinCompromised)||Math.min(horizon,b.firstHit??Infinity)-Math.min(horizon,a.firstHit??Infinity)||a.cost-b.cost;
   function selectBeam(candidates,keyFor,actionDiversity=false){
     candidates.sort(compare);
     const phases={},unique=new Set();
     for(const s of candidates){
       const key=keyFor(s);if(unique.has(key))continue;unique.add(key);
-      const phase=(s.roll>0?'roll':s.y<=baseY+.9&&s.vy<=0?'ground':s.vy>0?'up':'down')+(actionDiversity?`:${s.first}`:'');(phases[phase]??=[]).push(s);
+      const phase=(s.roll>0?'roll':s.y<=baseY+.9&&s.vy<=0?'ground':s.vy>0?'up':'down')+(actionDiversity?`:${s.first}:${s.lane}`:'');(phases[phase]??=[]).push(s);
     }
     // Retain possible takeoffs before reaching an obstacle. A purely cost-sorted
     // beam fills with cheap ground paths and discards every timely jump.
@@ -59,15 +111,16 @@ export function planNative(scene, settings={}) {
   if(settings.precision===false){
     // The ordinary controller can issue one game command at a time. Keep the
     // simulation executable: a first-step jump may not secretly change lanes.
-    const lane=Number.isInteger(settings.pendingLane)&&settings.pendingLane>=0&&settings.pendingLane<=2?settings.pendingLane:Number.isInteger(scene.lane)?Math.max(0,Math.min(2,scene.lane)):Math.max(0,Math.min(2,Math.round(scene.player.x/20)+1));
-    // The game motor eases normal lane transitions; they do not have the
-    // precision-steering motor's 100-unit/s movement. Use a conservative bound.
-    const laneSpeed=50;
+    const targetLane=scene.changing&&Number.isInteger(scene.targetLane)&&scene.targetLane>=0&&scene.targetLane<=2?scene.targetLane:settings.pendingLane;
+    const lane=Number.isInteger(targetLane)&&targetLane>=0&&targetLane<=2?targetLane:Number.isInteger(scene.lane)?Math.max(0,Math.min(2,scene.lane)):Math.max(0,Math.min(2,Math.round(scene.player.x/20)+1));
+    // Live lane motion scales with forward speed (~20 units per 30 travelled),
+    // rather than the fixed 50 units/s previously assumed by the search.
+    const laneSpeed=Number.isFinite(scene.laneSpeed)&&scene.laneSpeed>0?scene.laneSpeed:speed/1.5;
     if(!items.length)return {action:'hold',targetX:(lane-1)*20,risk:0,imminentRisk:0,cost:0,reason:'Clear road ahead'};
-    const initial={x:scene.player.x,y:scene.player.y,vy:scene.verticalSpeed||0,lane,roll:scene.rolling?.35:0,wait:Math.max(0,Math.min(.5,settings.commandDelay||0)),cost:0,risk:0,imminentRisk:0,firstHit:Infinity,first:'hold',firstX:(lane-1)*20};
-    let beam=[initial];
+    const initial={x:scene.player.x,y:scene.player.y,vy:scene.verticalSpeed||0,lane,roll:scene.rolling?.35:0,wait:Math.max(0,Math.min(.5,settings.commandDelay||0)),cost:0,risk:0,imminentRisk:0,firstHit:Infinity,coinCompromised:scene.collected>0,first:'hold',firstX:(lane-1)*20,nextAction:null,nextActionIn:Infinity};
+    let beam=[initial],blocked=false;
     for(let step=0;step<steps;step++){
-      const candidates=[];
+      const candidates=[],collisions=[];
       for(const state of beam){
         const actions=['hold'],aligned=Math.abs(state.x-(state.lane-1)*20)<.5;
         if(state.wait<=.001){
@@ -79,7 +132,8 @@ export function planNative(scene, settings={}) {
           if(action==='left')s.lane--;if(action==='right')s.lane++;
           if(action==='jump'){s.vy=jumpV;s.roll=0;}
           if(action==='roll')s.roll=.6;
-          if(action!=='hold'){s.wait=.2;s.cost+=(action==='left'||action==='right'?.06:.12)+step*.006;}
+          if(action!=='hold'&&s.nextAction===null){s.nextAction=action;s.nextActionIn=step*dt;}
+          if(action!=='hold'){s.wait=.05;s.cost+=(action==='left'||action==='right'?.06:.12)+step*.006;}
           const target=(s.lane-1)*20;
           s.x+=Math.sign(target-s.x)*Math.min(Math.abs(target-s.x),laneSpeed*dt);
           s.y+=s.vy*dt-.5*gravity*dt*dt-.5*gravity*engineStep*dt;s.vy-=gravity*dt;
@@ -87,16 +141,26 @@ export function planNative(scene, settings={}) {
           s.roll=Math.max(0,s.roll-dt);if(s.roll<.001)s.roll=0;s.wait=Math.max(0,s.wait-dt);
           const risk=riskAt(state,s,(step+.5)*dt);s.risk+=risk;
           s.firstHit=Math.min(state.firstHit,collisionTime);
-          if(step<5)s.imminentRisk+=risk;
+          if((step+1)*dt<=.5)s.imminentRisk+=risk;
           s.cost+=risk*(1-step/(steps*2))+Math.abs(s.x-state.x)*.001;
           if(step===0){s.first=action;s.firstX=target;}
-          candidates.push(s);
+          // Train/body collisions end the physical trajectory. A collected
+          // coin invalidates the no-coin objective, but does not make later
+          // movement impossible. Preserve a small survival reserve so failure
+          // to find a clean route never encourages diving into a train.
+          if(obstacleHit)collisions.push(s);
+          else{if(risk>0)s.coinCompromised=true;candidates.push(s);}
         }
       }
-      beam=selectBeam(candidates,s=>`${s.lane}:${Math.round(s.x/5)}:${Math.round(s.y/3)}:${Math.round(s.vy/20)}:${Math.round(s.roll*10)}:${s.first}`,true);
+      if(!candidates.length){beam=collisions.sort(compare).slice(0,1);blocked=true;break;}
+      // Cooldown is part of the physical state: merging a ready path with one
+      // that must wait silently removes executable two-move escapes.
+      const key=s=>`${s.lane}:${Math.round(s.x/2.5)}:${Math.round(s.y/1.25)}:${Math.round(s.vy/10)}:${Math.round(s.roll*1000)}:${Math.round(s.wait*1000)}:${s.first}`;
+      const clean=selectBeam(candidates.filter(s=>!s.coinCompromised),key,true),survival=selectBeam(candidates.filter(s=>s.coinCompromised),key,true);
+      beam=(clean.length?clean.slice(0,survival.length?beamWidth-32:beamWidth).concat(survival.slice(0,32)):survival).sort(compare);
     }
     const best=beam[0];
-    return {action:best.first,targetX:best.firstX,risk:best.risk,imminentRisk:best.imminentRisk,collisionIn:best.firstHit,cost:best.cost,reason:best.risk?`Trying best route: ${best.first}`:best.first==='hold'?'Clear predicted path':`Avoiding danger: ${best.first}`};
+    return {action:best.first,targetX:best.firstX,nextAction:best.nextAction,nextActionIn:best.nextActionIn,risk:best.risk,imminentRisk:best.imminentRisk,collisionIn:best.firstHit,cost:best.cost,blocked,zeroCoinRoute:!blocked&&!best.coinCompromised,reason:blocked?`No collision-free route in view; attempting ${best.first}`:best.coinCompromised?`No zero-coin route in view; avoiding trains`:best.first==='hold'?'Clear predicted path':`Avoiding danger: ${best.first}`};
   }
   // Prefer an already-clear corridor and commit early, rather than postponing
   // every lane change to the next search step under receding-horizon ties.

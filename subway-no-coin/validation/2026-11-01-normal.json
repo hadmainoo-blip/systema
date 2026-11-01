@@ -1,0 +1,674 @@
+{
+  "sourceSha256": "3d3d03b58e15a91165fa3aa26ab726db2f609bdd2497c07233276946e6416b5a",
+  "sourceFilesSha256": {
+    "legacy-profile.js": "f61aeb643ad682a65d5948d021532a6e3b77713632ebe4102b485fef5e3782f2",
+    "native-reader.js": "c68de681788f4e126ee474f88bec05bb6f57ff37bd3681777ebdcc77bdb44696",
+    "native-pilot.js": "d8ddaef767e49bd6eabbde0e3757240e097b7e113b74f1844f887e900a8f5d35",
+    "native-planner.js": "55c6e6555c98b6044907201f91d4070de080426ed7348aedad612ace4f3b9eae"
+  },
+  "renderMode": "normal",
+  "renderDiagnostic": null,
+  "engineFrameStats": {
+    "count": 52,
+    "firstAt": 7615.5,
+    "lastAt": 12298.6,
+    "lastZ": 475.72119140625,
+    "lastSpeed": 113.27769470214844,
+    "gameSeconds": 4.248763123920917
+  },
+  "costStats": {
+    "reader": {
+      "samples": 163,
+      "meanMs": 0.312883435599963,
+      "p95Ms": 1.2000000001862645,
+      "maxMs": 2.8999999999068677
+    },
+    "planner": {
+      "samples": 48,
+      "meanMs": 38.02083333336244,
+      "p95Ms": 77.10000000009313,
+      "maxMs": 146.89999999990687
+    }
+  },
+  "elapsedWallSeconds": 5.325414645999899,
+  "requestedSeconds": 60,
+  "render": {
+    "width": 240,
+    "height": 400,
+    "dpr": 1
+  },
+  "viewport": {
+    "width": 240,
+    "height": 400
+  },
+  "estimatedMovingFps": 12.001567551680766,
+  "lastPlan": {
+    "scene": {
+      "source": "ashuni-legacy-sanfrancisco-1.94",
+      "running": true,
+      "paused": false,
+      "dead": false,
+      "runId": 0,
+      "collected": 0,
+      "lane": 1,
+      "targetLane": 1,
+      "lanePosition": 1,
+      "player": {
+        "x": 0,
+        "y": 12.084897994995117,
+        "z": 461.3813781738281
+      },
+      "gamePosition": {
+        "x": 0,
+        "y": 12.084897994995117,
+        "z": 461.3813781738281
+      },
+      "speed": 113.20032501220703,
+      "engineStep": 0.08461924182047893,
+      "changing": false,
+      "jumping": true,
+      "rolling": false,
+      "gravity": 200,
+      "jumpHeight": 20,
+      "verticalSpeed": 53.02272033691406,
+      "groundY": 0.8000003695487976,
+      "body": {
+        "x": 0,
+        "y": 17.584897994995117,
+        "z": 462.3813781738281,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "coins": [
+        {
+          "id": 57407872,
+          "x": 0,
+          "y": 6,
+          "z": 460.8065185546875,
+          "hx": 4.5,
+          "hy": 4.5,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        },
+        {
+          "id": 57406912,
+          "x": 20,
+          "y": 6,
+          "z": 765,
+          "hx": 4.5,
+          "hy": 4.5,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        },
+        {
+          "id": 48547264,
+          "x": 0,
+          "y": 16.337230682373047,
+          "z": 475.8065185546875,
+          "hx": 4.5,
+          "hy": 4.5,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        },
+        {
+          "id": 48548224,
+          "x": 20,
+          "y": 6,
+          "z": 795,
+          "hx": 4.5,
+          "hy": 4.5,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        },
+        {
+          "id": 53952704,
+          "x": 0,
+          "y": 22.95545196533203,
+          "z": 490.8065185546875,
+          "hx": 4.5,
+          "hy": 4.5,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        },
+        {
+          "id": 53955584,
+          "x": 0,
+          "y": 25.854665756225586,
+          "z": 505.8065185546875,
+          "hx": 4.5,
+          "hy": 4.5,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        },
+        {
+          "id": 53946176,
+          "x": 0,
+          "y": 25.034873962402344,
+          "z": 520.8065185546875,
+          "hx": 4.5,
+          "hy": 4.5,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        },
+        {
+          "id": 53928576,
+          "x": 0,
+          "y": 20.49606704711914,
+          "z": 535.8065185546875,
+          "hx": 4.5,
+          "hy": 4.5,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        },
+        {
+          "id": 53931456,
+          "x": 0,
+          "y": 12.238258361816406,
+          "z": 550.8065185546875,
+          "hx": 4.5,
+          "hy": 4.499999523162842,
+          "hz": 4.5,
+          "shape": "SphereCollider"
+        }
+      ],
+      "obstacles": [
+        {
+          "id": 59419424,
+          "x": -20,
+          "y": 15.200000762939453,
+          "z": 541,
+          "hx": 8.5,
+          "hy": 14,
+          "hz": 88,
+          "name": "trains_3_group",
+          "tag": "HitTrain",
+          "shape": "BoxCollider",
+          "trigger": false,
+          "kind": "obstacle",
+          "velocityZ": 0,
+          "observedAt": 12170.5
+        },
+        {
+          "id": 53747696,
+          "x": -0.0009202957153320312,
+          "y": 5.630000114440918,
+          "z": 505.6751708984375,
+          "hx": 9.412510871887207,
+          "hy": 6,
+          "hz": 1,
+          "name": "blocker_jump_group",
+          "tag": "HitBarrierJump",
+          "shape": "BoxCollider",
+          "trigger": false,
+          "kind": "obstacle",
+          "velocityZ": 0,
+          "observedAt": 12170.5
+        },
+        {
+          "id": 57705232,
+          "x": 20,
+          "y": 15.200000762939453,
+          "z": 511,
+          "hx": 8.5,
+          "hy": 14,
+          "hz": 148,
+          "name": "trains_5_group",
+          "tag": "HitTrain",
+          "shape": "BoxCollider",
+          "trigger": false,
+          "kind": "obstacle",
+          "velocityZ": 0,
+          "observedAt": 12170.5
+        },
+        {
+          "id": 52621536,
+          "x": 0,
+          "y": 15.200000762939453,
+          "z": 841,
+          "hx": 8.5,
+          "hy": 14,
+          "hz": 88,
+          "name": "trains_3_group",
+          "tag": "HitTrain",
+          "shape": "BoxCollider",
+          "trigger": false,
+          "kind": "obstacle",
+          "velocityZ": 0,
+          "observedAt": 12170.5
+        }
+      ],
+      "samples": 1755,
+      "errors": 0,
+      "lastError": "",
+      "at": 12220.399999999907
+    },
+    "settings": {
+      "precision": false,
+      "pendingLane": null,
+      "commandDelay": 0
+    },
+    "decision": {
+      "action": "hold",
+      "targetX": 0,
+      "nextAction": "left",
+      "nextActionIn": 1.4000000000000001,
+      "risk": 1400000,
+      "imminentRisk": 1100000,
+      "collisionIn": 0.04958776115634118,
+      "cost": 1325000.2480000001,
+      "blocked": false,
+      "zeroCoinRoute": false,
+      "reason": "No zero-coin route in view; avoiding trains"
+    }
+  },
+  "scene": {
+    "source": "ashuni-legacy-sanfrancisco-1.94",
+    "running": true,
+    "paused": false,
+    "dead": false,
+    "runId": 0,
+    "collected": 1,
+    "lane": 1,
+    "targetLane": 1,
+    "lanePosition": 1,
+    "player": {
+      "x": 0,
+      "y": 15.966550827026367,
+      "z": 475.72119140625
+    },
+    "gamePosition": {
+      "x": 0,
+      "y": 15.966550827026367,
+      "z": 475.72119140625
+    },
+    "speed": 113.27769470214844,
+    "engineStep": 0.08461924182047893,
+    "changing": false,
+    "jumping": true,
+    "rolling": false,
+    "gravity": 200,
+    "jumpHeight": 20,
+    "verticalSpeed": 27.702720642089844,
+    "groundY": 0.8000003695487976,
+    "body": {
+      "x": 0,
+      "y": 21.466550827026367,
+      "z": 476.72119140625,
+      "hx": 3.000000238418579,
+      "hy": 5,
+      "hz": 3,
+      "shape": "CapsuleCollider"
+    },
+    "coins": [
+      {
+        "id": 57406912,
+        "x": 20,
+        "y": 6,
+        "z": 765,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 48548224,
+        "x": 20,
+        "y": 6,
+        "z": 795,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 53952704,
+        "x": 0,
+        "y": 22.95545196533203,
+        "z": 490.8065185546875,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 53953664,
+        "x": 20,
+        "y": 6,
+        "z": 825,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 53955584,
+        "x": 0,
+        "y": 25.854665756225586,
+        "z": 505.8065185546875,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 53946176,
+        "x": 0,
+        "y": 25.034873962402344,
+        "z": 520.8065185546875,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 53928576,
+        "x": 0,
+        "y": 20.49606704711914,
+        "z": 535.8065185546875,
+        "hx": 4.5,
+        "hy": 4.5,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      },
+      {
+        "id": 53931456,
+        "x": 0,
+        "y": 12.238258361816406,
+        "z": 550.8065185546875,
+        "hx": 4.5,
+        "hy": 4.499999523162842,
+        "hz": 4.5,
+        "shape": "SphereCollider"
+      }
+    ],
+    "obstacles": [
+      {
+        "id": 59419424,
+        "x": -20,
+        "y": 15.200000762939453,
+        "z": 541,
+        "hx": 8.5,
+        "hy": 14,
+        "hz": 88,
+        "name": "trains_3_group",
+        "tag": "HitTrain",
+        "shape": "BoxCollider",
+        "trigger": false,
+        "kind": "obstacle",
+        "velocityZ": 0,
+        "observedAt": 12320.5
+      },
+      {
+        "id": 53747696,
+        "x": -0.0009202957153320312,
+        "y": 5.630000114440918,
+        "z": 505.6751708984375,
+        "hx": 9.412510871887207,
+        "hy": 6,
+        "hz": 1,
+        "name": "blocker_jump_group",
+        "tag": "HitBarrierJump",
+        "shape": "BoxCollider",
+        "trigger": false,
+        "kind": "obstacle",
+        "velocityZ": 0,
+        "observedAt": 12320.5
+      },
+      {
+        "id": 57705232,
+        "x": 20,
+        "y": 15.200000762939453,
+        "z": 511,
+        "hx": 8.5,
+        "hy": 14,
+        "hz": 148,
+        "name": "trains_5_group",
+        "tag": "HitTrain",
+        "shape": "BoxCollider",
+        "trigger": false,
+        "kind": "obstacle",
+        "velocityZ": 0,
+        "observedAt": 12320.5
+      },
+      {
+        "id": 52621536,
+        "x": 0,
+        "y": 15.200000762939453,
+        "z": 841,
+        "hx": 8.5,
+        "hy": 14,
+        "hz": 88,
+        "name": "trains_3_group",
+        "tag": "HitTrain",
+        "shape": "BoxCollider",
+        "trigger": false,
+        "kind": "obstacle",
+        "velocityZ": 0,
+        "observedAt": 12320.5
+      }
+    ],
+    "samples": 1791,
+    "errors": 0,
+    "lastError": "",
+    "at": 12320.5
+  },
+  "options": {
+    "precision": false,
+    "autoBrake": false,
+    "stopOnCoin": true,
+    "hud": true
+  },
+  "outcome": "coin_collection",
+  "secondsObserved": 6,
+  "maxZ": 475.72119140625,
+  "maxCoins": 1,
+  "acceptedActions": [
+    {
+      "action": "right",
+      "at": 8703.700000000186,
+      "player": {
+        "x": 0,
+        "y": 0.8000001907348633,
+        "z": 61.367897033691406
+      },
+      "lane": 1,
+      "changing": false,
+      "jumping": false,
+      "rolling": false,
+      "verticalSpeed": -36.439998626708984
+    },
+    {
+      "action": "roll",
+      "at": 9428.30000000028,
+      "player": {
+        "x": 20,
+        "y": 0.8000001907348633,
+        "z": 142.6107940673828
+      },
+      "lane": 2,
+      "changing": false,
+      "jumping": false,
+      "rolling": false,
+      "verticalSpeed": -4.559999465942383
+    },
+    {
+      "action": "roll",
+      "at": 10031.700000000186,
+      "player": {
+        "x": 20,
+        "y": 0.8000059127807617,
+        "z": 205.57138061523438
+      },
+      "lane": 2,
+      "changing": false,
+      "jumping": false,
+      "rolling": false,
+      "verticalSpeed": -15.979999542236328
+    },
+    {
+      "action": "roll",
+      "at": 10613.5,
+      "player": {
+        "x": 20,
+        "y": 0.8000054359436035,
+        "z": 275.8608703613281
+      },
+      "lane": 2,
+      "changing": false,
+      "jumping": false,
+      "rolling": false,
+      "verticalSpeed": -24.69999885559082
+    },
+    {
+      "action": "left",
+      "at": 10853.30000000028,
+      "player": {
+        "x": 20,
+        "y": 0.8000054359436035,
+        "z": 305.2950744628906
+      },
+      "lane": 2,
+      "changing": false,
+      "jumping": false,
+      "rolling": true,
+      "verticalSpeed": -16.420000076293945
+    },
+    {
+      "action": "jump",
+      "at": 12107.200000000186,
+      "player": {
+        "x": 0,
+        "y": 0.8000001907348633,
+        "z": 440.7725830078125
+      },
+      "lane": 1,
+      "changing": false,
+      "jumping": false,
+      "rolling": false,
+      "verticalSpeed": -16.920000076293945
+    }
+  ],
+  "trace": [
+    {
+      "second": 0,
+      "status": "Native autopilot armed",
+      "pilotRunning": true,
+      "running": null,
+      "paused": false,
+      "dead": false,
+      "nativeCoins": 0,
+      "coins": null,
+      "z": null,
+      "x": null,
+      "lane": null,
+      "seen": null,
+      "obstacles": null,
+      "moves": 0,
+      "reason": "Waiting for a run",
+      "errors": null,
+      "wallSeconds": 0.0028440569999474974
+    },
+    {
+      "second": 1,
+      "status": "Native autopilot active",
+      "pilotRunning": true,
+      "running": true,
+      "paused": false,
+      "dead": false,
+      "nativeCoins": 0,
+      "coins": 0,
+      "z": 61.367897033691406,
+      "x": 0,
+      "lane": 1,
+      "seen": 9,
+      "obstacles": 4,
+      "moves": 1,
+      "reason": "Avoiding danger: right",
+      "errors": 0,
+      "wallSeconds": 1.0874989099997947
+    },
+    {
+      "second": 2,
+      "status": "Native autopilot active",
+      "pilotRunning": true,
+      "running": true,
+      "paused": false,
+      "dead": false,
+      "nativeCoins": 0,
+      "coins": 0,
+      "z": 174.25765991210938,
+      "x": 20,
+      "lane": 2,
+      "seen": 13,
+      "obstacles": 4,
+      "moves": 2,
+      "reason": "No zero-coin route in view; avoiding trains",
+      "errors": 0,
+      "wallSeconds": 2.093046901999969
+    },
+    {
+      "second": 3,
+      "status": "Native autopilot active",
+      "pilotRunning": true,
+      "running": true,
+      "paused": false,
+      "dead": false,
+      "nativeCoins": 0,
+      "coins": 0,
+      "z": 286.03070068359375,
+      "x": 20,
+      "lane": 2,
+      "seen": 10,
+      "obstacles": 3,
+      "moves": 4,
+      "reason": "No zero-coin route in view; avoiding trains",
+      "errors": 0,
+      "wallSeconds": 3.10154310300004
+    },
+    {
+      "second": 4,
+      "status": "Native autopilot active",
+      "pilotRunning": true,
+      "running": true,
+      "paused": false,
+      "dead": false,
+      "nativeCoins": 0,
+      "coins": 0,
+      "z": 405.16058349609375,
+      "x": 0,
+      "lane": 1,
+      "seen": 7,
+      "obstacles": 4,
+      "moves": 5,
+      "reason": "No collision-free route in view; attempting hold",
+      "errors": 0,
+      "wallSeconds": 4.111492268999882
+    },
+    {
+      "second": 5,
+      "status": "Coin collected \u2014 run paused",
+      "pilotRunning": false,
+      "running": true,
+      "paused": true,
+      "dead": false,
+      "nativeCoins": 1,
+      "coins": 1,
+      "z": 475.72119140625,
+      "x": 0,
+      "lane": 1,
+      "seen": 8,
+      "obstacles": 4,
+      "moves": 6,
+      "reason": "No zero-coin route in view; avoiding trains",
+      "errors": 0,
+      "wallSeconds": 5.121974710999893
+    }
+  ],
+  "pageErrors": [],
+  "omittedTelemetry": [
+    "motion",
+    "recentPlans"
+  ]
+}

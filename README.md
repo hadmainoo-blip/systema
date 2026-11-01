@@ -1,6 +1,8 @@
-# No Coin Pilot 0.6.2 — ready without training
+# No Coin Pilot — reliability work in progress
 
-[Download the extension ZIP](https://github.com/hadmainoo-blip/systema/raw/refs/heads/codex/no-coin-pilot-0.6/no-coin-pilot.zip)
+**The requested 30-minute, zero-coin target is not met.** The current source candidate passes 122 automated checks, but its latest real-game test collected a coin after 5.33 seconds. These changes remain unreleased; see [the evidence and reproduction commands](subway-no-coin/VALIDATION.md). The ZIP below remains the earlier experimental 0.6.2 build.
+
+[Previous experimental 0.6.2 ZIP](https://raw.githubusercontent.com/hadmainoo-blip/systema/6e5a790745ff579de3a6615230dcee0d532d8620/no-coin-pilot.zip)
 
 For **https://ashuni.lol/legacy/sanfrancisco/**, original mode, desktop Chrome/Edge.
 

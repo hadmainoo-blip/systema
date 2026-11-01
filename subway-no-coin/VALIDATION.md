@@ -1,4 +1,41 @@
-# Validation — current release 0.6.2 (2026-10-31)
+# Validation — unreleased reliability candidate (2026-11-01)
+
+**The 30-minute zero-coin requirement is not met. No new release ZIP has been produced.** The retained ZIP is still experimental 0.6.2. The results below describe the current source, rather than that ZIP.
+
+Changes:
+
+- Query both ends of the obstacle interval so a long train containing one ray origin remains visible. Keep road-height probes during jumps and update obstacles within 60 ms.
+- Carry the actual collider classes into planning and sweep the rounded capsule against spheres/boxes. Model the observed rolled sphere rather than a smaller fictional collider. Train collisions end a predicted trajectory; a limited fallback preserves physical survival when the search cannot find a zero-coin route.
+- Preserve more distinct lane, airborne and cooldown states across a 3-second search. Track the verified native lane target. Normal lateral speed is approximated from observed movement as forward speed / 1.5; this remains an approximation, not an exact motor model.
+- Read the current `JumpHeight` field (offset 72), rather than the normal-height configuration (108). Reject another ground jump when the character is airborne despite a stale flag. Remove the artificial global 180 ms delay between different command types; keep native movement guards and a 60 ms repeat bound for the same type.
+- Replan near scheduled commands and throttle HUD writes. Record source hashes, actual forward-gameplay time and native coin counters. Save portable JSON for infinite collision deadlines. A separate verification gate rejects short, paused, dead, stale-source or coin-collecting trials.
+
+**122 Node tests passed.** These include independent collision-clearance witnesses, executable switchbacks, unavoidable-coin survival fallback, current-height reads, sensor refresh and jump/lane timing. They verify components and constructed cases, not sustained gameplay. Worker, popup and recorder browser checks also passed. The real recorder retained all five labels (hold 9, left 2, right 1, jump 1, roll 1); pause/resume, native-only actions, key deduplication and cancellation/restart checks passed.
+
+Current-source live results, with ordinary lane commands, predictive braking off and stop-on-coin enabled:
+
+| Rendering | Wall time | Forward gameplay time | Final Z | Coins | Outcome |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Normal software rendering | 5.33 s | 4.25 s | 475.72 | 1 | Failed: coin collected |
+| Render submissions suppressed for diagnosis | 2.04 s | 0.80 s | 88.89 | 1 | Failed: coin collected |
+
+Both runs kept the native game physics, counters and collision handlers active. Normal rendering observed roughly 12 engine FPS; the diagnostic run observed roughly 40 FPS. Layouts differed, so this is not a paired performance comparison. The normal run's planner averaged 38 ms and reached 147 ms, which is a remaining main-thread performance concern. Neither trial validates long-run control. Installed-extension end-to-end testing remains blocked by administrator policy; these tests execute the actual source functions in the real supported game through Playwright.
+
+Machine-readable reports retain trace rows, source hashes, accepted actions, final native state and final prediction: [normal rendering](validation/2026-11-01-normal.json), [render-suppressed diagnosis](validation/2026-11-01-render-diagnostic.json). Older intermediate candidates are not counted as successful gameplay evidence. The linked YouTube run was not downloaded or used for training.
+
+Reproduce from `subway-no-coin/`:
+
+```sh
+npm test
+python tests/live_native_check.py --seconds 1800 --telemetry compact --width 240 --height 400 --output ../work/live-30min.json
+node scripts/verify-gameplay.mjs ../work/live-30min.json
+```
+
+The live check exits early with failure on death/coin collection. The separate gate requires at least 1,800 seconds of both wall time and forward gameplay, matching source hashes, continuous active traces and zero native coins. Component tests of the gate use synthetic reports and cannot establish gameplay success.
+
+---
+
+# Validation — release 0.6.2 (2026-10-31)
 
 Predictive pausing is now **opt-in and off by default**. Older default-on settings migrate off once; a deliberate new checkbox choice is preserved. The pilot attempts its chosen command before considering opt-in emergency braking, which is restricted to immediately approaching danger. Manual stop, death, collected-coin stop, focus-loss and sensor/disconnect handling remain active. Between-lane steering stays disabled.
 
