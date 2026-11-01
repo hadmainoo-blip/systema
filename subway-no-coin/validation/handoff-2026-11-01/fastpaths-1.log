@@ -1,0 +1,73 @@
+{"second": 0, "status": "Native autopilot armed", "pilotRunning": true, "running": null, "paused": false, "dead": false, "nativeCoins": 0, "coins": null, "z": null, "x": null, "lane": null, "seen": null, "obstacles": null, "moves": 0, "reason": "Waiting for a run", "errors": null, "planningMode": "worker", "planLatencyMs": null, "planComputeMs": null, "wallSeconds": 0.005816982999931497}
+{
+  "sourceSha256": "b9921dd6c11e16c56129d8b3e2385034a3ab33ba0297d54bde28339965c18823",
+  "sourceFilesSha256": {
+    "legacy-profile.js": "2b32648170a800f126481f8fff7dc85a1d470940d9cdc638d18f41dda8b8ee92",
+    "native-reader.js": "dedcfa72005e0fc64db9a6a4261f6614c2694d5fde6d34a4b60cefc695d37ae9",
+    "native-pilot.js": "c0b9da6a138909f482d2f360b080177788717483c6066265369152a0f6f689d5",
+    "native-planner.js": "f419e810a8955a8be1d65f19a5fe6a7400e00199bbf7f799a0cf51216db977c5"
+  },
+  "renderMode": "no-state",
+  "renderDiagnostic": {
+    "mode": "no-state",
+    "skippedDraws": 15725,
+    "skippedState": 57099
+  },
+  "engineFrameStats": {
+    "count": 39,
+    "firstAt": 6976.5,
+    "lastAt": 8076.5,
+    "lastZ": 85.57386016845703,
+    "lastSpeed": 111.0590591430664,
+    "gameSeconds": 0.7722696051067739
+  },
+  "costStats": {
+    "reader": {
+      "samples": 57,
+      "meanMs": 0.36666666657516833,
+      "p95Ms": 1.199999999254942,
+      "maxMs": 5.2999999998137355
+    },
+    "planner": {
+      "samples": 11,
+      "meanMs": 46.76363636358556,
+      "p95Ms": 65.09999999962747,
+      "maxMs": 142.19999999925494
+    }
+  },
+  "elapsedWallSeconds": 2.0416941960002077,
+  "requestedSeconds": 180,
+  "render": {
+    "width": 240,
+    "height": 400,
+    "dpr": 1
+  },
+  "viewport": {
+    "width": 240,
+    "height": 400
+  },
+  "estimatedMovingFps": 35.26206122773981,
+  "options": {
+    "precision": false,
+    "autoBrake": false,
+    "stopOnCoin": true,
+    "hud": true,
+    "planningWorker": true
+  },
+  "outcome": "coin_collection",
+  "secondsObserved": 3,
+  "maxZ": 85.57386016845703,
+  "maxCoins": 1,
+  "actionCounts": {
+    "left": 0,
+    "right": 0,
+    "jump": 3,
+    "roll": 3
+  },
+  "finalStatus": "Coin collected \u2014 run paused"
+}
+Traceback (most recent call last):
+  File "/workspace/systema/subway-no-coin/tests/live_native_check.py", line 131, in <module>
+    assert result['maxCoins']==0,'A coin was collected during this test'
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: A coin was collected during this test

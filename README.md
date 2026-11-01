@@ -1,6 +1,8 @@
 # No Coin Pilot — reliability work in progress
 
-**The requested 30-minute, zero-coin target is not met.** The current source candidate passes 122 automated checks, but its latest real-game test collected a coin after 5.33 seconds. These changes remain unreleased; see [the evidence and reproduction commands](subway-no-coin/VALIDATION.md). The ZIP below remains the earlier experimental 0.6.2 build.
+**Source handoff:** [Download the current source archive](https://github.com/hadmainoo-blip/systema/raw/refs/heads/codex/no-coin-pilot-0.6/systema-source-handoff.zip) and read [handoff.md](handoff.md) before continuing. It records the user's requirements, exact source snapshots, current failures, runtime findings and reproduction commands.
+
+**The requested 30-minute, zero-coin target is not met.** Current source checks: 121 passed, 1 failed. Its latest live trial failed at the first coin row. An earlier preserved source snapshot reached 78.07 wall seconds / 75.48 forward-gameplay seconds before collecting a coin. Layouts differed; neither is a successful run. These changes remain unreleased; see [the evidence](subway-no-coin/VALIDATION.md). The extension ZIP below remains the earlier experimental 0.6.2 build.
 
 [Previous experimental 0.6.2 ZIP](https://raw.githubusercontent.com/hadmainoo-blip/systema/6e5a790745ff579de3a6615230dcee0d532d8620/no-coin-pilot.zip)
 

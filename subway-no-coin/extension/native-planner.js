@@ -4,18 +4,38 @@ export function planNative(scene, settings={}) {
   // Ordinary commands need to commit farther ahead than direct steering: a
   // pair of lane changes plus a jump can take over a second to execute.
   const ordinary=settings.precision===false;
-  const speed=Math.max(1,scene.speed),dt=ordinary?.05:.1,steps=ordinary?60:22,beamWidth=ordinary?192:36;
+  const speed=Math.max(1,scene.speed),dt=ordinary?1/30:.1,steps=ordinary?90:22,beamWidth=ordinary?192:36;
   const gravity=Math.max(10,scene.gravity||200),jumpV=Math.sqrt(2*gravity*(scene.jumpHeight||20));
   const engineStep=Math.max(1/240,Math.min(1/3,scene.engineStep||1/60));
   const body=scene.body||{hx:3,hy:5,hz:3,y:scene.player.y+5.5};
   const baseY=scene.groundY??Math.min(scene.player.y,1),centerOffset=body.y-scene.player.y;
   const targets=settings.precision===false?[-20,0,20]:[-20,-12,-8,0,8,12,20];
   const horizon=steps*dt;
+  const skin=scene.skinWidth??.2,roadY=scene.roadY??baseY;
+  function surfaceAt(v,z){
+    const points=v.surface;if(!points?.length)return null;
+    let lo=0,hi=points.length-1;if(z<points[lo].z||z>points[hi].z)return null;
+    while(hi-lo>1){const mid=(lo+hi)>>>1;if(points[mid].z>z)hi=mid;else lo=mid;}
+    const a=points[lo],b=points[hi];if(a.y===null||b.y===null)return null;
+    const mix=b.z===a.z?0:(z-a.z)/(b.z-a.z);
+    return {y:a.y+(b.y-a.y)*mix+skin,ny:Math.min(a.ny,b.ny)};
+  }
   const items=[...(scene.coins||[]).map(c=>({...c,velocityZ:0,weight:100000})),...(scene.obstacles||[]).map(c=>{
     const velocityZ=Number.isFinite(c.velocityZ)?c.velocityZ:0;
     const age=Number.isFinite(c.observedAt)&&Number.isFinite(scene.at)?Math.max(0,Math.min(.6,(scene.at-c.observedAt)/1000)):0;
     return {...c,z:c.z+velocityZ*age,velocityZ,weight:1000000};
   })].filter(v=>Math.max(v.z,v.z+v.velocityZ*horizon)+(v.hz||4.5)>=scene.player.z-10&&Math.min(v.z,v.z+v.velocityZ*horizon)-(v.hz||4.5)<=scene.player.z+speed*horizon+20);
+  const platforms=items.filter(v=>v.weight>=1000000&&(v.surface||v.shape==='BoxCollider'&&(/HitTrain/.test(v.tag||'')||/^(trains|train_sub|topCollider)/.test(v.name||''))));
+  const floors=Array.from({length:steps},(_,i)=>[-20,0,20].map(x=>{
+    const t=(i+1)*dt,z=scene.player.z+speed*t;let support={y:roadY,id:0,ny:1};
+    for(const v of platforms){
+      if(Math.abs(x-v.x)>v.hx)continue;
+      const localZ=z-v.velocityZ*t,profile=v.surface?surfaceAt(v,localZ):null;
+      const top=v.surface?profile:Math.abs(localZ-v.z)<=v.hz?{y:v.y+v.hy+skin,ny:1}:null;
+      if(top&&top.y>support.y)support={...top,id:v.id??v};
+    }
+    return support;
+  }));
   // Longitudinal motion is the same for every candidate. Bin its possible
   // overlap once instead of testing every visible collider for every state.
   const timeBins=Array.from({length:steps},()=>[]),bodyZ=body.z??scene.player.z;
@@ -72,6 +92,13 @@ export function planNative(scene, settings={}) {
       enter=Math.max(enter,Math.min(first,last));exit=Math.min(exit,Math.max(first,last));return enter<exit;
     }
     for(const v of timeBins[Math.max(0,Math.min(steps-1,Math.floor(t/dt)))]){
+      if(v.surface&&Math.abs(from.x-v.x)<v.hx-3&&Math.abs(to.x-v.x)<v.hx-3){
+        const supportZ=scene.player.z+speed*start;
+        const a=surfaceAt(v,supportZ-v.velocityZ*start),b=surfaceAt(v,supportZ+speed*dt-v.velocityZ*(start+dt));
+        // A sampled ramp supports grounded movement. Its world AABB includes
+        // empty air above the slope and must not become a fictional wall.
+        if((!a||from.y>=a.y-.25)&&(!b||to.y>=b.y-.25))continue;
+      }
       enter=0;exit=1;
       // Intersect collision times across all axes. Combining independent swept
       // boxes would falsely collide at diagonally opposite corners of a step.
@@ -80,8 +107,8 @@ export function planNative(scene, settings={}) {
          axis(z-obstacleZ,z+speed*dt-obstacleZ-v.velocityZ*dt,body.hz+(v.hz??4.5)+.4)&&
          axis(from.y+centerHeight-v.y,to.y+centerHeight-v.y,halfHeight+(v.hy??4.5)+gravity*dt*dt/8)){
         let hit=enter;
-        if(capsule&&halfHeight>=capsuleRadius&&(v.shape==='SphereCollider'||v.shape==='BoxCollider')){
-          const sphere=v.shape==='SphereCollider',halfSegment=halfHeight-capsuleRadius;
+        if(capsule&&halfHeight+.001>=capsuleRadius&&(v.shape==='SphereCollider'||v.shape==='BoxCollider')){
+          const sphere=v.shape==='SphereCollider',halfSegment=Math.max(0,halfHeight-capsuleRadius);
           const half=sphere?[.2,halfSegment+gravity*dt*dt/8,.4]:[(v.hx??4.5)+.2,(v.hy??4.5)+halfSegment+gravity*dt*dt/8,(v.hz??4.5)+.4];
           const radius=capsuleRadius+(sphere?Math.max(v.hx??4.5,v.hy??4.5,v.hz??4.5):0);
           hit=roundedBoxHit([from.x-v.x,from.y+centerHeight-v.y,z-obstacleZ],[to.x-v.x,to.y+centerHeight-v.y,z+speed*dt-obstacleZ-v.velocityZ*dt],half,radius,Math.max(0,enter),Math.min(1,exit));
@@ -97,7 +124,7 @@ export function planNative(scene, settings={}) {
     const phases={},unique=new Set();
     for(const s of candidates){
       const key=keyFor(s);if(unique.has(key))continue;unique.add(key);
-      const phase=(s.roll>0?'roll':s.y<=baseY+.9&&s.vy<=0?'ground':s.vy>0?'up':'down')+(actionDiversity?`:${s.first}:${s.lane}`:'');(phases[phase]??=[]).push(s);
+      const phase=(s.roll>0?'roll-':'')+(s.y<=(s.floor??baseY)+.05&&s.vy<=0?'ground':s.vy>0?'up':'down')+(actionDiversity?`:${s.first}:${s.lane}`:'');(phases[phase]??=[]).push(s);
     }
     // Retain possible takeoffs before reaching an obstacle. A purely cost-sorted
     // beam fills with cheap ground paths and discards every timely jump.
@@ -117,7 +144,42 @@ export function planNative(scene, settings={}) {
     // rather than the fixed 50 units/s previously assumed by the search.
     const laneSpeed=Number.isFinite(scene.laneSpeed)&&scene.laneSpeed>0?scene.laneSpeed:speed/1.5;
     if(!items.length)return {action:'hold',targetX:(lane-1)*20,risk:0,imminentRisk:0,cost:0,reason:'Clear road ahead'};
-    const initial={x:scene.player.x,y:scene.player.y,vy:scene.verticalSpeed||0,lane,roll:scene.rolling?.35:0,wait:Math.max(0,Math.min(.5,settings.commandDelay||0)),cost:0,risk:0,imminentRisk:0,firstHit:Infinity,coinCompromised:scene.collected>0,first:'hold',firstX:(lane-1)*20,nextAction:null,nextActionIn:Infinity};
+    const initial={x:scene.player.x,y:scene.player.y,vy:scene.verticalSpeed||0,floor:baseY,floorId:null,lane,roll:scene.rolling?.35:0,wait:Math.max(0,Math.min(.5,settings.commandDelay||0)),cost:0,risk:0,imminentRisk:0,firstHit:Infinity,coinCompromised:scene.collected>0,first:'hold',firstX:(lane-1)*20,nextAction:null,nextActionIn:Infinity};
+    function integrate(state,s,step,action){
+      const target=(s.lane-1)*20;
+      s.x+=Math.sign(target-s.x)*Math.min(Math.abs(target-s.x),laneSpeed*dt);
+      s.y+=s.vy*dt-.5*gravity*dt*dt-.5*gravity*engineStep*dt;s.vy-=gravity*dt;
+      const support=floors[step][Math.max(0,Math.min(2,Math.round(s.x/20)+1))],onGround=state.y<=state.floor+.05&&state.vy<=0&&action!=='jump';
+      const maxStep=Math.abs(s.x-state.x)>.01&&support.id!==state.floorId ? .75 : .75+speed*dt*.8;
+      const climbing=onGround&&support.ny>=.65&&support.y-state.floor<=maxStep;
+      s.floor=support.y;s.floorId=support.id;
+      if(climbing&&support.y>=state.floor-1){s.y=support.y;s.vy=0;}
+      else if(s.y<support.y&&state.y>=support.y-.05){s.y=support.y;s.vy=0;}
+      s.roll=Math.max(0,s.roll-dt);if(s.roll<.001)s.roll=0;s.wait=Math.max(0,s.wait-dt);
+    }
+    // Most frames need either no command or one ordinary dodge. Verify those
+    // complete trajectories first; expanding thousands of redundant hold
+    // states here used to consume time needed by the game and the next search.
+    const simple=['hold'],aligned=Math.abs(initial.x-(lane-1)*20)<.5;
+    if(initial.wait<=.001){
+      if(aligned&&!scene.changing){if(lane>0)simple.push('left');if(lane<2)simple.push('right');}
+      if(initial.y<=initial.floor+.05&&initial.vy<=0)simple.push('jump');
+      if(initial.roll<=0)simple.push('roll');
+    }
+    for(const action of simple){
+      let state=initial,clear=true;
+      for(let step=0;step<steps;step++){
+        const s={...state};
+        if(step===0){
+          if(action==='left')s.lane--;if(action==='right')s.lane++;
+          if(action==='jump'){s.vy=jumpV;s.roll=0;}
+          if(action==='roll'){s.roll=.5;if(s.y>state.floor+.05)s.vy=-jumpV;}
+        }
+        integrate(state,s,step,step===0?action:'hold');
+        if(riskAt(state,s,(step+.5)*dt)>0){clear=false;break;}state=s;
+      }
+      if(clear){const target=(lane-1+(action==='left'?-1:action==='right'?1:0))*20;return {action,targetX:target,nextAction:action==='hold'?null:action,nextActionIn:action==='hold'?Infinity:0,risk:0,imminentRisk:0,cost:action==='hold'?0:.12,blocked:false,zeroCoinRoute:true,reason:action==='hold'?'Clear predicted path':`Avoiding danger: ${action}`};}
+    }
     let beam=[initial],blocked=false;
     for(let step=0;step<steps;step++){
       const candidates=[],collisions=[];
@@ -125,20 +187,18 @@ export function planNative(scene, settings={}) {
         const actions=['hold'],aligned=Math.abs(state.x-(state.lane-1)*20)<.5;
         if(state.wait<=.001){
           if(aligned&&!(step===0&&scene.changing)){if(state.lane>0)actions.push('left');if(state.lane<2)actions.push('right');}
-          if(state.y<=baseY+.9&&state.vy<=0&&state.roll<=0&&!(step===0&&scene.jumping))actions.push('jump','roll');
+          if(state.y<=state.floor+.05&&state.vy<=0)actions.push('jump');
+          if(state.roll<=0)actions.push('roll');
         }
         for(const action of actions){
           const s={...state};
           if(action==='left')s.lane--;if(action==='right')s.lane++;
           if(action==='jump'){s.vy=jumpV;s.roll=0;}
-          if(action==='roll')s.roll=.6;
+          if(action==='roll'){s.roll=.5;if(s.y>state.floor+.05)s.vy=-jumpV;}
           if(action!=='hold'&&s.nextAction===null){s.nextAction=action;s.nextActionIn=step*dt;}
           if(action!=='hold'){s.wait=.05;s.cost+=(action==='left'||action==='right'?.06:.12)+step*.006;}
           const target=(s.lane-1)*20;
-          s.x+=Math.sign(target-s.x)*Math.min(Math.abs(target-s.x),laneSpeed*dt);
-          s.y+=s.vy*dt-.5*gravity*dt*dt-.5*gravity*engineStep*dt;s.vy-=gravity*dt;
-          if(s.y<baseY){s.y=baseY;s.vy=0;}
-          s.roll=Math.max(0,s.roll-dt);if(s.roll<.001)s.roll=0;s.wait=Math.max(0,s.wait-dt);
+          integrate(state,s,step,action);
           const risk=riskAt(state,s,(step+.5)*dt);s.risk+=risk;
           s.firstHit=Math.min(state.firstHit,collisionTime);
           if((step+1)*dt<=.5)s.imminentRisk+=risk;

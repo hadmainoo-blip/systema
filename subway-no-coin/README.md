@@ -1,6 +1,8 @@
 # No Coin Pilot — unreleased reliability candidate
 
-**30 minutes of zero-coin survival has not been achieved.** This source candidate has new sensor, collision geometry, search and action-timing fixes, with 122 passing automated checks. Actual gameplay still fails within seconds. The repository ZIP remains the previous experimental 0.6.2 release; it does not contain the unreleased changes. [Current results and evidence](VALIDATION.md).
+**Source handoff:** read [handoff.md](../handoff.md) for the user's goals, current implementation, known failures, exact earlier source snapshot and commands for the next AI.
+
+**30 minutes of zero-coin survival has not been achieved.** Current source checks: 121 passed, 1 failed. The latest source still fails actual gameplay; a preserved earlier candidate reached 78.07 wall seconds / 75.48 forward-gameplay seconds before collecting a coin. The old `no-coin-pilot.zip` remains experimental 0.6.2 and does not contain these changes. The separate source handoff ZIP contains the unfinished current code. [Current results and evidence](VALIDATION.md).
 
 A built-in no-coin autopilot for **https://ashuni.lol/legacy/sanfrancisco/** in desktop Chrome/Edge, original mode.
 

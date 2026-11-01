@@ -1,4 +1,17 @@
-# Validation — unreleased reliability candidate (2026-11-01)
+# Source handoff — unfinished work (2026-11-01)
+
+Read [handoff.md](../handoff.md) for current requirements, implementation details and next steps. This section supersedes the earlier candidate's test counts below.
+
+- Current source: **121 Node tests passed, 1 failed**. The failure is the aggregate-risk threshold in the unavoidable-coin/solid-wall regression in `tests/planner-geometry.test.js`. It remains visible in [the test log](validation/handoff-2026-11-01/node-tests.log).
+- The search now uses a dedicated Worker, 1/30-second steps, midair roll/ground-jump cancellation, and sampled ramp/roof support. The latest experiment checks simple trajectories before beam expansion. These changes are still work in progress.
+- [The longer observed trial](validation/handoff-2026-11-01/terrain-fine-1.json) failed after 78.07 wall seconds / 75.48 forward-gameplay seconds, at Z10,096.29 with one coin. Its exact four source files are retained in `validation/handoff-2026-11-01/terrain-fine-source/`, verified against the report's hashes. It switched from Worker to main-thread planning around trace second 24.
+- [The latest-source trial](validation/handoff-2026-11-01/fastpaths-1.json) failed after 2.04 wall seconds / 0.77 forward-gameplay seconds, at Z85.57 with one coin. Its planner differs from the longer-run snapshot. Layouts differed, so these are not paired comparisons.
+- Both trials used render-suppressed diagnosis with real native physics, counters and collisions. Neither establishes normal-rendering or installed-extension success. **The 30-minute requirement remains unmet.**
+- `systema-source-handoff.zip` contains current source, this handoff and evidence. It is a source delivery, not a validated extension release. The previous extension ZIP is unchanged.
+
+---
+
+# Validation — earlier unreleased reliability candidate (2026-11-01)
 
 **The 30-minute zero-coin requirement is not met. No new release ZIP has been produced.** The retained ZIP is still experimental 0.6.2. The results below describe the current source, rather than that ZIP.
 

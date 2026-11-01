@@ -5,7 +5,7 @@ export const legacyProfile = Object.freeze({
   sourceHash:'7acb0ed25fa83d2542d73535381a93f3328d61fab037d10567bcab129c385142',
   characterInstance:1571, gameInstance:1547, transformPosition:8360,
   componentCollider:5153, colliderMethodInfo:4215204, colliderBounds:9209,
-  raycastAll:20, raycastHitCollider:12020, raycastHitSize:44, gameStats:180, statsCoins:56, objectName:11351, componentTag:11317, colliderEnabled:12021, colliderTrigger:12022,
+  raycastAll:20, raycastHitCollider:12020, raycastHitSize:44, raycastHitPoint:0, raycastHitNormal:12, gameStats:180, statsCoins:56, objectName:11351, componentTag:11317, colliderEnabled:12021, colliderTrigger:12022,
   pause:2871, changeTrack:3228, jump:6567, roll:6569, coinCollider:28, coinUpdate:2, coinActive:32, coinCharacter:36, coinTransform:40,
   characterX:76, coordinateOffset:20, characterLane:164, characterWorld:248, characterGame:236, characterRouteManager:480,
   characterTrackMovement:444, characterTrackTarget:460, characterTrackPosition:464, characterStumbling:156,

@@ -1,0 +1,88 @@
+{"second": 0, "status": "Native autopilot armed", "pilotRunning": true, "running": null, "paused": false, "dead": false, "nativeCoins": 0, "coins": null, "z": null, "x": null, "lane": null, "seen": null, "obstacles": null, "moves": 0, "reason": "Waiting for a run", "errors": null, "planningMode": "worker", "planLatencyMs": null, "planComputeMs": null, "wallSeconds": 0.007211997999547748}
+{"second": 5, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 513.5769653320312, "x": 20, "lane": 2, "seen": 6, "obstacles": 7, "moves": 3, "reason": "Clear predicted path", "errors": 0, "planningMode": "worker", "planLatencyMs": 44.09999999962747, "planComputeMs": 43.799999999813735, "wallSeconds": 5.041114814000139}
+{"second": 10, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 1088.83349609375, "x": 0, "lane": 1, "seen": 8, "obstacles": 5, "moves": 9, "reason": "Clear predicted path", "errors": 0, "planningMode": "worker", "planLatencyMs": 54.39999999944121, "planComputeMs": 54.10000000055879, "wallSeconds": 10.070914046000325}
+{"second": 15, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 1685.058837890625, "x": -20, "lane": 0, "seen": 0, "obstacles": 7, "moves": 20, "reason": "Clear predicted path", "errors": 0, "planningMode": "worker", "planLatencyMs": 42, "planComputeMs": 39.60000000055879, "wallSeconds": 15.114205769999899}
+{"second": 20, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 2294.8330078125, "x": 0, "lane": 1, "seen": 9, "obstacles": 6, "moves": 22, "reason": "Avoiding danger: roll", "errors": 0, "planningMode": "worker", "planLatencyMs": 42.700000000186265, "planComputeMs": 42.5, "wallSeconds": 20.14649315099996}
+{"second": 25, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 2915.578369140625, "x": 20, "lane": 2, "seen": 6, "obstacles": 5, "moves": 31, "reason": "Avoiding danger: left", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 26.332569066999895}
+{"second": 30, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 3615.56298828125, "x": -20, "lane": 0, "seen": 5, "obstacles": 5, "moves": 37, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 31.674921769999855}
+{"second": 35, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 4273.22412109375, "x": -20, "lane": 0, "seen": 6, "obstacles": 12, "moves": 41, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 36.79374675300005}
+{"second": 40, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 4954.955078125, "x": 20, "lane": 2, "seen": 9, "obstacles": 4, "moves": 55, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 41.863625527000295}
+{"second": 45, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 5652.52978515625, "x": -20, "lane": 0, "seen": 4, "obstacles": 6, "moves": 59, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 46.96563808500014}
+{"second": 50, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 6366.5654296875, "x": 20, "lane": 2, "seen": 6, "obstacles": 7, "moves": 61, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 52.06423138599985}
+{"second": 55, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 7088.4775390625, "x": -20, "lane": 0, "seen": 1, "obstacles": 7, "moves": 65, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 57.12393576300019}
+{"second": 60, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 7826.033203125, "x": 0, "lane": 1, "seen": 9, "obstacles": 2, "moves": 70, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 62.153305736999755}
+{"second": 65, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 8574.826171875, "x": 0, "lane": 1, "seen": 5, "obstacles": 5, "moves": 82, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 67.18142573099976}
+{"second": 70, "status": "Native autopilot active", "pilotRunning": true, "running": true, "paused": false, "dead": false, "nativeCoins": 0, "coins": 0, "z": 9344.2958984375, "x": 20, "lane": 2, "seen": 13, "obstacles": 1, "moves": 90, "reason": "Clear predicted path", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 72.22833825199996}
+{"second": 75, "status": "Coin collected \u2014 run paused", "pilotRunning": false, "running": true, "paused": true, "dead": false, "nativeCoins": 1, "coins": 1, "z": 10096.28515625, "x": 10.6884765625, "lane": 2, "seen": 14, "obstacles": 2, "moves": 101, "reason": "No zero-coin route in view; avoiding trains", "errors": 0, "planningMode": "main", "planLatencyMs": 126.5, "planComputeMs": 110.5, "wallSeconds": 77.32357229900026}
+{
+  "sourceSha256": "8e39a43c8b26ee11b627d8afe9a1467dff207fc8bb472b36ad4da925b2546ccc",
+  "sourceFilesSha256": {
+    "legacy-profile.js": "2b32648170a800f126481f8fff7dc85a1d470940d9cdc638d18f41dda8b8ee92",
+    "native-reader.js": "dedcfa72005e0fc64db9a6a4261f6614c2694d5fde6d34a4b60cefc695d37ae9",
+    "native-pilot.js": "c0b9da6a138909f482d2f360b080177788717483c6066265369152a0f6f689d5",
+    "native-planner.js": "0dfb27a2c26abc2c83868f7f2dad2bf7f425cb76c610927bdc6f19c137e1f2e9"
+  },
+  "renderMode": "no-state",
+  "renderDiagnostic": {
+    "mode": "no-state",
+    "skippedDraws": 331489,
+    "skippedState": 2056409
+  },
+  "engineFrameStats": {
+    "count": 3724,
+    "firstAt": 6936,
+    "lastAt": 83966.2,
+    "lastZ": 10096.28515625,
+    "lastSpeed": 156.83480834960938,
+    "gameSeconds": 75.48371189297059
+  },
+  "costStats": {
+    "reader": {
+      "samples": 2959,
+      "meanMs": 0.271476850195921,
+      "p95Ms": 0.599999999627471,
+      "maxMs": 201.20000000018626
+    },
+    "planner": {
+      "samples": 708,
+      "meanMs": 42.53545197740192,
+      "p95Ms": 72.70000000018626,
+      "maxMs": 485.90000000037253
+    }
+  },
+  "elapsedWallSeconds": 78.06829713800016,
+  "requestedSeconds": 180,
+  "render": {
+    "width": 240,
+    "height": 400,
+    "dpr": 1
+  },
+  "viewport": {
+    "width": 240,
+    "height": 400
+  },
+  "estimatedMovingFps": 33.384664213756054,
+  "options": {
+    "precision": false,
+    "autoBrake": false,
+    "stopOnCoin": true,
+    "hud": true,
+    "planningWorker": true
+  },
+  "outcome": "coin_collection",
+  "secondsObserved": 76,
+  "maxZ": 10096.28515625,
+  "maxCoins": 1,
+  "actionCounts": {
+    "left": 20,
+    "right": 20,
+    "jump": 34,
+    "roll": 27
+  },
+  "finalStatus": "Coin collected \u2014 run paused"
+}
+Traceback (most recent call last):
+  File "/workspace/systema/subway-no-coin/tests/live_native_check.py", line 131, in <module>
+    assert result['maxCoins']==0,'A coin was collected during this test'
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: A coin was collected during this test

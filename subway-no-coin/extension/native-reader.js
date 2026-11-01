@@ -105,6 +105,32 @@ export function installLegacyReader(profile) {
       return [...found.values()];
     }finally{native('stackRestore',sp);}
   }
+  function sampleRamp(collider){
+    if(collider.tag!=='Untagged'||!/^(colliderCapsule|collider)$/.test(collider.name)||collider.hx<6||collider.hx>12||collider.hz<5||collider.hy<5)return null;
+    const key=[collider.x,collider.y,collider.z,collider.hx,collider.hy,collider.hz].map(n=>Math.round(n*10)).join(':');
+    const saved=cache.get(collider.id);if(saved?.key===key)return saved.points;
+    const points=[],sp=native('stackSave');
+    try{
+      const origin=native('stackAlloc',16),direction=native('stackAlloc',16),top=Math.max(80,collider.y+collider.hy+20);
+      m.HEAPF32[direction>>>2]=0;m.HEAPF32[(direction+4)>>>2]=-1;m.HEAPF32[(direction+8)>>>2]=0;
+      for(let z=Math.floor((collider.z-collider.hz-5)/2.5)*2.5;z<=collider.z+collider.hz+5;z+=2.5){
+        m.HEAPF32[origin>>>2]=collider.x;m.HEAPF32[(origin+4)>>>2]=top;m.HEAPF32[(origin+8)>>>2]=z;
+        const hits=native('dynCall_iiifiii',profile.raycastAll,origin,direction,top+30,-1,1,0),count=ptr(hits)?u(hits+12):0;
+        if(count>300)throw new Error('Too many terrain raycast results');
+        let y=null,ny=0;
+        for(let i=0;i<count;i++){
+          const hit=hits+16+i*profile.raycastHitSize,id=native('dynCall_iii',profile.raycastHitCollider,hit-8,0);
+          if(id!==collider.id)continue;
+          const point=vec(hit+profile.raycastHitPoint),normal=vec(hit+profile.raycastHitNormal);
+          if(Math.abs(point.x-collider.x)>.1||Math.abs(point.z-z)>.1||normal.y<=0||normal.y>1.01)continue;
+          if(y===null||point.y>y){y=point.y;ny=normal.y;}
+        }
+        points.push({z,y,ny});
+      }
+    }finally{native('stackRestore',sp);}
+    const valid=points.some(p=>p.y!==null)?points:null;
+    if(cache.size>profile.maxObjects)cache.clear();cache.set(collider.id,{key,points:valid});return valid;
+  }
   const api={
     queryObstacles(){const ch=native('dynCall_ii',profile.characterInstance,0);return physicsObstacles(vec(ch+profile.characterWorld),f(ch+profile.characterGroundY));},
     snapshot(){
@@ -124,6 +150,7 @@ export function installLegacyReader(profile) {
         const elapsed=(now-lastObstacleAt)/1000,previous=new Map(obstacles.map(o=>[o.id,o]));
         obstacles=physicsObstacles(player,groundY);
         for(const o of obstacles){
+          const surface=sampleRamp(o);if(surface)o.surface=surface;
           o.velocityZ=0;o.observedAt=now;const old=previous.get(o.id);
           if(elapsed>=.05&&elapsed<=.6&&old?.tag===o.tag&&old?.name===o.name&&Math.abs(old.x-o.x)<1){
             const velocity=(o.z-old.z)/elapsed;
@@ -136,7 +163,7 @@ export function installLegacyReader(profile) {
       for(const [id,c]of coins){if(now-c.seen>Math.max(500,engineStep*3000)||!m.HEAPU8[id+profile.coinActive]){coins.delete(id);continue;}if(c.z>player.z-15&&c.z<player.z+350)active.push({id:c.id,x:c.x,y:c.y,z:c.z,hx:c.hx??3,hy:c.hy??5,hz:c.hz??3,shape:c.shape||''});}
       const stats=u(game+profile.gameStats);const runCoins=ptr(stats)?u(stats+profile.statsCoins):collected;
       const bodyCollider=u(character+profile.characterTrigger),body={...bounds(bodyCollider),shape:cls(bodyCollider)};
-      return {source:profile.id,running,paused:!!m.HEAPU8[game+profile.gamePaused],dead:!!m.HEAPU8[game+profile.gameDead],runId,collected:runCoins,lane,targetLane:m.HEAP32[(character+profile.characterTrackTarget)>>>2],lanePosition:f(character+profile.characterTrackPosition),player,gamePosition:vec(character+profile.characterGame),speed,engineStep,changing:!!m.HEAP32[(character+profile.characterTrackMovement)>>>2],jumping:!!m.HEAPU8[character+profile.characterJumping],rolling:!!m.HEAPU8[character+profile.characterRolling],gravity:f(character+profile.characterGravity),jumpHeight:f(character+profile.characterJumpHeight),verticalSpeed:f(character+profile.characterVerticalSpeed),groundY,body,coins:active,obstacles,samples,errors,lastError,at:now};
+      return {source:profile.id,running,paused:!!m.HEAPU8[game+profile.gamePaused],dead:!!m.HEAPU8[game+profile.gameDead],runId,collected:runCoins,lane,targetLane:m.HEAP32[(character+profile.characterTrackTarget)>>>2],lanePosition:f(character+profile.characterTrackPosition),player,gamePosition:vec(character+profile.characterGame),speed,engineStep,changing:!!m.HEAP32[(character+profile.characterTrackMovement)>>>2],jumping:!!m.HEAPU8[character+profile.characterJumping],rolling:!!m.HEAPU8[character+profile.characterRolling],roadY:.8,skinWidth:.2,gravity:f(character+profile.characterGravity),jumpHeight:f(character+profile.characterJumpHeight),verticalSpeed:f(character+profile.characterVerticalSpeed),groundY,body,coins:active,obstacles,samples,errors,lastError,at:now};
     },
     pause(){const game=native('dynCall_ii',profile.gameInstance,0);native('dynCall_viii',profile.pause,game,1,0);},
     steer(targetX,dt=.04){
@@ -151,7 +178,9 @@ export function installLegacyReader(profile) {
       const state=api.snapshot();if(!state.running||!document.hasFocus())return false;
       const character=native('dynCall_ii',profile.characterInstance,0);
       if(action==='left'||action==='right'){if(state.changing)return false;const delta=action==='left'?-1:1;if(state.lane+delta<0||state.lane+delta>2)return false;native('dynCall_viii',profile.changeTrack,character,delta,0);return true;}
-      if(action==='jump'&&!state.jumping&&!state.rolling&&state.verticalSpeed<=0&&state.player.y<=state.groundY+.9){native('dynCall_vii',profile.jump,character,0);return true;}
+      // A normal ground jump cancels a roll, including its final landing
+      // frame. The cached jumping flag can remain true for that one frame.
+      if(action==='jump'&&state.verticalSpeed<=0&&state.player.y<=state.groundY+.05){native('dynCall_vii',profile.jump,character,0);return true;}
       if(action==='roll'&&!state.rolling){native('dynCall_vii',profile.roll,character,0);return true;}
       return false;
     },

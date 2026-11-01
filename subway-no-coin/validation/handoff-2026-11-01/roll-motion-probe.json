@@ -1,0 +1,3861 @@
+{
+  "rows": [
+    {
+      "at": 5664.2,
+      "dt": 0.007400000000186082,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5680.9,
+      "dt": 0.0241000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5697.5,
+      "dt": 0.04070000000018627,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5714.2,
+      "dt": 0.05740000000018608,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5730.8,
+      "dt": 0.07400000000018644,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5747.5,
+      "dt": 0.09070000000018627,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5764.2,
+      "dt": 0.10740000000018608,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5780.8,
+      "dt": 0.12400000000018645,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5797.5,
+      "dt": 0.14070000000018626,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5814.2,
+      "dt": 0.15740000000018609,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5830.9,
+      "dt": 0.1741000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5847.6,
+      "dt": 0.19080000000018663,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5864.2,
+      "dt": 0.20740000000018607,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5880.8,
+      "dt": 0.22400000000018644,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5897.5,
+      "dt": 0.24070000000018626,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5914.2,
+      "dt": 0.2574000000001861,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5930.9,
+      "dt": 0.2741000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5947.5,
+      "dt": 0.29070000000018625,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5964.2,
+      "dt": 0.3074000000001861,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5980.8,
+      "dt": 0.32400000000018647,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 5997.4,
+      "dt": 0.3406000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6014.2,
+      "dt": 0.35740000000018607,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6030.9,
+      "dt": 0.3741000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6047.5,
+      "dt": 0.3907000000001863,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6064.2,
+      "dt": 0.40740000000018606,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6080.9,
+      "dt": 0.4241000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6097.5,
+      "dt": 0.4407000000001863,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6114.1,
+      "dt": 0.4573000000001866,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6130.8,
+      "dt": 0.47400000000018644,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6147.5,
+      "dt": 0.49070000000018626,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6164.1,
+      "dt": 0.5073000000001866,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6180.8,
+      "dt": 0.5240000000001864,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6197.4,
+      "dt": 0.5406000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6214.2,
+      "dt": 0.5574000000001861,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6230.9,
+      "dt": 0.5741000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6247.5,
+      "dt": 0.5907000000001863,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6264.2,
+      "dt": 0.6074000000001861,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6280.9,
+      "dt": 0.624100000000186,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6297.5,
+      "dt": 0.6407000000001862,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6314.1,
+      "dt": 0.6573000000001866,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6330.9,
+      "dt": 0.6741000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6347.5,
+      "dt": 0.6907000000001863,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6364.2,
+      "dt": 0.7074000000001861,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6380.8,
+      "dt": 0.7240000000001865,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6397.5,
+      "dt": 0.7407000000001862,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6414.2,
+      "dt": 0.757400000000186,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6430.8,
+      "dt": 0.7740000000001864,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6447.4,
+      "dt": 0.7906000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6464.1,
+      "dt": 0.8073000000001866,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6480.8,
+      "dt": 0.8240000000001865,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6497.4,
+      "dt": 0.8406000000001859,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6514.1,
+      "dt": 0.8573000000001866,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6530.8,
+      "dt": 0.8740000000001864,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6547.5,
+      "dt": 0.8907000000001862,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6564.1,
+      "dt": 0.9073000000001866,
+      "player": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "verticalSpeed": 0,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 5.5,
+        "z": 1,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110,
+      "groundY": 0,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6580.9,
+      "dt": 0.9241000000001859,
+      "player": {
+        "x": 0,
+        "y": 0.8000006675720215,
+        "z": 1.849411964416504
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 6.30000114440918,
+        "z": 2.849411964416504,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.74323272705078,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6597.5,
+      "dt": 0.9407000000001863,
+      "player": {
+        "x": 0,
+        "y": 0.8000001907348633,
+        "z": 3.6768417358398438
+      },
+      "verticalSpeed": -3.299999952316284,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 6.300000190734863,
+        "z": 4.676841735839844,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.7533187866211,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6614.1,
+      "dt": 0.9573000000001867,
+      "player": {
+        "x": 0,
+        "y": 0.8000006675720215,
+        "z": 5.526592254638672
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 6.30000114440918,
+        "z": 6.526592254638672,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.76351928710938,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6630.8,
+      "dt": 0.9740000000001865,
+      "player": {
+        "x": 0,
+        "y": 0.7999992370605469,
+        "z": 7.3654351234436035
+      },
+      "verticalSpeed": -3.320000410079956,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 6.299999237060547,
+        "z": 8.365434646606445,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.77366638183594,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6647.5,
+      "dt": 0.9907000000001862,
+      "player": {
+        "x": 0,
+        "y": 0.8000006675720215,
+        "z": 9.226605415344238
+      },
+      "verticalSpeed": -3.359999895095825,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 6.30000114440918,
+        "z": 10.226605415344238,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.783935546875,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6664.1,
+      "dt": 1.0073000000001866,
+      "player": {
+        "x": 0,
+        "y": 0.8000001907348633,
+        "z": 11.076868057250977
+      },
+      "verticalSpeed": -3.3400003910064697,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 6.300000190734863,
+        "z": 12.076868057250977,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.79413604736328,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 0
+      }
+    },
+    {
+      "at": 6680.8,
+      "dt": 1.0240000000001865,
+      "player": {
+        "x": 0,
+        "y": 2.246190071105957,
+        "z": 12.938382148742676
+      },
+      "verticalSpeed": 86.08271789550781,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 7.746190071105957,
+        "z": 13.93838119506836,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 2.999999523162842,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.80440521240234,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6697.5,
+      "dt": 1.0407000000001863,
+      "player": {
+        "x": 0,
+        "y": 3.604154586791992,
+        "z": 14.755739212036133
+      },
+      "verticalSpeed": 82.80271911621094,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 9.104154586791992,
+        "z": 15.755739212036133,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.8144302368164,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6714.1,
+      "dt": 1.0573000000001866,
+      "player": {
+        "x": 0,
+        "y": 5.037362098693848,
+        "z": 16.761680603027344
+      },
+      "verticalSpeed": 79.1827163696289,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 10.537362098693848,
+        "z": 17.761680603027344,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.82548522949219,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6730.8,
+      "dt": 1.0740000000001864,
+      "player": {
+        "x": 0,
+        "y": 6.20203971862793,
+        "z": 18.45745277404785
+      },
+      "verticalSpeed": 76.12271881103516,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 11.70203971862793,
+        "z": 19.45745277404785,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.8348388671875,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6747.4,
+      "dt": 1.0906000000001859,
+      "player": {
+        "x": 0,
+        "y": 7.417510986328125,
+        "z": 20.308565139770508
+      },
+      "verticalSpeed": 72.78272247314453,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 12.917510986328125,
+        "z": 21.308565139770508,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.84504699707031,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6764.2,
+      "dt": 1.107400000000186,
+      "player": {
+        "x": 0,
+        "y": 8.570591926574707,
+        "z": 22.148761749267578
+      },
+      "verticalSpeed": 69.46272277832031,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 14.07059097290039,
+        "z": 23.148761749267578,
+        "hx": 3.000000238418579,
+        "hy": 4.999999523162842,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.85518646240234,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6780.8,
+      "dt": 1.1240000000001864,
+      "player": {
+        "x": 0,
+        "y": 9.743659973144531,
+        "z": 24.122177124023438
+      },
+      "verticalSpeed": 65.90272521972656,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 15.243659973144531,
+        "z": 25.122177124023438,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.8660659790039,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6797.5,
+      "dt": 1.1407000000001863,
+      "player": {
+        "x": 0,
+        "y": 10.717103004455566,
+        "z": 25.840747833251953
+      },
+      "verticalSpeed": 62.80272674560547,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 16.21710205078125,
+        "z": 26.840747833251953,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.87554168701172,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6814.1,
+      "dt": 1.1573000000001867,
+      "player": {
+        "x": 0,
+        "y": 11.715740203857422,
+        "z": 27.703628540039062
+      },
+      "verticalSpeed": 59.442726135253906,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 17.215740203857422,
+        "z": 28.703628540039062,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.88580322265625,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6830.8,
+      "dt": 1.1740000000001864,
+      "player": {
+        "x": 0,
+        "y": 12.647377014160156,
+        "z": 29.54450225830078
+      },
+      "verticalSpeed": 56.12272644042969,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 18.147377014160156,
+        "z": 30.54450225830078,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.89595031738281,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6847.4,
+      "dt": 1.190600000000186,
+      "player": {
+        "x": 0,
+        "y": 13.528848648071289,
+        "z": 31.396635055541992
+      },
+      "verticalSpeed": 52.7827262878418,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 19.02884864807129,
+        "z": 32.396636962890625,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.90615844726562,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6864.1,
+      "dt": 1.2073000000001866,
+      "player": {
+        "x": 0,
+        "y": 14.349929809570312,
+        "z": 33.23784637451172
+      },
+      "verticalSpeed": 49.46272659301758,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 19.849929809570312,
+        "z": 34.23784637451172,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.91629791259766,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6880.8,
+      "dt": 1.2240000000001865,
+      "player": {
+        "x": 0,
+        "y": 15.120180130004883,
+        "z": 35.0903205871582
+      },
+      "verticalSpeed": 46.12272644042969,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 20.620180130004883,
+        "z": 36.0903205871582,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.92650604248047,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6897.5,
+      "dt": 1.2407000000001862,
+      "player": {
+        "x": 0,
+        "y": 15.830705642700195,
+        "z": 36.93186950683594
+      },
+      "verticalSpeed": 42.80272674560547,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 21.330705642700195,
+        "z": 37.93186950683594,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.93665313720703,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6914.1,
+      "dt": 1.2573000000001866,
+      "player": {
+        "x": 0,
+        "y": 16.48973274230957,
+        "z": 38.78468322753906
+      },
+      "verticalSpeed": 39.46272659301758,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 21.98973274230957,
+        "z": 39.78468322753906,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.94685363769531,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6930.8,
+      "dt": 1.2740000000001865,
+      "player": {
+        "x": 0,
+        "y": 17.09298324584961,
+        "z": 40.637664794921875
+      },
+      "verticalSpeed": 36.12272644042969,
+      "rolling": false,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 22.59298324584961,
+        "z": 41.637664794921875,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.95706176757812,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6947.4,
+      "dt": 1.2906000000001858,
+      "player": {
+        "x": 0,
+        "y": 15.543512344360352,
+        "z": 42.49081802368164
+      },
+      "verticalSpeed": -92.78271484375,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 19.54351234436035,
+        "z": 43.49081802368164,
+        "hx": 3,
+        "hy": 3.0000057220458984,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.96726989746094,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6964.1,
+      "dt": 1.3073000000001866,
+      "player": {
+        "x": 0,
+        "y": 13.948206901550293,
+        "z": 44.33304214477539
+      },
+      "verticalSpeed": -96.10271453857422,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 17.94820785522461,
+        "z": 45.33304214477539,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.97740936279297,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6980.8,
+      "dt": 1.3240000000001864,
+      "player": {
+        "x": 0,
+        "y": 12.277233123779297,
+        "z": 46.197635650634766
+      },
+      "verticalSpeed": -99.46271514892578,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 16.277233123779297,
+        "z": 47.197635650634766,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.98767852783203,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 6997.4,
+      "dt": 1.3406000000001859,
+      "player": {
+        "x": 0,
+        "y": 10.581647872924805,
+        "z": 48.02909851074219
+      },
+      "verticalSpeed": -102.7627182006836,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 14.581647872924805,
+        "z": 49.02909851074219,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 110.99776458740234,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7014.2,
+      "dt": 1.357400000000186,
+      "player": {
+        "x": 0,
+        "y": 8.798786163330078,
+        "z": 49.89403533935547
+      },
+      "verticalSpeed": -106.12271881103516,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 12.798786163330078,
+        "z": 50.89403533935547,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.00802612304688,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7030.8,
+      "dt": 1.3740000000001864,
+      "player": {
+        "x": 0,
+        "y": 6.993311882019043,
+        "z": 51.725833892822266
+      },
+      "verticalSpeed": -109.42272186279297,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 10.993311882019043,
+        "z": 52.725833892822266,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.01811218261719,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7047.5,
+      "dt": 1.3907000000001863,
+      "player": {
+        "x": 0,
+        "y": 5.098562240600586,
+        "z": 53.59111022949219
+      },
+      "verticalSpeed": -112.78272247314453,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 9.098562240600586,
+        "z": 54.59111022949219,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.02838134765625,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7064.1,
+      "dt": 1.4073000000001867,
+      "player": {
+        "x": 0,
+        "y": 3.1712570190429688,
+        "z": 55.434349060058594
+      },
+      "verticalSpeed": -116.10272216796875,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 7.171257019042969,
+        "z": 56.434349060058594,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.03852081298828,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7080.8,
+      "dt": 1.4240000000001864,
+      "player": {
+        "x": 0,
+        "y": 1.1765637397766113,
+        "z": 57.28886413574219
+      },
+      "verticalSpeed": -119.44271850585938,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 5.176563739776611,
+        "z": 58.28886413574219,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.0487289428711,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7097.4,
+      "dt": 1.440600000000186,
+      "player": {
+        "x": 0,
+        "y": 0.8000054359436035,
+        "z": 59.132442474365234
+      },
+      "verticalSpeed": -122.7627182006836,
+      "rolling": true,
+      "jumping": true,
+      "body": {
+        "x": 0,
+        "y": 4.8000054359436035,
+        "z": 60.132442474365234,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.05887603759766,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7114.1,
+      "dt": 1.4573000000001866,
+      "player": {
+        "x": 0,
+        "y": 0.8000051975250244,
+        "z": 60.99840545654297
+      },
+      "verticalSpeed": -3.3600001335144043,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 61.99840545654297,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.06913757324219,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7130.8,
+      "dt": 1.4740000000001865,
+      "player": {
+        "x": 0,
+        "y": 0.8000049591064453,
+        "z": 62.83121109008789
+      },
+      "verticalSpeed": -3.299999952316284,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 63.831207275390625,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 2.999998092651367,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.0792236328125,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7147.5,
+      "dt": 1.4907000000001862,
+      "player": {
+        "x": 0,
+        "y": 0.8000056743621826,
+        "z": 64.6864013671875
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800005912780762,
+        "z": 65.6864013671875,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.08942413330078,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7164.2,
+      "dt": 1.5074000000001861,
+      "player": {
+        "x": 0,
+        "y": 0.8000054359436035,
+        "z": 66.54176330566406
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.8000054359436035,
+        "z": 67.54176330566406,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.0996322631836,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7180.8,
+      "dt": 1.5240000000001865,
+      "player": {
+        "x": 0,
+        "y": 0.8000051975250244,
+        "z": 68.40840911865234
+      },
+      "verticalSpeed": -3.359999895095825,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 69.40840911865234,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.10990142822266,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7197.4,
+      "dt": 1.5406000000001858,
+      "player": {
+        "x": 0,
+        "y": 0.8000049591064453,
+        "z": 70.24188995361328
+      },
+      "verticalSpeed": -3.299999952316284,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 71.24188995361328,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.11997985839844,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7214.1,
+      "dt": 1.5573000000001866,
+      "player": {
+        "x": 0,
+        "y": 0.8000056743621826,
+        "z": 72.09776306152344
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800005912780762,
+        "z": 73.09776306152344,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.13018798828125,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7230.8,
+      "dt": 1.5740000000001864,
+      "player": {
+        "x": 0,
+        "y": 0.8000054359436035,
+        "z": 73.95380401611328
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.8000054359436035,
+        "z": 74.95380401611328,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.14039611816406,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7247.4,
+      "dt": 1.5906000000001859,
+      "player": {
+        "x": 0,
+        "y": 0.8000051975250244,
+        "z": 75.81002044677734
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 76.81002044677734,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.15059661865234,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7264.1,
+      "dt": 1.6073000000001867,
+      "player": {
+        "x": 0,
+        "y": 0.8000049591064453,
+        "z": 77.65528869628906
+      },
+      "verticalSpeed": -3.319999933242798,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 78.65528869628906,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.1607437133789,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7280.8,
+      "dt": 1.6240000000001864,
+      "player": {
+        "x": 0,
+        "y": 0.8000054359436035,
+        "z": 79.52296447753906
+      },
+      "verticalSpeed": -3.359999895095825,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.8000054359436035,
+        "z": 80.52296447753906,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.17101287841797,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7297.5,
+      "dt": 1.6407000000001863,
+      "player": {
+        "x": 0,
+        "y": 0.8000051975250244,
+        "z": 81.35745239257812
+      },
+      "verticalSpeed": -3.299999952316284,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 82.35745239257812,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.18109130859375,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7314.1,
+      "dt": 1.6573000000001867,
+      "player": {
+        "x": 0,
+        "y": 0.8000056743621826,
+        "z": 83.21434783935547
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800005912780762,
+        "z": 84.21434783935547,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.19129943847656,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7330.8,
+      "dt": 1.6740000000001864,
+      "player": {
+        "x": 0,
+        "y": 0.8000054359436035,
+        "z": 85.06029510498047
+      },
+      "verticalSpeed": -3.320000410079956,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.8000054359436035,
+        "z": 86.06029510498047,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.20144653320312,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7347.4,
+      "dt": 1.690600000000186,
+      "player": {
+        "x": 0,
+        "y": 0.8000051975250244,
+        "z": 87.08436584472656
+      },
+      "verticalSpeed": -3.6399998664855957,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 88.08436584472656,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.21257019042969,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7364.1,
+      "dt": 1.7073000000001866,
+      "player": {
+        "x": 0,
+        "y": 0.8000056743621826,
+        "z": 88.78606414794922
+      },
+      "verticalSpeed": -3.06000018119812,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800005912780762,
+        "z": 89.78606414794922,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.22191619873047,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7380.8,
+      "dt": 1.7240000000001865,
+      "player": {
+        "x": 0,
+        "y": 0.8000051975250244,
+        "z": 90.6547622680664
+      },
+      "verticalSpeed": -3.359999895095825,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 91.6547622680664,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.23218536376953,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7397.4,
+      "dt": 1.740600000000186,
+      "player": {
+        "x": 0,
+        "y": 0.8000049591064453,
+        "z": 92.47913360595703
+      },
+      "verticalSpeed": -3.2799999713897705,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 93.47913360595703,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.24220275878906,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7414.1,
+      "dt": 1.7573000000001866,
+      "player": {
+        "x": 0,
+        "y": 0.8000056743621826,
+        "z": 94.33705139160156
+      },
+      "verticalSpeed": -3.3399999141693115,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800005912780762,
+        "z": 95.33705139160156,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.25241088867188,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7430.8,
+      "dt": 1.7740000000001865,
+      "player": {
+        "x": 0,
+        "y": 0.8000054359436035,
+        "z": 96.18401336669922
+      },
+      "verticalSpeed": -3.320000410079956,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.8000054359436035,
+        "z": 97.18401336669922,
+        "hx": 3,
+        "hy": 3.0000052452087402,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.26255798339844,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7447.4,
+      "dt": 1.7906000000001858,
+      "player": {
+        "x": 0,
+        "y": 0.8000051975250244,
+        "z": 98.05339813232422
+      },
+      "verticalSpeed": -3.359999895095825,
+      "rolling": true,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 4.800004959106445,
+        "z": 99.05339813232422,
+        "hx": 3,
+        "hy": 3.000004768371582,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.27281951904297,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    },
+    {
+      "at": 7464.1,
+      "dt": 1.8073000000001866,
+      "player": {
+        "x": 0,
+        "y": 0.8000054359436035,
+        "z": 99.95634460449219
+      },
+      "verticalSpeed": -3.4200000762939453,
+      "rolling": false,
+      "jumping": false,
+      "body": {
+        "x": 0,
+        "y": 6.300004959106445,
+        "z": 100.95634460449219,
+        "hx": 3.000000238418579,
+        "hy": 5,
+        "hz": 3,
+        "shape": "CapsuleCollider"
+      },
+      "speed": 111.28327178955078,
+      "groundY": 0.8000003695487976,
+      "changing": false,
+      "raw": {
+        "inAirJumpPtr": 0,
+        "inAirJumpClass": 0,
+        "falling": 0,
+        "jumpingHigher": 0,
+        "doubleJump": 0,
+        "willSecondJump": 1
+      }
+    }
+  ],
+  "actions": [
+    {
+      "action": "jump",
+      "accepted": true,
+      "at": 6664.1,
+      "scene": {
+        "source": "ashuni-legacy-sanfrancisco-1.94",
+        "running": true,
+        "paused": false,
+        "dead": false,
+        "runId": 0,
+        "collected": 0,
+        "lane": 1,
+        "targetLane": 1,
+        "lanePosition": 1,
+        "player": {
+          "x": 0,
+          "y": 0.8000001907348633,
+          "z": 11.076868057250977
+        },
+        "gamePosition": {
+          "x": 0,
+          "y": 0.8000001907348633,
+          "z": 11.076868057250977
+        },
+        "speed": 110.79413604736328,
+        "engineStep": 0.0167007739402571,
+        "changing": false,
+        "jumping": false,
+        "rolling": false,
+        "gravity": 200,
+        "jumpHeight": 20,
+        "verticalSpeed": -3.3400003910064697,
+        "groundY": 0.8000003695487976,
+        "body": {
+          "x": 0,
+          "y": 6.300000190734863,
+          "z": 12.076868057250977,
+          "hx": 3.000000238418579,
+          "hy": 5,
+          "hz": 3,
+          "shape": "CapsuleCollider"
+        },
+        "coins": [
+          {
+            "id": 57692096,
+            "x": -10,
+            "y": 6,
+            "z": 240,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57691136,
+            "x": -20,
+            "y": 6,
+            "z": 255,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57690176,
+            "x": -20,
+            "y": 6,
+            "z": 285,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57689216,
+            "x": -10,
+            "y": 6,
+            "z": 300,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57688256,
+            "x": 0,
+            "y": 6,
+            "z": 225,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57695488,
+            "x": 0,
+            "y": 6,
+            "z": 315,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57694528,
+            "x": 0,
+            "y": 6,
+            "z": 345,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          }
+        ],
+        "obstacles": [
+          {
+            "id": 57085360,
+            "x": -20,
+            "y": 15.200000762939453,
+            "z": 121,
+            "hx": 8.5,
+            "hy": 14,
+            "hz": 59,
+            "name": "train_sub_2_group",
+            "tag": "HitTrain",
+            "shape": "BoxCollider",
+            "trigger": false,
+            "kind": "obstacle",
+            "velocityZ": 0,
+            "observedAt": 6666.299999999814
+          },
+          {
+            "id": 57085344,
+            "x": -20,
+            "y": 15.200000762939453,
+            "z": 0,
+            "hx": 8.5,
+            "hy": 14,
+            "hz": 58.5,
+            "name": "trains",
+            "tag": "Untagged",
+            "shape": "BoxCollider",
+            "trigger": false,
+            "kind": "obstacle",
+            "velocityZ": 0,
+            "observedAt": 6666.299999999814
+          },
+          {
+            "id": 57085312,
+            "x": 20,
+            "y": 15.200000762939453,
+            "z": 91,
+            "hx": 8.5,
+            "hy": 14,
+            "hz": 88,
+            "name": "trains_3_group",
+            "tag": "HitTrain",
+            "shape": "BoxCollider",
+            "trigger": false,
+            "kind": "obstacle",
+            "velocityZ": 0,
+            "observedAt": 6666.299999999814
+          }
+        ],
+        "samples": 378,
+        "errors": 0,
+        "lastError": "",
+        "at": 6666.299999999814
+      }
+    },
+    {
+      "action": "roll",
+      "accepted": true,
+      "at": 6930.8,
+      "scene": {
+        "source": "ashuni-legacy-sanfrancisco-1.94",
+        "running": true,
+        "paused": false,
+        "dead": false,
+        "runId": 0,
+        "collected": 0,
+        "lane": 1,
+        "targetLane": 1,
+        "lanePosition": 1,
+        "player": {
+          "x": 0,
+          "y": 17.09298324584961,
+          "z": 40.637664794921875
+        },
+        "gamePosition": {
+          "x": 0,
+          "y": 17.09298324584961,
+          "z": 40.637664794921875
+        },
+        "speed": 110.95706176757812,
+        "engineStep": 0.016700755946542235,
+        "changing": false,
+        "jumping": true,
+        "rolling": false,
+        "gravity": 200,
+        "jumpHeight": 20,
+        "verticalSpeed": 36.12272644042969,
+        "groundY": 0.8000003695487976,
+        "body": {
+          "x": 0,
+          "y": 22.59298324584961,
+          "z": 41.637664794921875,
+          "hx": 3.000000238418579,
+          "hy": 5,
+          "hz": 3,
+          "shape": "CapsuleCollider"
+        },
+        "coins": [
+          {
+            "id": 57692096,
+            "x": -10,
+            "y": 6,
+            "z": 240,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57691136,
+            "x": -20,
+            "y": 6,
+            "z": 255,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57690176,
+            "x": -20,
+            "y": 6,
+            "z": 285,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57689216,
+            "x": -10,
+            "y": 6,
+            "z": 300,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57688256,
+            "x": 0,
+            "y": 6,
+            "z": 225,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57695488,
+            "x": 0,
+            "y": 6,
+            "z": 315,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          },
+          {
+            "id": 57694528,
+            "x": 0,
+            "y": 6,
+            "z": 345,
+            "hx": 4.5,
+            "hy": 4.5,
+            "hz": 4.5,
+            "shape": "SphereCollider"
+          }
+        ],
+        "obstacles": [
+          {
+            "id": 57085360,
+            "x": -20,
+            "y": 15.200000762939453,
+            "z": 121,
+            "hx": 8.5,
+            "hy": 14,
+            "hz": 59,
+            "name": "train_sub_2_group",
+            "tag": "HitTrain",
+            "shape": "BoxCollider",
+            "trigger": false,
+            "kind": "obstacle",
+            "velocityZ": 0,
+            "observedAt": 6932.5999999996275
+          },
+          {
+            "id": 57085344,
+            "x": -20,
+            "y": 15.200000762939453,
+            "z": 0,
+            "hx": 8.5,
+            "hy": 14,
+            "hz": 58.5,
+            "name": "trains",
+            "tag": "Untagged",
+            "shape": "BoxCollider",
+            "trigger": false,
+            "kind": "obstacle",
+            "velocityZ": 0,
+            "observedAt": 6932.5999999996275
+          },
+          {
+            "id": 57085312,
+            "x": 20,
+            "y": 15.200000762939453,
+            "z": 91,
+            "hx": 8.5,
+            "hy": 14,
+            "hz": 88,
+            "name": "trains_3_group",
+            "tag": "HitTrain",
+            "shape": "BoxCollider",
+            "trigger": false,
+            "kind": "obstacle",
+            "velocityZ": 0,
+            "observedAt": 6932.5999999996275
+          }
+        ],
+        "samples": 462,
+        "errors": 0,
+        "lastError": "",
+        "at": 6932.5999999996275
+      }
+    }
+  ],
+  "names": {
+    "dynCall_vii": {
+      "type": "function",
+      "name": "71826",
+      "source": "function 71826() { [native code] }"
+    },
+    "dynCall_viii": {
+      "type": "function",
+      "name": "71831",
+      "source": "function 71831() { [native code] }"
+    },
+    "dynCall_ii": {
+      "type": "function",
+      "name": "71796",
+      "source": "function 71796() { [native code] }"
+    },
+    "dynCall_iiffii": {
+      "type": "function",
+      "name": "72219",
+      "source": "function 72219() { [native code] }"
+    },
+    "dynCall_viif": {
+      "type": "function",
+      "name": "72347",
+      "source": "function 72347() { [native code] }"
+    }
+  }
+}

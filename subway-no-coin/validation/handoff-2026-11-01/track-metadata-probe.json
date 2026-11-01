@@ -1,0 +1,3551 @@
+{
+  "character": 46970848,
+  "characterClass": "Character",
+  "values": [
+    {
+      "offset": 16,
+      "ptr": 48116960,
+      "className": "AnimationCurve"
+    },
+    {
+      "offset": 88,
+      "ptr": 48116048,
+      "className": "AnimationCurve"
+    },
+    {
+      "offset": 444,
+      "ptr": 4294967295,
+      "className": ""
+    }
+  ],
+  "meta": [
+    {
+      "className": "Character",
+      "slots": [
+        {
+          "offset": 64,
+          "fields": [
+            {
+              "name": "_instance",
+              "offset": 0,
+              "typePtr": 2298928,
+              "raw": 38166464,
+              "float": 1.4574221493791832e-37
+            },
+            {
+              "name": "_HEIGHT_CONSIDERED_IS_ABOVE_ROUTES_GROUND",
+              "offset": 0,
+              "typePtr": 2099144,
+              "raw": 38166464,
+              "float": 1.4574221493791832e-37
+            },
+            {
+              "name": "InitialTrackIndex",
+              "offset": 0,
+              "typePtr": 2077520,
+              "raw": 38166464,
+              "float": 1.4574221493791832e-37
+            },
+            {
+              "name": "_glideTime",
+              "offset": 12,
+              "typePtr": 2099152,
+              "raw": 1069547520,
+              "float": 1.5
+            },
+            {
+              "name": "_glideVerticalSpeed",
+              "offset": 16,
+              "typePtr": 2156640,
+              "raw": 48116960,
+              "float": 3.265031699693944e-37
+            },
+            {
+              "name": "CharacterTrigger",
+              "offset": 20,
+              "typePtr": 2543240,
+              "raw": 49814480,
+              "float": 3.64562884675965e-37
+            },
+            {
+              "name": "CharacterTriggerNotifier",
+              "offset": 24,
+              "typePtr": 2551632,
+              "raw": 48125744,
+              "float": 3.2670011406076446e-37
+            },
+            {
+              "name": "CoinMagnetCollider",
+              "offset": 28,
+              "typePtr": 2551632,
+              "raw": 48125824,
+              "float": 3.267019077227988e-37
+            },
+            {
+              "name": "CoinMagnetLongCollider",
+              "offset": 32,
+              "typePtr": 2551632,
+              "raw": 48125864,
+              "float": 3.2670280455381597e-37
+            },
+            {
+              "name": "HoverboardCrashParticleSystem",
+              "offset": 36,
+              "typePtr": 2219416,
+              "raw": 48116096,
+              "float": 3.2648379841942357e-37
+            },
+            {
+              "name": "MysteryPowerupParticleSystem",
+              "offset": 40,
+              "typePtr": 2219416,
+              "raw": 48116080,
+              "float": 3.264834396870167e-37
+            },
+            {
+              "name": "TurboHeadstartParticleSystem",
+              "offset": 44,
+              "typePtr": 2219416,
+              "raw": 48116064,
+              "float": 3.2648308095460983e-37
+            },
+            {
+              "name": "ColliderTrackWidth",
+              "offset": 48,
+              "typePtr": 2099136,
+              "raw": 1101004800,
+              "float": 20
+            },
+            {
+              "name": "CharacterPickupParticleSystem",
+              "offset": 52,
+              "typePtr": 2476000,
+              "raw": 23733592,
+              "float": 4.300580502857778e-38
+            },
+            {
+              "name": "ImmuneToCriticalHit",
+              "offset": 56,
+              "typePtr": 2084728,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "LastGroundedY",
+              "offset": 60,
+              "typePtr": 2099136,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "SubwayMaxY",
+              "offset": 64,
+              "typePtr": 2099136,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "StopColliding",
+              "offset": 68,
+              "typePtr": 2084728,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "JumpHeight",
+              "offset": 72,
+              "typePtr": 2099136,
+              "raw": 1101004800,
+              "float": 20
+            },
+            {
+              "name": "x",
+              "offset": 76,
+              "typePtr": 2099136,
+              "raw": 1101004800,
+              "float": 20
+            },
+            {
+              "name": "_reviveFX",
+              "offset": 80,
+              "typePtr": 2554360,
+              "raw": 23736992,
+              "float": 4.3015333858135186e-38
+            },
+            {
+              "name": "_killSwitchEnabled",
+              "offset": 84,
+              "typePtr": 2084672,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "superSneakersJumpCurve",
+              "offset": 88,
+              "typePtr": 2156648,
+              "raw": 48116048,
+              "float": 3.2648272222220297e-37
+            },
+            {
+              "name": "hitPoistionDistance",
+              "offset": 92,
+              "typePtr": 2099136,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "superSneakersJumpApexRatio",
+              "offset": 96,
+              "typePtr": 2099136,
+              "raw": 1056964608,
+              "float": 0.5
+            },
+            {
+              "name": "gliderGravity",
+              "offset": 100,
+              "typePtr": 2099136,
+              "raw": 1103626240,
+              "float": 25
+            },
+            {
+              "name": "gravity",
+              "offset": 104,
+              "typePtr": 2099136,
+              "raw": 1128792064,
+              "float": 200
+            },
+            {
+              "name": "jumpHeightNormal",
+              "offset": 108,
+              "typePtr": 2099136,
+              "raw": 1101004800,
+              "float": 20
+            },
+            {
+              "name": "jumpHeightSuperSneakers",
+              "offset": 112,
+              "typePtr": 2099136,
+              "raw": 1109393408,
+              "float": 40
+            },
+            {
+              "name": "verticalFallSpeedLimit",
+              "offset": 116,
+              "typePtr": 2099136,
+              "raw": 3240099840,
+              "float": -10
+            },
+            {
+              "name": "stumbleCornerTolerance",
+              "offset": 120,
+              "typePtr": 2099136,
+              "raw": 1097859072,
+              "float": 15
+            },
+            {
+              "name": "stumbleDecayTime",
+              "offset": 124,
+              "typePtr": 2099136,
+              "raw": 1084227584,
+              "float": 5
+            },
+            {
+              "name": "inAirJump",
+              "offset": 128,
+              "typePtr": 2084728,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "IsGrounded",
+              "offset": 132,
+              "typePtr": 2214312,
+              "raw": 23737208,
+              "float": 4.3015939219071775e-38
+            },
+            {
+              "name": "verticalSpeed",
+              "offset": 136,
+              "typePtr": 2099136,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "SetPieceForgivingJumpTime",
+              "offset": 140,
+              "typePtr": 2099136,
+              "raw": 3212836864,
+              "float": -1
+            },
+            {
+              "name": "SetPieceForgivingJumpHeight",
+              "offset": 144,
+              "typePtr": 2099136,
+              "raw": 3212836864,
+              "float": -1
+            },
+            {
+              "name": "SetPieceForcedForgivingJump",
+              "offset": 148,
+              "typePtr": 2084728,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "OnSetPieceForgivingJump",
+              "offset": 152,
+              "typePtr": 2281560,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "TRACK_SWITCH_SPEED_CONSTANT_DEFAULT",
+              "offset": 0,
+              "typePtr": 2099128,
+              "raw": 38166464,
+              "float": 1.4574221493791832e-37
+            },
+            {
+              "name": "TRACK_SWITCH_SPEED_CONSTANT_TELEBORD",
+              "offset": 0,
+              "typePtr": 2099128,
+              "raw": 38166464,
+              "float": 1.4574221493791832e-37
+            },
+            {
+              "name": "RampingDistance",
+              "offset": 0,
+              "typePtr": 2099144,
+              "raw": 38166464,
+              "float": 1.4574221493791832e-37
+            },
+            {
+              "name": "_isStumbling",
+              "offset": 156,
+              "typePtr": 2084672,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "_isFalling",
+              "offset": 157,
+              "typePtr": 2084672,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "__isJumping",
+              "offset": 158,
+              "typePtr": 2084672,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "<TransitioningFromHeight>k__BackingField",
+              "offset": 159,
+              "typePtr": 2084672,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "_isRolling",
+              "offset": 160,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_isTucked",
+              "offset": 161,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_isInsideSubway",
+              "offset": 162,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "__trackIndex",
+              "offset": 164,
+              "typePtr": 2077424,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "_offsetFromFloorY",
+              "offset": 168,
+              "typePtr": 2099152,
+              "raw": 1061997776,
+              "float": 0.8000001907348633
+            },
+            {
+              "name": "__trackIndexPrevious",
+              "offset": 172,
+              "typePtr": 2077424,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_isJumpingHigher",
+              "offset": 176,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_isTeleboard",
+              "offset": 177,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_isDoubleJumping",
+              "offset": 178,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_isGliderboard",
+              "offset": 179,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_isVTol",
+              "offset": 180,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_characterController",
+              "offset": 184,
+              "typePtr": 2475968,
+              "raw": 49694256,
+              "float": 3.6186736937076522e-37
+            },
+            {
+              "name": "_characterModel",
+              "offset": 188,
+              "typePtr": 2472280,
+              "raw": 50109440,
+              "float": 3.71176116596561e-37
+            },
+            {
+              "name": "_characterCamera",
+              "offset": 192,
+              "typePtr": 2475840,
+              "raw": 48131672,
+              "float": 3.2683302441750874e-37
+            },
+            {
+              "name": "_characterRendering",
+              "offset": 196,
+              "typePtr": 2475912,
+              "raw": 50109696,
+              "float": 3.7118185631507085e-37
+            },
+            {
+              "name": "_hoverboard",
+              "offset": 200,
+              "typePtr": 2473928,
+              "raw": 46201728,
+              "float": 2.8356218340258243e-37
+            },
+            {
+              "name": "_longMagnet",
+              "offset": 204,
+              "typePtr": 2473848,
+              "raw": 48100144,
+              "float": 3.26126142209777e-37
+            },
+            {
+              "name": "_superSneakers",
+              "offset": 208,
+              "typePtr": 2472576,
+              "raw": 23733376,
+              "float": 4.300519966764119e-38
+            },
+            {
+              "name": "_characterRoot",
+              "offset": 212,
+              "typePtr": 2190848,
+              "raw": 49692784,
+              "float": 3.6183436598933344e-37
+            },
+            {
+              "name": "_squeezeCollider",
+              "offset": 216,
+              "typePtr": 2551840,
+              "raw": 23737184,
+              "float": 4.3015871956745487e-38
+            },
+            {
+              "name": "_characterAngle",
+              "offset": 220,
+              "typePtr": 2099152,
+              "raw": 1110704128,
+              "float": 45
+            },
+            {
+              "name": "<CurrentRunPosition>k__BackingField",
+              "offset": 224,
+              "typePtr": 2596568,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "GrindedTrains",
+              "offset": 228,
+              "typePtr": 2441984,
+              "raw": 48125784,
+              "float": 3.2670101089178163e-37
+            },
+            {
+              "name": "GrindedTrainsBufferSize",
+              "offset": 232,
+              "typePtr": 2077424,
+              "raw": 5,
+              "float": 7.006492321624085e-45
+            },
+            {
+              "name": "_gamePosition",
+              "offset": 236,
+              "typePtr": 2159304,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_transformPosition",
+              "offset": 248,
+              "typePtr": 2159304,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "__previousFixedUpdateTransformPosition",
+              "offset": 260,
+              "typePtr": 2159304,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "__previousPreviousFixedUpdateTransformPosition",
+              "offset": 272,
+              "typePtr": 2159304,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_stumbleState",
+              "offset": 284,
+              "typePtr": 2596536,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "OnStumble",
+              "offset": 288,
+              "typePtr": 2596600,
+              "raw": 57076928,
+              "float": 6.786270084372409e-37
+            },
+            {
+              "name": "LastDeathCause",
+              "offset": 292,
+              "typePtr": 2597160,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_lastObstacleType",
+              "offset": 296,
+              "typePtr": 2596624,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "OnCriticalHit",
+              "offset": 300,
+              "typePtr": 2596656,
+              "raw": 57077056,
+              "float": 6.7863274815575074e-37
+            },
+            {
+              "name": "OnRevive",
+              "offset": 304,
+              "typePtr": 2596680,
+              "raw": 46335488,
+              "float": 2.8656118632399183e-37
+            },
+            {
+              "name": "OnJump",
+              "offset": 308,
+              "typePtr": 2596704,
+              "raw": 48279360,
+              "float": 3.30144303899096e-37
+            },
+            {
+              "name": "OnDoubleJump",
+              "offset": 312,
+              "typePtr": 2596728,
+              "raw": 46335104,
+              "float": 2.86552576746227e-37
+            },
+            {
+              "name": "OnJumpIfHitByTrain",
+              "offset": 316,
+              "typePtr": 2596752,
+              "raw": 46335040,
+              "float": 2.8655114181659955e-37
+            },
+            {
+              "name": "OnLanding",
+              "offset": 320,
+              "typePtr": 2298888,
+              "raw": 48835264,
+              "float": 3.4260810264328837e-37
+            },
+            {
+              "name": "OnHangtime",
+              "offset": 324,
+              "typePtr": 2596776,
+              "raw": 46334848,
+              "float": 2.8654683702771714e-37
+            },
+            {
+              "name": "OnRoll",
+              "offset": 328,
+              "typePtr": 2596800,
+              "raw": 48278400,
+              "float": 3.3012277995468397e-37
+            },
+            {
+              "name": "OnRollGuard",
+              "offset": 332,
+              "typePtr": 2596824,
+              "raw": 48278912,
+              "float": 3.301342593917037e-37
+            },
+            {
+              "name": "OnHitByTrain",
+              "offset": 336,
+              "typePtr": 2596848,
+              "raw": 46335232,
+              "float": 2.8655544660548195e-37
+            },
+            {
+              "name": "OnChangeTrack",
+              "offset": 340,
+              "typePtr": 2596872,
+              "raw": 52743296,
+              "float": 4.843002287076765e-37
+            },
+            {
+              "name": "OnTutorialMoveBackToCheckPoint",
+              "offset": 344,
+              "typePtr": 2596896,
+              "raw": 46335360,
+              "float": 2.865583164647369e-37
+            },
+            {
+              "name": "OnTutorialStartFromCheckPoint",
+              "offset": 348,
+              "typePtr": 2596920,
+              "raw": 46335296,
+              "float": 2.8655688153510942e-37
+            },
+            {
+              "name": "OnPassedObstacle",
+              "offset": 352,
+              "typePtr": 2596944,
+              "raw": 57077248,
+              "float": 6.7864135773351556e-37
+            },
+            {
+              "name": "OnJumpOverTrain",
+              "offset": 356,
+              "typePtr": 2596968,
+              "raw": 57077184,
+              "float": 6.786384878742606e-37
+            },
+            {
+              "name": "OnTeleboardStart",
+              "offset": 360,
+              "typePtr": 2596992,
+              "raw": 46334720,
+              "float": 2.865439671684622e-37
+            },
+            {
+              "name": "OnVTolEnd",
+              "offset": 364,
+              "typePtr": 2597016,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "OnResetTeleportFX",
+              "offset": 368,
+              "typePtr": 2597040,
+              "raw": 46335424,
+              "float": 2.8655975139436436e-37
+            },
+            {
+              "name": "OnRouteDone",
+              "offset": 372,
+              "typePtr": 2156928,
+              "raw": 46334656,
+              "float": 2.8654253223883473e-37
+            },
+            {
+              "name": "OnToggleDust",
+              "offset": 376,
+              "typePtr": 2156928,
+              "raw": 46334400,
+              "float": 2.8653679252032486e-37
+            },
+            {
+              "name": "OnEnterRoute",
+              "offset": 380,
+              "typePtr": 2281560,
+              "raw": 46334592,
+              "float": 2.8654109730920727e-37
+            },
+            {
+              "name": "OnEnterRouteEnd",
+              "offset": 384,
+              "typePtr": 2281560,
+              "raw": 46334528,
+              "float": 2.865396623795798e-37
+            },
+            {
+              "name": "OnExitRoute",
+              "offset": 388,
+              "typePtr": 2281560,
+              "raw": 46334464,
+              "float": 2.8653822744995233e-37
+            },
+            {
+              "name": "__isInLipFlight",
+              "offset": 392,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_lastGamePositionZ",
+              "offset": 396,
+              "typePtr": 2099152,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_killSwitchUpdates",
+              "offset": 400,
+              "typePtr": 2077424,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_currentlyPlayingGrindSound",
+              "offset": 404,
+              "typePtr": 2219832,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_characterControllerCenter",
+              "offset": 408,
+              "typePtr": 2159304,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_characterControllerHeight",
+              "offset": 420,
+              "typePtr": 2099152,
+              "raw": 1091567616,
+              "float": 9
+            },
+            {
+              "name": "_characterControllerSkinWidth",
+              "offset": 424,
+              "typePtr": 2099152,
+              "raw": 1045220557,
+              "float": 0.20000000298023224
+            },
+            {
+              "name": "_characterColliderCenter",
+              "offset": 428,
+              "typePtr": 2159304,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_characterColliderHeight",
+              "offset": 440,
+              "typePtr": 2099152,
+              "raw": 1092616192,
+              "float": 10
+            },
+            {
+              "name": "_trackMovement",
+              "offset": 444,
+              "typePtr": 2077424,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_trackMovementNext",
+              "offset": 448,
+              "typePtr": 2077424,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_ignoredMovement",
+              "offset": 452,
+              "typePtr": 2077424,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_characterRotation",
+              "offset": 456,
+              "typePtr": 2099152,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_trackIndexTarget",
+              "offset": 460,
+              "typePtr": 2077424,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "_trackIndexPosition",
+              "offset": 464,
+              "typePtr": 2099152,
+              "raw": 1065353216,
+              "float": 1
+            },
+            {
+              "name": "_willSecondJump",
+              "offset": 468,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_game",
+              "offset": 472,
+              "typePtr": 2476208,
+              "raw": 48598656,
+              "float": 3.373031678105369e-37
+            },
+            {
+              "name": "_followingGuard",
+              "offset": 476,
+              "typePtr": 2473608,
+              "raw": 46013392,
+              "float": 2.7933954424134917e-37
+            },
+            {
+              "name": "_routeManager",
+              "offset": 480,
+              "typePtr": 2240040,
+              "raw": 43600136,
+              "float": 2.2523247341218675e-37
+            },
+            {
+              "name": "_originaljumpHeightSuperSneakers",
+              "offset": 484,
+              "typePtr": 2099152,
+              "raw": 1109393408,
+              "float": 40
+            },
+            {
+              "name": "_glideTimeLeft",
+              "offset": 488,
+              "typePtr": 2099152,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_vTolEnded",
+              "offset": 492,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_jumpUpperCollision",
+              "offset": 493,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_jumpUpperCollisionColliderMinY",
+              "offset": 496,
+              "typePtr": 2099152,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_jumpUpperCollisionEvaded",
+              "offset": 500,
+              "typePtr": 2084672,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "_movedSinceLastFixedUpdate",
+              "offset": 501,
+              "typePtr": 2084672,
+              "raw": 1,
+              "float": 1.401298464324817e-45
+            },
+            {
+              "name": "_posFixedUpdateLast",
+              "offset": 504,
+              "typePtr": 2159304,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_posFixedUpdatePrevious",
+              "offset": 516,
+              "typePtr": 2159304,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "subwayColliders",
+              "offset": 528,
+              "typePtr": 2442016,
+              "raw": 48100384,
+              "float": 3.2613152319588002e-37
+            },
+            {
+              "name": "_superSneakersJump",
+              "offset": 532,
+              "typePtr": 2442312,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_lastHitTag",
+              "offset": 552,
+              "typePtr": 2074656,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_startedJumpFromGround",
+              "offset": 556,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_trainJumpSampleGamePositionZ",
+              "offset": 560,
+              "typePtr": 2099152,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_trainJumpSampleLength",
+              "offset": 564,
+              "typePtr": 2099152,
+              "raw": 1092616192,
+              "float": 10
+            },
+            {
+              "name": "_trainJump",
+              "offset": 568,
+              "typePtr": 2084672,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_verticalSpeed_jumpTolerance",
+              "offset": 572,
+              "typePtr": 2099152,
+              "raw": 3253731328,
+              "float": -30
+            },
+            {
+              "name": "_layers",
+              "offset": 576,
+              "typePtr": 2553760,
+              "raw": 50275656,
+              "float": 3.749028082053004e-37
+            },
+            {
+              "name": "_lastObstaclePassType",
+              "offset": 580,
+              "typePtr": 2550664,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_lastObstaclePassTrackIndex",
+              "offset": 584,
+              "typePtr": 2077424,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "_lastCheckpointGamePositionZ",
+              "offset": 588,
+              "typePtr": 2099152,
+              "raw": 0,
+              "float": 0
+            }
+          ],
+          "methods": []
+        },
+        {
+          "offset": 68,
+          "fields": [
+            {
+              "name": "OnStumble",
+              "offset": 38521556,
+              "typePtr": 2596592,
+              "raw": 0,
+              "float": 0
+            },
+            {
+              "name": "OnJumpIfHitByTrain",
+              "offset": 38522040,
+              "typePtr": 2596744,
+              "raw": 1057301751,
+              "float": 0.5200952887535095
+            },
+            {
+              "name": "OnHitByTrain",
+              "offset": 38522480,
+              "typePtr": 2596840,
+              "raw": 1064464269,
+              "float": 0.9470146298408508
+            },
+            {
+              "name": "OnJumpOverTrain",
+              "offset": 38522920,
+              "typePtr": 2596960,
+              "raw": 3241493935,
+              "float": -11.329512596130371
+            }
+          ],
+          "methods": [
+            {
+              "name": "add_OnStumble",
+              "ptr": 38521556,
+              "fn": 3180,
+              "count": 1,
+              "paramPtr": 38529360
+            },
+            {
+              "name": "remove_OnStumble",
+              "ptr": 38521600,
+              "fn": 3181,
+              "count": 1,
+              "paramPtr": 38529384
+            },
+            {
+              "name": "add_OnCriticalHit",
+              "ptr": 38521688,
+              "fn": 3182,
+              "count": 1,
+              "paramPtr": 38529424
+            },
+            {
+              "name": "remove_OnCriticalHit",
+              "ptr": 38521732,
+              "fn": 3183,
+              "count": 1,
+              "paramPtr": 38529448
+            },
+            {
+              "name": "add_OnRevive",
+              "ptr": 38521776,
+              "fn": 3184,
+              "count": 1,
+              "paramPtr": 38529472
+            },
+            {
+              "name": "remove_OnRevive",
+              "ptr": 38521820,
+              "fn": 3185,
+              "count": 1,
+              "paramPtr": 38529496
+            },
+            {
+              "name": "add_OnJump",
+              "ptr": 38521864,
+              "fn": 3186,
+              "count": 1,
+              "paramPtr": 38529520
+            },
+            {
+              "name": "remove_OnJump",
+              "ptr": 38521908,
+              "fn": 3187,
+              "count": 1,
+              "paramPtr": 38529544
+            },
+            {
+              "name": "add_OnDoubleJump",
+              "ptr": 38521952,
+              "fn": 3188,
+              "count": 1,
+              "paramPtr": 38529568
+            },
+            {
+              "name": "remove_OnDoubleJump",
+              "ptr": 38521996,
+              "fn": 3189,
+              "count": 1,
+              "paramPtr": 38529592
+            },
+            {
+              "name": "add_OnJumpIfHitByTrain",
+              "ptr": 38522040,
+              "fn": 3190,
+              "count": 1,
+              "paramPtr": 38529616
+            },
+            {
+              "name": "remove_OnJumpIfHitByTrain",
+              "ptr": 38522084,
+              "fn": 3191,
+              "count": 1,
+              "paramPtr": 38529640
+            },
+            {
+              "name": "add_OnLanding",
+              "ptr": 38522128,
+              "fn": 3192,
+              "count": 1,
+              "paramPtr": 38529664
+            },
+            {
+              "name": "remove_OnLanding",
+              "ptr": 38522172,
+              "fn": 3193,
+              "count": 1,
+              "paramPtr": 38529688
+            },
+            {
+              "name": "add_OnHangtime",
+              "ptr": 38522216,
+              "fn": 3194,
+              "count": 1,
+              "paramPtr": 38529712
+            },
+            {
+              "name": "remove_OnHangtime",
+              "ptr": 38522260,
+              "fn": 3195,
+              "count": 1,
+              "paramPtr": 38529736
+            },
+            {
+              "name": "add_OnRoll",
+              "ptr": 38522304,
+              "fn": 3196,
+              "count": 1,
+              "paramPtr": 38529760
+            },
+            {
+              "name": "remove_OnRoll",
+              "ptr": 38522348,
+              "fn": 3197,
+              "count": 1,
+              "paramPtr": 38529784
+            },
+            {
+              "name": "add_OnRollGuard",
+              "ptr": 38522392,
+              "fn": 3198,
+              "count": 1,
+              "paramPtr": 38529808
+            },
+            {
+              "name": "remove_OnRollGuard",
+              "ptr": 38522436,
+              "fn": 3199,
+              "count": 1,
+              "paramPtr": 38529832
+            },
+            {
+              "name": "add_OnHitByTrain",
+              "ptr": 38522480,
+              "fn": 3200,
+              "count": 1,
+              "paramPtr": 38529856
+            },
+            {
+              "name": "remove_OnHitByTrain",
+              "ptr": 38522524,
+              "fn": 3201,
+              "count": 1,
+              "paramPtr": 38529880
+            },
+            {
+              "name": "add_OnChangeTrack",
+              "ptr": 38522568,
+              "fn": 3202,
+              "count": 1,
+              "paramPtr": 38529904
+            },
+            {
+              "name": "remove_OnChangeTrack",
+              "ptr": 38522612,
+              "fn": 3203,
+              "count": 1,
+              "paramPtr": 38529928
+            },
+            {
+              "name": "add_OnTutorialMoveBackToCheckPoint",
+              "ptr": 38522656,
+              "fn": 3204,
+              "count": 1,
+              "paramPtr": 38529952
+            },
+            {
+              "name": "remove_OnTutorialMoveBackToCheckPoint",
+              "ptr": 38522700,
+              "fn": 3205,
+              "count": 1,
+              "paramPtr": 38529976
+            },
+            {
+              "name": "add_OnTutorialStartFromCheckPoint",
+              "ptr": 38522744,
+              "fn": 3206,
+              "count": 1,
+              "paramPtr": 38530000
+            },
+            {
+              "name": "remove_OnTutorialStartFromCheckPoint",
+              "ptr": 38522788,
+              "fn": 3207,
+              "count": 1,
+              "paramPtr": 38530024
+            },
+            {
+              "name": "add_OnPassedObstacle",
+              "ptr": 38522832,
+              "fn": 3208,
+              "count": 1,
+              "paramPtr": 38530048
+            },
+            {
+              "name": "remove_OnPassedObstacle",
+              "ptr": 38522876,
+              "fn": 3209,
+              "count": 1,
+              "paramPtr": 38530072
+            },
+            {
+              "name": "add_OnJumpOverTrain",
+              "ptr": 38522920,
+              "fn": 3210,
+              "count": 1,
+              "paramPtr": 38530096
+            },
+            {
+              "name": "remove_OnJumpOverTrain",
+              "ptr": 38522964,
+              "fn": 3211,
+              "count": 1,
+              "paramPtr": 38530120
+            },
+            {
+              "name": "add_OnTeleboardStart",
+              "ptr": 38523008,
+              "fn": 3212,
+              "count": 1,
+              "paramPtr": 38530144
+            },
+            {
+              "name": "remove_OnTeleboardStart",
+              "ptr": 38523052,
+              "fn": 3213,
+              "count": 1,
+              "paramPtr": 38530168
+            },
+            {
+              "name": "add_OnVTolEnd",
+              "ptr": 38523096,
+              "fn": 3214,
+              "count": 1,
+              "paramPtr": 38530192
+            },
+            {
+              "name": "remove_OnVTolEnd",
+              "ptr": 38523140,
+              "fn": 3215,
+              "count": 1,
+              "paramPtr": 38530216
+            },
+            {
+              "name": "add_OnResetTeleportFX",
+              "ptr": 38523184,
+              "fn": 3216,
+              "count": 1,
+              "paramPtr": 38530240
+            },
+            {
+              "name": "remove_OnResetTeleportFX",
+              "ptr": 38523228,
+              "fn": 3217,
+              "count": 1,
+              "paramPtr": 38530264
+            },
+            {
+              "name": "get_Instance",
+              "ptr": 38519048,
+              "fn": 1571,
+              "count": 0,
+              "paramPtr": 38528296
+            },
+            {
+              "name": "get_ReviveFX",
+              "ptr": 38519092,
+              "fn": 3198,
+              "count": 0,
+              "paramPtr": 38528312
+            },
+            {
+              "name": "get_KillSwitchEnabled",
+              "ptr": 38519136,
+              "fn": 3199,
+              "count": 0,
+              "paramPtr": 38528328
+            },
+            {
+              "name": "set_KillSwitchEnabled",
+              "ptr": 38519180,
+              "fn": 3157,
+              "count": 1,
+              "paramPtr": 38528344
+            },
+            {
+              "name": "get_IsStumbling",
+              "ptr": 38519224,
+              "fn": 3200,
+              "count": 0,
+              "paramPtr": 38528368
+            },
+            {
+              "name": "set_IsStumbling",
+              "ptr": 38519268,
+              "fn": 3158,
+              "count": 1,
+              "paramPtr": 38528384
+            },
+            {
+              "name": "get_IsChangingTracks",
+              "ptr": 38519312,
+              "fn": 3201,
+              "count": 0,
+              "paramPtr": 38528408
+            },
+            {
+              "name": "get_TrackMovement",
+              "ptr": 38519356,
+              "fn": 3202,
+              "count": 0,
+              "paramPtr": 38528424
+            },
+            {
+              "name": "set_TrackMovement",
+              "ptr": 38519400,
+              "fn": 3159,
+              "count": 1,
+              "paramPtr": 38528440
+            },
+            {
+              "name": "set_TrackMovementNext",
+              "ptr": 38519444,
+              "fn": 3160,
+              "count": 1,
+              "paramPtr": 38528464
+            },
+            {
+              "name": "get_IsFalling",
+              "ptr": 38519488,
+              "fn": 3203,
+              "count": 0,
+              "paramPtr": 38528488
+            },
+            {
+              "name": "set_IsFalling",
+              "ptr": 38519532,
+              "fn": 3161,
+              "count": 1,
+              "paramPtr": 38528504
+            }
+          ]
+        },
+        {
+          "offset": 72,
+          "fields": [],
+          "methods": [
+            {
+              "name": "get_Instance",
+              "ptr": 38519048,
+              "fn": 1571,
+              "count": 0,
+              "paramPtr": 38528296
+            },
+            {
+              "name": "get_ReviveFX",
+              "ptr": 38519092,
+              "fn": 3198,
+              "count": 0,
+              "paramPtr": 38528312
+            },
+            {
+              "name": "get_KillSwitchEnabled",
+              "ptr": 38519136,
+              "fn": 3199,
+              "count": 0,
+              "paramPtr": 38528328
+            },
+            {
+              "name": "set_KillSwitchEnabled",
+              "ptr": 38519180,
+              "fn": 3157,
+              "count": 1,
+              "paramPtr": 38528344
+            },
+            {
+              "name": "get_IsStumbling",
+              "ptr": 38519224,
+              "fn": 3200,
+              "count": 0,
+              "paramPtr": 38528368
+            },
+            {
+              "name": "set_IsStumbling",
+              "ptr": 38519268,
+              "fn": 3158,
+              "count": 1,
+              "paramPtr": 38528384
+            },
+            {
+              "name": "get_IsChangingTracks",
+              "ptr": 38519312,
+              "fn": 3201,
+              "count": 0,
+              "paramPtr": 38528408
+            },
+            {
+              "name": "get_TrackMovement",
+              "ptr": 38519356,
+              "fn": 3202,
+              "count": 0,
+              "paramPtr": 38528424
+            },
+            {
+              "name": "set_TrackMovement",
+              "ptr": 38519400,
+              "fn": 3159,
+              "count": 1,
+              "paramPtr": 38528440
+            },
+            {
+              "name": "set_TrackMovementNext",
+              "ptr": 38519444,
+              "fn": 3160,
+              "count": 1,
+              "paramPtr": 38528464
+            },
+            {
+              "name": "get_IsFalling",
+              "ptr": 38519488,
+              "fn": 3203,
+              "count": 0,
+              "paramPtr": 38528488
+            },
+            {
+              "name": "set_IsFalling",
+              "ptr": 38519532,
+              "fn": 3161,
+              "count": 1,
+              "paramPtr": 38528504
+            },
+            {
+              "name": "get_IsJumping",
+              "ptr": 38519576,
+              "fn": 3204,
+              "count": 0,
+              "paramPtr": 38528528
+            },
+            {
+              "name": "set_IsJumping",
+              "ptr": 38519620,
+              "fn": 3162,
+              "count": 1,
+              "paramPtr": 38528544
+            },
+            {
+              "name": "get_TransitioningFromHeight",
+              "ptr": 38519664,
+              "fn": 3205,
+              "count": 0,
+              "paramPtr": 38528568
+            },
+            {
+              "name": "set_TransitioningFromHeight",
+              "ptr": 38519708,
+              "fn": 3163,
+              "count": 1,
+              "paramPtr": 38528584
+            },
+            {
+              "name": "get_IsRolling",
+              "ptr": 38519752,
+              "fn": 3206,
+              "count": 0,
+              "paramPtr": 38528608
+            },
+            {
+              "name": "get_IsTucked",
+              "ptr": 38519796,
+              "fn": 3207,
+              "count": 0,
+              "paramPtr": 38528624
+            },
+            {
+              "name": "get_IsInsideSubway",
+              "ptr": 38519840,
+              "fn": 3208,
+              "count": 0,
+              "paramPtr": 38528640
+            },
+            {
+              "name": "get_TrackIndexCurrent",
+              "ptr": 38519884,
+              "fn": 3209,
+              "count": 0,
+              "paramPtr": 38528656
+            },
+            {
+              "name": "set_TrackIndexCurrent",
+              "ptr": 38519928,
+              "fn": 3164,
+              "count": 1,
+              "paramPtr": 38528672
+            },
+            {
+              "name": "get_OffsetFromFloorY",
+              "ptr": 38519972,
+              "fn": 201,
+              "count": 0,
+              "paramPtr": 38528696
+            },
+            {
+              "name": "set_OffsetFromFloorY",
+              "ptr": 38520016,
+              "fn": 181,
+              "count": 1,
+              "paramPtr": 38528712
+            },
+            {
+              "name": "get_TrackIndexPrevious",
+              "ptr": 38520060,
+              "fn": 3210,
+              "count": 0,
+              "paramPtr": 38528736
+            },
+            {
+              "name": "set_TrackIndexPrevious",
+              "ptr": 38520104,
+              "fn": 3165,
+              "count": 1,
+              "paramPtr": 38528752
+            },
+            {
+              "name": "get_IsAboveGroundOfCharacterRoute",
+              "ptr": 38520148,
+              "fn": 3211,
+              "count": 0,
+              "paramPtr": 38528776
+            },
+            {
+              "name": "get_IsJumpingHigher",
+              "ptr": 38520192,
+              "fn": 3212,
+              "count": 0,
+              "paramPtr": 38528792
+            },
+            {
+              "name": "set_IsJumpingHigher",
+              "ptr": 38520236,
+              "fn": 3166,
+              "count": 1,
+              "paramPtr": 38528808
+            },
+            {
+              "name": "get_IsTeleboard",
+              "ptr": 38520280,
+              "fn": 3213,
+              "count": 0,
+              "paramPtr": 38528832
+            },
+            {
+              "name": "set_IsTeleboard",
+              "ptr": 38520324,
+              "fn": 3167,
+              "count": 1,
+              "paramPtr": 38528848
+            },
+            {
+              "name": "get_IsDoubleJumping",
+              "ptr": 38520368,
+              "fn": 3214,
+              "count": 0,
+              "paramPtr": 38528872
+            },
+            {
+              "name": "set_IsDoubleJumping",
+              "ptr": 38520412,
+              "fn": 3168,
+              "count": 1,
+              "paramPtr": 38528888
+            },
+            {
+              "name": "get_IsGliderboard",
+              "ptr": 38520456,
+              "fn": 3215,
+              "count": 0,
+              "paramPtr": 38528912
+            },
+            {
+              "name": "set_IsGliderboard",
+              "ptr": 38520500,
+              "fn": 3169,
+              "count": 1,
+              "paramPtr": 38528928
+            },
+            {
+              "name": "get_IsVTol",
+              "ptr": 38520544,
+              "fn": 3216,
+              "count": 0,
+              "paramPtr": 38528952
+            },
+            {
+              "name": "set_IsVTol",
+              "ptr": 38520588,
+              "fn": 3170,
+              "count": 1,
+              "paramPtr": 38528968
+            },
+            {
+              "name": "get_CharacterController",
+              "ptr": 38520632,
+              "fn": 3217,
+              "count": 0,
+              "paramPtr": 38528992
+            },
+            {
+              "name": "get_CharacterModel",
+              "ptr": 38520676,
+              "fn": 3218,
+              "count": 0,
+              "paramPtr": 38529008
+            },
+            {
+              "name": "get_CharacterCamera",
+              "ptr": 38520720,
+              "fn": 3219,
+              "count": 0,
+              "paramPtr": 38529024
+            },
+            {
+              "name": "get_CharacterRendering",
+              "ptr": 38520764,
+              "fn": 3220,
+              "count": 0,
+              "paramPtr": 38529040
+            },
+            {
+              "name": "get_Hoverboard",
+              "ptr": 38520808,
+              "fn": 3221,
+              "count": 0,
+              "paramPtr": 38529056
+            },
+            {
+              "name": "get_LongMagnet",
+              "ptr": 38520852,
+              "fn": 3222,
+              "count": 0,
+              "paramPtr": 38529072
+            },
+            {
+              "name": "get_SuperSneakers",
+              "ptr": 38520896,
+              "fn": 3223,
+              "count": 0,
+              "paramPtr": 38529088
+            },
+            {
+              "name": "get_CharacterRoot",
+              "ptr": 38520940,
+              "fn": 3224,
+              "count": 0,
+              "paramPtr": 38529104
+            }
+          ]
+        },
+        {
+          "offset": 76,
+          "fields": [],
+          "methods": [
+            {
+              "name": "get_Instance",
+              "ptr": 38519048,
+              "fn": 1571,
+              "count": 0,
+              "paramPtr": 38528296
+            },
+            {
+              "name": "get_ReviveFX",
+              "ptr": 38519092,
+              "fn": 3198,
+              "count": 0,
+              "paramPtr": 38528312
+            },
+            {
+              "name": "get_KillSwitchEnabled",
+              "ptr": 38519136,
+              "fn": 3199,
+              "count": 0,
+              "paramPtr": 38528328
+            },
+            {
+              "name": "set_KillSwitchEnabled",
+              "ptr": 38519180,
+              "fn": 3157,
+              "count": 1,
+              "paramPtr": 38528344
+            },
+            {
+              "name": "get_IsStumbling",
+              "ptr": 38519224,
+              "fn": 3200,
+              "count": 0,
+              "paramPtr": 38528368
+            },
+            {
+              "name": "set_IsStumbling",
+              "ptr": 38519268,
+              "fn": 3158,
+              "count": 1,
+              "paramPtr": 38528384
+            },
+            {
+              "name": "get_IsChangingTracks",
+              "ptr": 38519312,
+              "fn": 3201,
+              "count": 0,
+              "paramPtr": 38528408
+            },
+            {
+              "name": "get_TrackMovement",
+              "ptr": 38519356,
+              "fn": 3202,
+              "count": 0,
+              "paramPtr": 38528424
+            },
+            {
+              "name": "set_TrackMovement",
+              "ptr": 38519400,
+              "fn": 3159,
+              "count": 1,
+              "paramPtr": 38528440
+            },
+            {
+              "name": "set_TrackMovementNext",
+              "ptr": 38519444,
+              "fn": 3160,
+              "count": 1,
+              "paramPtr": 38528464
+            },
+            {
+              "name": "get_IsFalling",
+              "ptr": 38519488,
+              "fn": 3203,
+              "count": 0,
+              "paramPtr": 38528488
+            },
+            {
+              "name": "set_IsFalling",
+              "ptr": 38519532,
+              "fn": 3161,
+              "count": 1,
+              "paramPtr": 38528504
+            },
+            {
+              "name": "get_IsJumping",
+              "ptr": 38519576,
+              "fn": 3204,
+              "count": 0,
+              "paramPtr": 38528528
+            },
+            {
+              "name": "set_IsJumping",
+              "ptr": 38519620,
+              "fn": 3162,
+              "count": 1,
+              "paramPtr": 38528544
+            },
+            {
+              "name": "get_TransitioningFromHeight",
+              "ptr": 38519664,
+              "fn": 3205,
+              "count": 0,
+              "paramPtr": 38528568
+            },
+            {
+              "name": "set_TransitioningFromHeight",
+              "ptr": 38519708,
+              "fn": 3163,
+              "count": 1,
+              "paramPtr": 38528584
+            },
+            {
+              "name": "get_IsRolling",
+              "ptr": 38519752,
+              "fn": 3206,
+              "count": 0,
+              "paramPtr": 38528608
+            },
+            {
+              "name": "get_IsTucked",
+              "ptr": 38519796,
+              "fn": 3207,
+              "count": 0,
+              "paramPtr": 38528624
+            },
+            {
+              "name": "get_IsInsideSubway",
+              "ptr": 38519840,
+              "fn": 3208,
+              "count": 0,
+              "paramPtr": 38528640
+            },
+            {
+              "name": "get_TrackIndexCurrent",
+              "ptr": 38519884,
+              "fn": 3209,
+              "count": 0,
+              "paramPtr": 38528656
+            },
+            {
+              "name": "set_TrackIndexCurrent",
+              "ptr": 38519928,
+              "fn": 3164,
+              "count": 1,
+              "paramPtr": 38528672
+            },
+            {
+              "name": "get_OffsetFromFloorY",
+              "ptr": 38519972,
+              "fn": 201,
+              "count": 0,
+              "paramPtr": 38528696
+            },
+            {
+              "name": "set_OffsetFromFloorY",
+              "ptr": 38520016,
+              "fn": 181,
+              "count": 1,
+              "paramPtr": 38528712
+            },
+            {
+              "name": "get_TrackIndexPrevious",
+              "ptr": 38520060,
+              "fn": 3210,
+              "count": 0,
+              "paramPtr": 38528736
+            },
+            {
+              "name": "set_TrackIndexPrevious",
+              "ptr": 38520104,
+              "fn": 3165,
+              "count": 1,
+              "paramPtr": 38528752
+            },
+            {
+              "name": "get_IsAboveGroundOfCharacterRoute",
+              "ptr": 38520148,
+              "fn": 3211,
+              "count": 0,
+              "paramPtr": 38528776
+            },
+            {
+              "name": "get_IsJumpingHigher",
+              "ptr": 38520192,
+              "fn": 3212,
+              "count": 0,
+              "paramPtr": 38528792
+            },
+            {
+              "name": "set_IsJumpingHigher",
+              "ptr": 38520236,
+              "fn": 3166,
+              "count": 1,
+              "paramPtr": 38528808
+            },
+            {
+              "name": "get_IsTeleboard",
+              "ptr": 38520280,
+              "fn": 3213,
+              "count": 0,
+              "paramPtr": 38528832
+            },
+            {
+              "name": "set_IsTeleboard",
+              "ptr": 38520324,
+              "fn": 3167,
+              "count": 1,
+              "paramPtr": 38528848
+            },
+            {
+              "name": "get_IsDoubleJumping",
+              "ptr": 38520368,
+              "fn": 3214,
+              "count": 0,
+              "paramPtr": 38528872
+            },
+            {
+              "name": "set_IsDoubleJumping",
+              "ptr": 38520412,
+              "fn": 3168,
+              "count": 1,
+              "paramPtr": 38528888
+            },
+            {
+              "name": "get_IsGliderboard",
+              "ptr": 38520456,
+              "fn": 3215,
+              "count": 0,
+              "paramPtr": 38528912
+            },
+            {
+              "name": "set_IsGliderboard",
+              "ptr": 38520500,
+              "fn": 3169,
+              "count": 1,
+              "paramPtr": 38528928
+            },
+            {
+              "name": "get_IsVTol",
+              "ptr": 38520544,
+              "fn": 3216,
+              "count": 0,
+              "paramPtr": 38528952
+            },
+            {
+              "name": "set_IsVTol",
+              "ptr": 38520588,
+              "fn": 3170,
+              "count": 1,
+              "paramPtr": 38528968
+            },
+            {
+              "name": "get_CharacterController",
+              "ptr": 38520632,
+              "fn": 3217,
+              "count": 0,
+              "paramPtr": 38528992
+            },
+            {
+              "name": "get_CharacterModel",
+              "ptr": 38520676,
+              "fn": 3218,
+              "count": 0,
+              "paramPtr": 38529008
+            },
+            {
+              "name": "get_CharacterCamera",
+              "ptr": 38520720,
+              "fn": 3219,
+              "count": 0,
+              "paramPtr": 38529024
+            },
+            {
+              "name": "get_CharacterRendering",
+              "ptr": 38520764,
+              "fn": 3220,
+              "count": 0,
+              "paramPtr": 38529040
+            },
+            {
+              "name": "get_Hoverboard",
+              "ptr": 38520808,
+              "fn": 3221,
+              "count": 0,
+              "paramPtr": 38529056
+            },
+            {
+              "name": "get_LongMagnet",
+              "ptr": 38520852,
+              "fn": 3222,
+              "count": 0,
+              "paramPtr": 38529072
+            },
+            {
+              "name": "get_SuperSneakers",
+              "ptr": 38520896,
+              "fn": 3223,
+              "count": 0,
+              "paramPtr": 38529088
+            },
+            {
+              "name": "get_CharacterRoot",
+              "ptr": 38520940,
+              "fn": 3224,
+              "count": 0,
+              "paramPtr": 38529104
+            },
+            {
+              "name": "get_SqueezeCollider",
+              "ptr": 38520984,
+              "fn": 3225,
+              "count": 0,
+              "paramPtr": 38529120
+            },
+            {
+              "name": "get_CharacterAngle",
+              "ptr": 38521028,
+              "fn": 202,
+              "count": 0,
+              "paramPtr": 38529136
+            },
+            {
+              "name": "get_Bounds",
+              "ptr": 38521072,
+              "fn": 3171,
+              "count": 0,
+              "paramPtr": 38529152
+            },
+            {
+              "name": "get_CurrentStumbleState",
+              "ptr": 38521116,
+              "fn": 3226,
+              "count": 0,
+              "paramPtr": 38529168
+            },
+            {
+              "name": "set_CurrentStumbleState",
+              "ptr": 38521160,
+              "fn": 3172,
+              "count": 1,
+              "paramPtr": 38529184
+            },
+            {
+              "name": "get_CurrentRunPosition",
+              "ptr": 38521204,
+              "fn": 3227,
+              "count": 0,
+              "paramPtr": 38529208
+            },
+            {
+              "name": "set_CurrentRunPosition",
+              "ptr": 38521248,
+              "fn": 3173,
+              "count": 1,
+              "paramPtr": 38529224
+            },
+            {
+              "name": "get_GamePosition",
+              "ptr": 38521292,
+              "fn": 3174,
+              "count": 0,
+              "paramPtr": 38529248
+            },
+            {
+              "name": "get_TransformPosition",
+              "ptr": 38521336,
+              "fn": 3175,
+              "count": 0,
+              "paramPtr": 38529264
+            },
+            {
+              "name": "get_PreviousFixedUpdateTransformPosition",
+              "ptr": 38521380,
+              "fn": 3176,
+              "count": 0,
+              "paramPtr": 38529280
+            },
+            {
+              "name": "set_PreviousFixedUpdateTransformPosition",
+              "ptr": 38521424,
+              "fn": 3177,
+              "count": 1,
+              "paramPtr": 38529296
+            },
+            {
+              "name": "get_PreviousPreviousFixedUpdateTransformPosition",
+              "ptr": 38521468,
+              "fn": 3178,
+              "count": 0,
+              "paramPtr": 38529320
+            },
+            {
+              "name": "set_PreviousPreviousFixedUpdateTransformPosition",
+              "ptr": 38521512,
+              "fn": 3179,
+              "count": 1,
+              "paramPtr": 38529336
+            },
+            {
+              "name": "add_OnStumble",
+              "ptr": 38521556,
+              "fn": 3180,
+              "count": 1,
+              "paramPtr": 38529360
+            },
+            {
+              "name": "remove_OnStumble",
+              "ptr": 38521600,
+              "fn": 3181,
+              "count": 1,
+              "paramPtr": 38529384
+            },
+            {
+              "name": "get_LastObstacleType",
+              "ptr": 38521644,
+              "fn": 3228,
+              "count": 0,
+              "paramPtr": 38529408
+            },
+            {
+              "name": "add_OnCriticalHit",
+              "ptr": 38521688,
+              "fn": 3182,
+              "count": 1,
+              "paramPtr": 38529424
+            },
+            {
+              "name": "remove_OnCriticalHit",
+              "ptr": 38521732,
+              "fn": 3183,
+              "count": 1,
+              "paramPtr": 38529448
+            },
+            {
+              "name": "add_OnRevive",
+              "ptr": 38521776,
+              "fn": 3184,
+              "count": 1,
+              "paramPtr": 38529472
+            },
+            {
+              "name": "remove_OnRevive",
+              "ptr": 38521820,
+              "fn": 3185,
+              "count": 1,
+              "paramPtr": 38529496
+            },
+            {
+              "name": "add_OnJump",
+              "ptr": 38521864,
+              "fn": 3186,
+              "count": 1,
+              "paramPtr": 38529520
+            },
+            {
+              "name": "remove_OnJump",
+              "ptr": 38521908,
+              "fn": 3187,
+              "count": 1,
+              "paramPtr": 38529544
+            },
+            {
+              "name": "add_OnDoubleJump",
+              "ptr": 38521952,
+              "fn": 3188,
+              "count": 1,
+              "paramPtr": 38529568
+            },
+            {
+              "name": "remove_OnDoubleJump",
+              "ptr": 38521996,
+              "fn": 3189,
+              "count": 1,
+              "paramPtr": 38529592
+            },
+            {
+              "name": "add_OnJumpIfHitByTrain",
+              "ptr": 38522040,
+              "fn": 3190,
+              "count": 1,
+              "paramPtr": 38529616
+            },
+            {
+              "name": "remove_OnJumpIfHitByTrain",
+              "ptr": 38522084,
+              "fn": 3191,
+              "count": 1,
+              "paramPtr": 38529640
+            },
+            {
+              "name": "add_OnLanding",
+              "ptr": 38522128,
+              "fn": 3192,
+              "count": 1,
+              "paramPtr": 38529664
+            },
+            {
+              "name": "remove_OnLanding",
+              "ptr": 38522172,
+              "fn": 3193,
+              "count": 1,
+              "paramPtr": 38529688
+            },
+            {
+              "name": "add_OnHangtime",
+              "ptr": 38522216,
+              "fn": 3194,
+              "count": 1,
+              "paramPtr": 38529712
+            },
+            {
+              "name": "remove_OnHangtime",
+              "ptr": 38522260,
+              "fn": 3195,
+              "count": 1,
+              "paramPtr": 38529736
+            },
+            {
+              "name": "add_OnRoll",
+              "ptr": 38522304,
+              "fn": 3196,
+              "count": 1,
+              "paramPtr": 38529760
+            },
+            {
+              "name": "remove_OnRoll",
+              "ptr": 38522348,
+              "fn": 3197,
+              "count": 1,
+              "paramPtr": 38529784
+            },
+            {
+              "name": "add_OnRollGuard",
+              "ptr": 38522392,
+              "fn": 3198,
+              "count": 1,
+              "paramPtr": 38529808
+            },
+            {
+              "name": "remove_OnRollGuard",
+              "ptr": 38522436,
+              "fn": 3199,
+              "count": 1,
+              "paramPtr": 38529832
+            },
+            {
+              "name": "add_OnHitByTrain",
+              "ptr": 38522480,
+              "fn": 3200,
+              "count": 1,
+              "paramPtr": 38529856
+            },
+            {
+              "name": "remove_OnHitByTrain",
+              "ptr": 38522524,
+              "fn": 3201,
+              "count": 1,
+              "paramPtr": 38529880
+            },
+            {
+              "name": "add_OnChangeTrack",
+              "ptr": 38522568,
+              "fn": 3202,
+              "count": 1,
+              "paramPtr": 38529904
+            },
+            {
+              "name": "remove_OnChangeTrack",
+              "ptr": 38522612,
+              "fn": 3203,
+              "count": 1,
+              "paramPtr": 38529928
+            },
+            {
+              "name": "add_OnTutorialMoveBackToCheckPoint",
+              "ptr": 38522656,
+              "fn": 3204,
+              "count": 1,
+              "paramPtr": 38529952
+            },
+            {
+              "name": "remove_OnTutorialMoveBackToCheckPoint",
+              "ptr": 38522700,
+              "fn": 3205,
+              "count": 1,
+              "paramPtr": 38529976
+            },
+            {
+              "name": "add_OnTutorialStartFromCheckPoint",
+              "ptr": 38522744,
+              "fn": 3206,
+              "count": 1,
+              "paramPtr": 38530000
+            },
+            {
+              "name": "remove_OnTutorialStartFromCheckPoint",
+              "ptr": 38522788,
+              "fn": 3207,
+              "count": 1,
+              "paramPtr": 38530024
+            },
+            {
+              "name": "add_OnPassedObstacle",
+              "ptr": 38522832,
+              "fn": 3208,
+              "count": 1,
+              "paramPtr": 38530048
+            },
+            {
+              "name": "remove_OnPassedObstacle",
+              "ptr": 38522876,
+              "fn": 3209,
+              "count": 1,
+              "paramPtr": 38530072
+            },
+            {
+              "name": "add_OnJumpOverTrain",
+              "ptr": 38522920,
+              "fn": 3210,
+              "count": 1,
+              "paramPtr": 38530096
+            },
+            {
+              "name": "remove_OnJumpOverTrain",
+              "ptr": 38522964,
+              "fn": 3211,
+              "count": 1,
+              "paramPtr": 38530120
+            },
+            {
+              "name": "add_OnTeleboardStart",
+              "ptr": 38523008,
+              "fn": 3212,
+              "count": 1,
+              "paramPtr": 38530144
+            },
+            {
+              "name": "remove_OnTeleboardStart",
+              "ptr": 38523052,
+              "fn": 3213,
+              "count": 1,
+              "paramPtr": 38530168
+            },
+            {
+              "name": "add_OnVTolEnd",
+              "ptr": 38523096,
+              "fn": 3214,
+              "count": 1,
+              "paramPtr": 38530192
+            },
+            {
+              "name": "remove_OnVTolEnd",
+              "ptr": 38523140,
+              "fn": 3215,
+              "count": 1,
+              "paramPtr": 38530216
+            },
+            {
+              "name": "add_OnResetTeleportFX",
+              "ptr": 38523184,
+              "fn": 3216,
+              "count": 1,
+              "paramPtr": 38530240
+            },
+            {
+              "name": "remove_OnResetTeleportFX",
+              "ptr": 38523228,
+              "fn": 3217,
+              "count": 1,
+              "paramPtr": 38530264
+            },
+            {
+              "name": "set_IgnoredMovement",
+              "ptr": 38523272,
+              "fn": 3218,
+              "count": 1,
+              "paramPtr": 38530288
+            },
+            {
+              "name": "set_TrackIndexTarget",
+              "ptr": 38523316,
+              "fn": 3219,
+              "count": 1,
+              "paramPtr": 38530312
+            },
+            {
+              "name": "get_TrackIndexPosition",
+              "ptr": 38523360,
+              "fn": 203,
+              "count": 0,
+              "paramPtr": 38530336
+            },
+            {
+              "name": "set_TrackIndexPosition",
+              "ptr": 38523404,
+              "fn": 182,
+              "count": 1,
+              "paramPtr": 38530352
+            },
+            {
+              "name": "get_CharacterColliderLeadingZ",
+              "ptr": 38523448,
+              "fn": 204,
+              "count": 0,
+              "paramPtr": 38530376
+            },
+            {
+              "name": "get_IsInLipFlight",
+              "ptr": 38523492,
+              "fn": 3229,
+              "count": 0,
+              "paramPtr": 38530392
+            },
+            {
+              "name": "set_IsInLipFlight",
+              "ptr": 38523536,
+              "fn": 3220,
+              "count": 1,
+              "paramPtr": 38530408
+            },
+            {
+              "name": "get_IsVisibleShadow",
+              "ptr": 38523580,
+              "fn": 3230,
+              "count": 0,
+              "paramPtr": 38530432
+            },
+            {
+              "name": "set_IsVisibleShadow",
+              "ptr": 38523624,
+              "fn": 3221,
+              "count": 1,
+              "paramPtr": 38530448
+            },
+            {
+              "name": "get_LastCheckpointGamePositionZ",
+              "ptr": 38523668,
+              "fn": 205,
+              "count": 0,
+              "paramPtr": 38530472
+            },
+            {
+              "name": "Initialize",
+              "ptr": 38523712,
+              "fn": 6548,
+              "count": 0,
+              "paramPtr": 38530488
+            },
+            {
+              "name": "RecreateCharacterModel",
+              "ptr": 38523756,
+              "fn": 6549,
+              "count": 0,
+              "paramPtr": 38530504
+            },
+            {
+              "name": "Awake",
+              "ptr": 38523800,
+              "fn": 6550,
+              "count": 0,
+              "paramPtr": 38530520
+            },
+            {
+              "name": "OnDestroy",
+              "ptr": 38523844,
+              "fn": 6551,
+              "count": 0,
+              "paramPtr": 38530536
+            },
+            {
+              "name": "FixedUpdate",
+              "ptr": 38523888,
+              "fn": 6552,
+              "count": 0,
+              "paramPtr": 38530552
+            },
+            {
+              "name": "Update",
+              "ptr": 38523932,
+              "fn": 6553,
+              "count": 0,
+              "paramPtr": 38530568
+            },
+            {
+              "name": "SetCharacterModelLocalRotation",
+              "ptr": 38523976,
+              "fn": 3222,
+              "count": 1,
+              "paramPtr": 38530584
+            },
+            {
+              "name": "GetCharacterModelLocalRotation",
+              "ptr": 38524020,
+              "fn": 3223,
+              "count": 0,
+              "paramPtr": 38530608
+            },
+            {
+              "name": "ResetCharacterModelLocalRotation",
+              "ptr": 38524064,
+              "fn": 6554,
+              "count": 0,
+              "paramPtr": 38530624
+            },
+            {
+              "name": "Reset",
+              "ptr": 38524108,
+              "fn": 6555,
+              "count": 0,
+              "paramPtr": 38530640
+            },
+            {
+              "name": "InitForRun",
+              "ptr": 38524152,
+              "fn": 6556,
+              "count": 0,
+              "paramPtr": 38530656
+            },
+            {
+              "name": "Revive",
+              "ptr": 38524196,
+              "fn": 6557,
+              "count": 0,
+              "paramPtr": 38530672
+            },
+            {
+              "name": "SetLastObstacleType",
+              "ptr": 38524240,
+              "fn": 3224,
+              "count": 1,
+              "paramPtr": 38530688
+            },
+            {
+              "name": "ClearLastObstacleType",
+              "ptr": 38524284,
+              "fn": 6558,
+              "count": 0,
+              "paramPtr": 38530712
+            },
+            {
+              "name": "SetGamePosition",
+              "ptr": 38524328,
+              "fn": 3225,
+              "count": 1,
+              "paramPtr": 38530728
+            },
+            {
+              "name": "UpdateGroundTag",
+              "ptr": 38524372,
+              "fn": 3226,
+              "count": 1,
+              "paramPtr": 38530752
+            },
+            {
+              "name": "UpdateInAirRunPosition",
+              "ptr": 38524416,
+              "fn": 6559,
+              "count": 0,
+              "paramPtr": 38530776
+            },
+            {
+              "name": "LandedOnTrain",
+              "ptr": 38524460,
+              "fn": 3227,
+              "count": 1,
+              "paramPtr": 38530792
+            },
+            {
+              "name": "IsDescending",
+              "ptr": 38524504,
+              "fn": 3231,
+              "count": 0,
+              "paramPtr": 38530816
+            },
+            {
+              "name": "CreateExplosionAtCharactersFeet",
+              "ptr": 38524548,
+              "fn": 6560,
+              "count": 0,
+              "paramPtr": 38530832
+            },
+            {
+              "name": "GetLaneFromIndex",
+              "ptr": 38524592,
+              "fn": 1078,
+              "count": 1,
+              "paramPtr": 38530848
+            },
+            {
+              "name": "ChangeTrackLeft1",
+              "ptr": 38524636,
+              "fn": 6561,
+              "count": 0,
+              "paramPtr": 38530872
+            },
+            {
+              "name": "ChangeTrackLeft2",
+              "ptr": 38524680,
+              "fn": 6562,
+              "count": 0,
+              "paramPtr": 38530888
+            },
+            {
+              "name": "ChangeTrackRight1",
+              "ptr": 38524724,
+              "fn": 6563,
+              "count": 0,
+              "paramPtr": 38530904
+            },
+            {
+              "name": "ChangeTrackRight2",
+              "ptr": 38524768,
+              "fn": 6564,
+              "count": 0,
+              "paramPtr": 38530920
+            },
+            {
+              "name": "ChangeTrackCenter",
+              "ptr": 38524812,
+              "fn": 6565,
+              "count": 0,
+              "paramPtr": 38530936
+            },
+            {
+              "name": "ChangeTrackBy",
+              "ptr": 38524856,
+              "fn": 3228,
+              "count": 1,
+              "paramPtr": 38530952
+            },
+            {
+              "name": "ChangeTrackTo",
+              "ptr": 38524900,
+              "fn": 3229,
+              "count": 1,
+              "paramPtr": 38530976
+            },
+            {
+              "name": "ChangeTrackBy",
+              "ptr": 38524944,
+              "fn": 29,
+              "count": 2,
+              "paramPtr": 38531000
+            },
+            {
+              "name": "ForceChangeTrack",
+              "ptr": 38524988,
+              "fn": 30,
+              "count": 2,
+              "paramPtr": 38531040
+            },
+            {
+              "name": "SetLastCheckpointGamePositionZ",
+              "ptr": 38525032,
+              "fn": 183,
+              "count": 1,
+              "paramPtr": 38531080
+            },
+            {
+              "name": "ForceLeaveSubway",
+              "ptr": 38525076,
+              "fn": 6566,
+              "count": 0,
+              "paramPtr": 38531104
+            },
+            {
+              "name": "GetTrackX",
+              "ptr": 38525120,
+              "fn": 206,
+              "count": 0,
+              "paramPtr": 38531120
+            },
+            {
+              "name": "JumpAdvanced",
+              "ptr": 38525164,
+              "fn": 6,
+              "count": 3,
+              "paramPtr": 38531136
+            },
+            {
+              "name": "ToggleDustWithDelay",
+              "ptr": 38525208,
+              "fn": 39,
+              "count": 1,
+              "paramPtr": 38531192
+            },
+            {
+              "name": "Jump",
+              "ptr": 38525252,
+              "fn": 6567,
+              "count": 0,
+              "paramPtr": 38531216
+            },
+            {
+              "name": "CheckInAirJump",
+              "ptr": 38525296,
+              "fn": 6568,
+              "count": 0,
+              "paramPtr": 38531232
+            },
+            {
+              "name": "Teleboard",
+              "ptr": 38525340,
+              "fn": 3230,
+              "count": 1,
+              "paramPtr": 38531248
+            },
+            {
+              "name": "Roll",
+              "ptr": 38525384,
+              "fn": 6569,
+              "count": 0,
+              "paramPtr": 38531272
+            },
+            {
+              "name": "EnterRoute",
+              "ptr": 38525428,
+              "fn": 6570,
+              "count": 0,
+              "paramPtr": 38531288
+            },
+            {
+              "name": "EnterRouteEnd",
+              "ptr": 38525472,
+              "fn": 6571,
+              "count": 0,
+              "paramPtr": 38531304
+            },
+            {
+              "name": "ExitRoute",
+              "ptr": 38525516,
+              "fn": 6572,
+              "count": 0,
+              "paramPtr": 38531320
+            },
+            {
+              "name": "ApplyGravity",
+              "ptr": 38525560,
+              "fn": 6573,
+              "count": 0,
+              "paramPtr": 38531336
+            },
+            {
+              "name": "MoveWithGravity",
+              "ptr": 38525604,
+              "fn": 6574,
+              "count": 0,
+              "paramPtr": 38531352
+            },
+            {
+              "name": "MoveForward",
+              "ptr": 38525648,
+              "fn": 6575,
+              "count": 0,
+              "paramPtr": 38531368
+            },
+            {
+              "name": "CachePositions",
+              "ptr": 38525692,
+              "fn": 6576,
+              "count": 0,
+              "paramPtr": 38531384
+            },
+            {
+              "name": "EndRoll",
+              "ptr": 38525736,
+              "fn": 6577,
+              "count": 0,
+              "paramPtr": 38531400
+            },
+            {
+              "name": "CalculateJumpVerticalSpeed",
+              "ptr": 38525780,
+              "fn": 15,
+              "count": 1,
+              "paramPtr": 38531416
+            },
+            {
+              "name": "CalculateJumpVerticalSpeed",
+              "ptr": 38525824,
+              "fn": 207,
+              "count": 0,
+              "paramPtr": 38531440
+            },
+            {
+              "name": "JumpLength",
+              "ptr": 38525868,
+              "fn": 4,
+              "count": 2,
+              "paramPtr": 38531456
+            },
+            {
+              "name": "StopStumble",
+              "ptr": 38525912,
+              "fn": 6578,
+              "count": 0,
+              "paramPtr": 38531496
+            },
+            {
+              "name": "ChangeTrackCoroutine",
+              "ptr": 38525956,
+              "fn": 6,
+              "count": 2,
+              "paramPtr": 38531512
+            },
+            {
+              "name": "GetObstacleTypeFromTag",
+              "ptr": 38526000,
+              "fn": 1079,
+              "count": 1,
+              "paramPtr": 38531552
+            },
+            {
+              "name": "GetPassTypeFromCollider",
+              "ptr": 38526044,
+              "fn": 1080,
+              "count": 1,
+              "paramPtr": 38531576
+            },
+            {
+              "name": "OnCharacterTriggerExit",
+              "ptr": 38526088,
+              "fn": 3231,
+              "count": 1,
+              "paramPtr": 38531600
+            },
+            {
+              "name": "OnCharacterTriggerEnter",
+              "ptr": 38526132,
+              "fn": 3232,
+              "count": 1,
+              "paramPtr": 38531624
+            },
+            {
+              "name": "EnteredColliderFromBelow",
+              "ptr": 38526176,
+              "fn": 397,
+              "count": 2,
+              "paramPtr": 38531648
+            },
+            {
+              "name": "HitByTrainSequence",
+              "ptr": 38526220,
+              "fn": 6579,
+              "count": 0,
+              "paramPtr": 38531688
+            },
+            {
+              "name": "GetObstacleImpactX",
+              "ptr": 38526264,
+              "fn": 1081,
+              "count": 1,
+              "paramPtr": 38531704
+            },
+            {
+              "name": "GetObstacleImpactZ",
+              "ptr": 38526308,
+              "fn": 1082,
+              "count": 1,
+              "paramPtr": 38531728
+            },
+            {
+              "name": "GetCharacterImpactY",
+              "ptr": 38526352,
+              "fn": 1083,
+              "count": 1,
+              "paramPtr": 38531752
+            },
+            {
+              "name": "ExecuteKillSwitch",
+              "ptr": 38526396,
+              "fn": 6580,
+              "count": 0,
+              "paramPtr": 38531776
+            },
+            {
+              "name": "AllowDoubleJump",
+              "ptr": 38526440,
+              "fn": 3232,
+              "count": 0,
+              "paramPtr": 38531792
+            },
+            {
+              "name": "IsRunningFromTrain",
+              "ptr": 38526484,
+              "fn": 3233,
+              "count": 0,
+              "paramPtr": 38531808
+            },
+            {
+              "name": "IsRunningOnGround",
+              "ptr": 38526528,
+              "fn": 3234,
+              "count": 0,
+              "paramPtr": 38531824
+            },
+            {
+              "name": "ExpandColliders",
+              "ptr": 38526572,
+              "fn": 6581,
+              "count": 0,
+              "paramPtr": 38531840
+            },
+            {
+              "name": "StartStumble",
+              "ptr": 38526616,
+              "fn": 3233,
+              "count": 1,
+              "paramPtr": 38531856
+            },
+            {
+              "name": "StumbleDecay",
+              "ptr": 38526660,
+              "fn": 3235,
+              "count": 0,
+              "paramPtr": 38531880
+            },
+            {
+              "name": "RequestStumble",
+              "ptr": 38526704,
+              "fn": 142,
+              "count": 4,
+              "paramPtr": 38531896
+            },
+            {
+              "name": "RequestSafeStumble",
+              "ptr": 38526748,
+              "fn": 143,
+              "count": 4,
+              "paramPtr": 38531968
+            },
+            {
+              "name": "HandleStumble",
+              "ptr": 38526792,
+              "fn": 39,
+              "count": 6,
+              "paramPtr": 38532040
+            },
+            {
+              "name": "LaneSwitchJump",
+              "ptr": 38526836,
+              "fn": 2,
+              "count": 4,
+              "paramPtr": 38532144
+            },
+            {
+              "name": "NotifyCriticalHit",
+              "ptr": 38526880,
+              "fn": 6582,
+              "count": 0,
+              "paramPtr": 38532216
+            },
+            {
+              "name": "NotifyOnStumble",
+              "ptr": 38526924,
+              "fn": 62,
+              "count": 5,
+              "paramPtr": 38532232
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "className": "AnimationCurve",
+      "slots": [
+        {
+          "offset": 60,
+          "fields": [],
+          "methods": [
+            {
+              "name": "Equals",
+              "ptr": 16330556,
+              "fn": 5465,
+              "count": 1,
+              "paramPtr": 16331312
+            },
+            {
+              "name": "Finalize",
+              "ptr": 16329764,
+              "fn": 11605,
+              "count": 0,
+              "paramPtr": 16330872
+            },
+            {
+              "name": "GetHashCode",
+              "ptr": 16330644,
+              "fn": 11174,
+              "count": 0,
+              "paramPtr": 16331360
+            },
+            {
+              "name": "Equals",
+              "ptr": 16330600,
+              "fn": 5466,
+              "count": 1,
+              "paramPtr": 16331336
+            }
+          ]
+        },
+        {
+          "offset": 72,
+          "fields": [],
+          "methods": [
+            {
+              "name": "get_keys",
+              "ptr": 16329852,
+              "fn": 11171,
+              "count": 0,
+              "paramPtr": 16330912
+            },
+            {
+              "name": "set_keys",
+              "ptr": 16329896,
+              "fn": 8035,
+              "count": 1,
+              "paramPtr": 16330928
+            },
+            {
+              "name": "get_Item",
+              "ptr": 16330116,
+              "fn": 4330,
+              "count": 1,
+              "paramPtr": 16331080
+            },
+            {
+              "name": "get_length",
+              "ptr": 16330160,
+              "fn": 11172,
+              "count": 0,
+              "paramPtr": 16331104
+            },
+            {
+              "name": "set_preWrapMode",
+              "ptr": 16330380,
+              "fn": 8037,
+              "count": 1,
+              "paramPtr": 16331224
+            },
+            {
+              "name": "set_postWrapMode",
+              "ptr": 16330424,
+              "fn": 8038,
+              "count": 1,
+              "paramPtr": 16331248
+            }
+          ]
+        },
+        {
+          "offset": 76,
+          "fields": [],
+          "methods": [
+            {
+              "name": "Internal_Destroy",
+              "ptr": 16329632,
+              "fn": 11604,
+              "count": 1,
+              "paramPtr": 16327840
+            },
+            {
+              "name": "Internal_Create",
+              "ptr": 16329676,
+              "fn": 11170,
+              "count": 1,
+              "paramPtr": 16330824
+            },
+            {
+              "name": "Internal_Equals",
+              "ptr": 16329720,
+              "fn": 5462,
+              "count": 1,
+              "paramPtr": 16330848
+            },
+            {
+              "name": "Finalize",
+              "ptr": 16329764,
+              "fn": 11605,
+              "count": 0,
+              "paramPtr": 16330872
+            },
+            {
+              "name": "Evaluate",
+              "ptr": 16329808,
+              "fn": 20,
+              "count": 1,
+              "paramPtr": 16330888
+            },
+            {
+              "name": "get_keys",
+              "ptr": 16329852,
+              "fn": 11171,
+              "count": 0,
+              "paramPtr": 16330912
+            },
+            {
+              "name": "set_keys",
+              "ptr": 16329896,
+              "fn": 8035,
+              "count": 1,
+              "paramPtr": 16330928
+            },
+            {
+              "name": "AddKey",
+              "ptr": 16329940,
+              "fn": 16,
+              "count": 2,
+              "paramPtr": 16330952
+            },
+            {
+              "name": "AddKey",
+              "ptr": 16329984,
+              "fn": 5463,
+              "count": 1,
+              "paramPtr": 16330992
+            },
+            {
+              "name": "AddKey_Internal",
+              "ptr": 16330028,
+              "fn": 5464,
+              "count": 1,
+              "paramPtr": 16331016
+            },
+            {
+              "name": "MoveKey",
+              "ptr": 16330072,
+              "fn": 5454,
+              "count": 2,
+              "paramPtr": 16331040
+            },
+            {
+              "name": "get_Item",
+              "ptr": 16330116,
+              "fn": 4330,
+              "count": 1,
+              "paramPtr": 16331080
+            },
+            {
+              "name": "get_length",
+              "ptr": 16330160,
+              "fn": 11172,
+              "count": 0,
+              "paramPtr": 16331104
+            },
+            {
+              "name": "SetKeys",
+              "ptr": 16330204,
+              "fn": 8036,
+              "count": 1,
+              "paramPtr": 16331120
+            },
+            {
+              "name": "GetKey",
+              "ptr": 16330248,
+              "fn": 4331,
+              "count": 1,
+              "paramPtr": 16331144
+            },
+            {
+              "name": "GetKeys",
+              "ptr": 16330292,
+              "fn": 11173,
+              "count": 0,
+              "paramPtr": 16331168
+            },
+            {
+              "name": "SmoothTangents",
+              "ptr": 16330336,
+              "fn": 55,
+              "count": 2,
+              "paramPtr": 16331184
+            },
+            {
+              "name": "set_preWrapMode",
+              "ptr": 16330380,
+              "fn": 8037,
+              "count": 1,
+              "paramPtr": 16331224
+            },
+            {
+              "name": "set_postWrapMode",
+              "ptr": 16330424,
+              "fn": 8038,
+              "count": 1,
+              "paramPtr": 16331248
+            },
+            {
+              "name": ".ctor",
+              "ptr": 16330468,
+              "fn": 8039,
+              "count": 1,
+              "paramPtr": 16331272
+            },
+            {
+              "name": ".ctor",
+              "ptr": 16330512,
+              "fn": 11606,
+              "count": 0,
+              "paramPtr": 16331296
+            },
+            {
+              "name": "Equals",
+              "ptr": 16330556,
+              "fn": 5465,
+              "count": 1,
+              "paramPtr": 16331312
+            },
+            {
+              "name": "Equals",
+              "ptr": 16330600,
+              "fn": 5466,
+              "count": 1,
+              "paramPtr": 16331336
+            },
+            {
+              "name": "GetHashCode",
+              "ptr": 16330644,
+              "fn": 11174,
+              "count": 0,
+              "paramPtr": 16331360
+            },
+            {
+              "name": "AddKey_Internal_Injected",
+              "ptr": 16330688,
+              "fn": 5467,
+              "count": 1,
+              "paramPtr": 16331376
+            },
+            {
+              "name": "MoveKey_Injected",
+              "ptr": 16330732,
+              "fn": 5455,
+              "count": 2,
+              "paramPtr": 16331400
+            },
+            {
+              "name": "GetKey_Injected",
+              "ptr": 16330776,
+              "fn": 4332,
+              "count": 2,
+              "paramPtr": 16331440
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "className": "AnimationCurve",
+      "slots": [
+        {
+          "offset": 60,
+          "fields": [],
+          "methods": [
+            {
+              "name": "Equals",
+              "ptr": 16330556,
+              "fn": 5465,
+              "count": 1,
+              "paramPtr": 16331312
+            },
+            {
+              "name": "Finalize",
+              "ptr": 16329764,
+              "fn": 11605,
+              "count": 0,
+              "paramPtr": 16330872
+            },
+            {
+              "name": "GetHashCode",
+              "ptr": 16330644,
+              "fn": 11174,
+              "count": 0,
+              "paramPtr": 16331360
+            },
+            {
+              "name": "Equals",
+              "ptr": 16330600,
+              "fn": 5466,
+              "count": 1,
+              "paramPtr": 16331336
+            }
+          ]
+        },
+        {
+          "offset": 72,
+          "fields": [],
+          "methods": [
+            {
+              "name": "get_keys",
+              "ptr": 16329852,
+              "fn": 11171,
+              "count": 0,
+              "paramPtr": 16330912
+            },
+            {
+              "name": "set_keys",
+              "ptr": 16329896,
+              "fn": 8035,
+              "count": 1,
+              "paramPtr": 16330928
+            },
+            {
+              "name": "get_Item",
+              "ptr": 16330116,
+              "fn": 4330,
+              "count": 1,
+              "paramPtr": 16331080
+            },
+            {
+              "name": "get_length",
+              "ptr": 16330160,
+              "fn": 11172,
+              "count": 0,
+              "paramPtr": 16331104
+            },
+            {
+              "name": "set_preWrapMode",
+              "ptr": 16330380,
+              "fn": 8037,
+              "count": 1,
+              "paramPtr": 16331224
+            },
+            {
+              "name": "set_postWrapMode",
+              "ptr": 16330424,
+              "fn": 8038,
+              "count": 1,
+              "paramPtr": 16331248
+            }
+          ]
+        },
+        {
+          "offset": 76,
+          "fields": [],
+          "methods": [
+            {
+              "name": "Internal_Destroy",
+              "ptr": 16329632,
+              "fn": 11604,
+              "count": 1,
+              "paramPtr": 16327840
+            },
+            {
+              "name": "Internal_Create",
+              "ptr": 16329676,
+              "fn": 11170,
+              "count": 1,
+              "paramPtr": 16330824
+            },
+            {
+              "name": "Internal_Equals",
+              "ptr": 16329720,
+              "fn": 5462,
+              "count": 1,
+              "paramPtr": 16330848
+            },
+            {
+              "name": "Finalize",
+              "ptr": 16329764,
+              "fn": 11605,
+              "count": 0,
+              "paramPtr": 16330872
+            },
+            {
+              "name": "Evaluate",
+              "ptr": 16329808,
+              "fn": 20,
+              "count": 1,
+              "paramPtr": 16330888
+            },
+            {
+              "name": "get_keys",
+              "ptr": 16329852,
+              "fn": 11171,
+              "count": 0,
+              "paramPtr": 16330912
+            },
+            {
+              "name": "set_keys",
+              "ptr": 16329896,
+              "fn": 8035,
+              "count": 1,
+              "paramPtr": 16330928
+            },
+            {
+              "name": "AddKey",
+              "ptr": 16329940,
+              "fn": 16,
+              "count": 2,
+              "paramPtr": 16330952
+            },
+            {
+              "name": "AddKey",
+              "ptr": 16329984,
+              "fn": 5463,
+              "count": 1,
+              "paramPtr": 16330992
+            },
+            {
+              "name": "AddKey_Internal",
+              "ptr": 16330028,
+              "fn": 5464,
+              "count": 1,
+              "paramPtr": 16331016
+            },
+            {
+              "name": "MoveKey",
+              "ptr": 16330072,
+              "fn": 5454,
+              "count": 2,
+              "paramPtr": 16331040
+            },
+            {
+              "name": "get_Item",
+              "ptr": 16330116,
+              "fn": 4330,
+              "count": 1,
+              "paramPtr": 16331080
+            },
+            {
+              "name": "get_length",
+              "ptr": 16330160,
+              "fn": 11172,
+              "count": 0,
+              "paramPtr": 16331104
+            },
+            {
+              "name": "SetKeys",
+              "ptr": 16330204,
+              "fn": 8036,
+              "count": 1,
+              "paramPtr": 16331120
+            },
+            {
+              "name": "GetKey",
+              "ptr": 16330248,
+              "fn": 4331,
+              "count": 1,
+              "paramPtr": 16331144
+            },
+            {
+              "name": "GetKeys",
+              "ptr": 16330292,
+              "fn": 11173,
+              "count": 0,
+              "paramPtr": 16331168
+            },
+            {
+              "name": "SmoothTangents",
+              "ptr": 16330336,
+              "fn": 55,
+              "count": 2,
+              "paramPtr": 16331184
+            },
+            {
+              "name": "set_preWrapMode",
+              "ptr": 16330380,
+              "fn": 8037,
+              "count": 1,
+              "paramPtr": 16331224
+            },
+            {
+              "name": "set_postWrapMode",
+              "ptr": 16330424,
+              "fn": 8038,
+              "count": 1,
+              "paramPtr": 16331248
+            },
+            {
+              "name": ".ctor",
+              "ptr": 16330468,
+              "fn": 8039,
+              "count": 1,
+              "paramPtr": 16331272
+            },
+            {
+              "name": ".ctor",
+              "ptr": 16330512,
+              "fn": 11606,
+              "count": 0,
+              "paramPtr": 16331296
+            },
+            {
+              "name": "Equals",
+              "ptr": 16330556,
+              "fn": 5465,
+              "count": 1,
+              "paramPtr": 16331312
+            },
+            {
+              "name": "Equals",
+              "ptr": 16330600,
+              "fn": 5466,
+              "count": 1,
+              "paramPtr": 16331336
+            },
+            {
+              "name": "GetHashCode",
+              "ptr": 16330644,
+              "fn": 11174,
+              "count": 0,
+              "paramPtr": 16331360
+            },
+            {
+              "name": "AddKey_Internal_Injected",
+              "ptr": 16330688,
+              "fn": 5467,
+              "count": 1,
+              "paramPtr": 16331376
+            },
+            {
+              "name": "MoveKey_Injected",
+              "ptr": 16330732,
+              "fn": 5455,
+              "count": 2,
+              "paramPtr": 16331400
+            },
+            {
+              "name": "GetKey_Injected",
+              "ptr": 16330776,
+              "fn": 4332,
+              "count": 2,
+              "paramPtr": 16331440
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "floatCall": "function"
+}

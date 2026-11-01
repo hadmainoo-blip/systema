@@ -23,6 +23,7 @@ parser.add_argument('--auto-brake',action='store_true',help='Enable opt-in emerg
 parser.add_argument('--width',type=int,default=360)
 parser.add_argument('--height',type=int,default=640)
 parser.add_argument('--no-hud',action='store_true',help='Disable the optional status overlay for performance diagnostics')
+parser.add_argument('--no-planning-worker',action='store_true',help='Compare synchronous planning; normal runs use a dedicated search worker')
 parser.add_argument('--telemetry',choices=['full','compact'],default='full',help='Keep smaller pose/plan history for long-run benchmarking')
 parser.add_argument('--render-mode',choices=['normal','no-draw','no-state'],default='normal',help='Diagnostic only: suppress GPU draw/state submission while retaining engine/physics')
 parser.add_argument('--precision',action='store_true',help='Compare native continuous steering; default uses ordinary lane commands')
@@ -43,7 +44,7 @@ parts=[];source_files_sha256={}
 for name in ['legacy-profile','native-reader','native-pilot','native-planner']:
     source=(root/(name+'.js')).read_text();source_files_sha256[name+'.js']=hashlib.sha256(source.encode()).hexdigest()
     parts.append(source.replace('export const','const',1).replace('export function','function',1))
-options={'precision':args.precision,'autoBrake':args.auto_brake and not args.no_auto_brake,'stopOnCoin':True,'hud':not args.no_hud}
+options={'precision':args.precision,'autoBrake':args.auto_brake and not args.no_auto_brake,'stopOnCoin':True,'hud':not args.no_hud,'planningWorker':not args.no_planning_worker}
 source_sha256=hashlib.sha256(''.join(parts).encode()).hexdigest()
 output.with_suffix('.source.js').write_text(''.join(parts))
 expression='()=>{'+''.join(parts)+"""
@@ -60,7 +61,8 @@ function observeEngineFrame(at){const stats=window.__engineFrameStats,z=observed
 reader.snapshot=()=>{const costStart=performance.now(),s=originalSnapshot();window.__liveCosts.reader.push(performance.now()-costStart);if(window.__liveCosts.reader.length>3000)window.__liveCosts.reader.shift();window.__liveMotion.push({at:performance.now(),player:s.player,lane:s.lane,changing:s.changing,jumping:s.jumping,rolling:s.rolling,verticalSpeed:s.verticalSpeed,engineStep:s.engineStep,speed:s.speed,groundY:s.groundY,body:s.body});if(window.__liveMotion.length>MOTION_LIMIT)window.__liveMotion.shift();return s;};
 reader.act=action=>{const before=reader.snapshot(),accepted=originalAct(action);if(accepted)window.__liveActions.push({action,at:performance.now(),player:before.player,lane:before.lane,changing:before.changing,jumping:before.jumping,rolling:before.rolling,verticalSpeed:before.verticalSpeed});return accepted;};
 window.__livePlan=(scene,settings)=>{const costStart=performance.now(),decision=planNative(scene,settings);window.__liveCosts.planner.push(performance.now()-costStart);if(window.__liveCosts.planner.length>3000)window.__liveCosts.planner.shift();window.__liveLastPlan={scene,settings,decision};window.__livePlans.push(window.__liveLastPlan);if(window.__livePlans.length>PLAN_LIMIT)window.__livePlans.shift();return decision;};
-window.__startLivePilot=()=>startNativePilot("""+json.dumps(options)+",window.__livePlan);return true;}"
+window.__livePlan.onDecision=({scene,predictedScene,settings,decision,computeMs,latencyMs})=>{window.__liveCosts.planner.push(computeMs);if(window.__liveCosts.planner.length>3000)window.__liveCosts.planner.shift();window.__liveLastPlan={scene,predictedScene,settings,decision,latencyMs};window.__livePlans.push(window.__liveLastPlan);if(window.__livePlans.length>PLAN_LIMIT)window.__livePlans.shift();};
+window.__startLivePilot=()=>startNativePilot("""+json.dumps(options)+",window.__livePlan,planNative);return true;}"
 expression=expression.replace('MOTION_LIMIT','600' if args.telemetry=='compact' else '3000').replace('PLAN_LIMIT','20' if args.telemetry=='compact' else '40')
 with sync_playwright() as p:
     proxy=os.environ.get('HTTPS_PROXY')
@@ -102,7 +104,7 @@ with sync_playwright() as p:
         trace=[];started_wall=time.monotonic();progress_path=output.with_suffix('.progress.json')
         requested_seconds=max(3,min(7200,args.seconds));i=0
         while True:
-            row=page.evaluate("""second=>{const api=window.__noCoinPilotNative;api.ping();const s=api.status(),g=s.nativeScene;return {second,status:s.message,pilotRunning:s.running,running:g?.running,...window.__liveGameFlags(),coins:g?.collected,z:g?.player.z,x:g?.player.x,lane:g?.lane,seen:g?.coins.length,obstacles:g?.obstacles.length,moves:s.changes,reason:s.reason,errors:g?.errors};}""",i)
+            row=page.evaluate("""second=>{const api=window.__noCoinPilotNative;api.ping();const s=api.status(),g=s.nativeScene;return {second,status:s.message,pilotRunning:s.running,running:g?.running,...window.__liveGameFlags(),coins:g?.collected,z:g?.player.z,x:g?.player.x,lane:g?.lane,seen:g?.coins.length,obstacles:g?.obstacles.length,moves:s.changes,reason:s.reason,errors:g?.errors,planningMode:s.planning,planLatencyMs:s.planLatencyMs,planComputeMs:s.planComputeMs};}""",i)
             row['wallSeconds']=time.monotonic()-started_wall
             trace.append(row)
             progress_path.write_text(json.dumps({'sourceSha256':source_sha256,'sourceFilesSha256':source_files_sha256,'renderMode':args.render_mode,'requestedSeconds':args.seconds,'latest':row,'samples':len(trace)},indent=2)+'\n')
